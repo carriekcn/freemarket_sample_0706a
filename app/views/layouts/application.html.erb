@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FreemarketSample0706a</title>
+    <title>メルカリ スマホでかんたん フリマアプリ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,18 @@
   </head>
 
   <body>
+
+  <a href="/">
+    <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2927923569" alt="mercari" width="134" height="36">
+  </a>
+
+  <!-- tbl完成後、form action, helperメソッドを適用していく -->
+  <form>
+    <input type="search" name="keyword" placeholder="何かお探しですか？">
+  </form>
+
     <%= yield %>
+
+  <p>footter info</p>
   </body>
 </html>
