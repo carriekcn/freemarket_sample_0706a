@@ -1,6 +1,6 @@
 # README
 
-![ER図](https://i.gyazo.com/6c19aaeae08b7bbb3f7cd5167d752fea.png)
+![ER図](https://i.gyazo.com/e7ffc8bf658733f75851a1260109e432.png)
 
 ## usersテーブル
 |Column|Type|Options|
@@ -63,6 +63,7 @@
 - has_many :items_categories
 - belongs_to :comments
 - has_many :categories, through: :items_categories
+- has_many :item_images
 
 ## item_imagesテーブル
 |Column|Type|Options|
