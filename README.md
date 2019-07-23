@@ -1,5 +1,7 @@
 # README
 
+![ER図](https://gyazo.com/0e915da7c2a553ca050f121c5ad20ce6 "ER図")
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
