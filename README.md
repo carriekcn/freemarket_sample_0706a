@@ -1,6 +1,6 @@
 # README
 
-![ER図](https://i.gyazo.com/0e915da7c2a553ca050f121c5ad20ce6.png)
+![ER図](https://i.gyazo.com/6c19aaeae08b7bbb3f7cd5167d752fea.png)
 
 ## usersテーブル
 |Column|Type|Options|
@@ -8,11 +8,10 @@
 |nickname|string|null: false|
 |email|string|null: false|
 ### Association
-- has_many :valuations
+- has_many :users_valuations
 - has_many :items
-- belongs_to :user_detail
+- has_one :user_detail
 - has_many :valuations, through: :users_valuations
-- has_many :items, through: :users_items
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -27,22 +26,23 @@
 |address|text|null: false|
 |zip_code|string|null: false|
 |phone_number|string|null: false|
+|payjp_id|integer|
 ### Association
 - belongs_to :user
-- belongs_to :point
+- has_one :point
 
 ## valuationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |valuation|integer|null: false|
 ### Association
-- has_many :users
+- has_many :users_valuations
 - has_many :users, through: :users_valuations
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|text|null: flase|
+|name|text|null: flase|
 |size|string|null: false|
 |state|string|null: false|
 |shipping_charges|string|null: false|
@@ -59,27 +59,27 @@
 |created_at|daytime|null: false|
 |updated_at|daytime|null: false|
 ### Association
-- has_many :users
-- has_many :item_images
-- has_many :categories
+- belongs_to :user
+- has_many :items_categories
 - belongs_to :comments
-- has_many :users, through: :users_items
+- has_many :categories, through: :items_categories
 
 ## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string
-|item_id|integer |null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_name|string|null: false|
+|name|string|null: false|
 |path|integer|null: false|
 ### Association
-- belongs_to :item
+- has_many :items_categories
+- has_many :items, through: :items_categories
 
 ## pointsテーブル
 |Column|Type|Options|
@@ -92,8 +92,8 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer |null: false, foreign_key: true|
-|items_id|integer |null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|items_id|references|null: false, foreign_key: true|
 |body|text|null: false|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
@@ -105,16 +105,16 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |valuation_id|references|null: false, foreign_key: true|
-|payjp_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :valuations
+- belongs_to :valuation
 
-## users_itemsテーブル
+## items_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|items_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+
 ### Association
-- belongs_to :user
 - belongs_to :item
+- belongs_to :category
