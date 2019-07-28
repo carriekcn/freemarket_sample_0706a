@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -75,3 +76,4 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'font-awesome-rails'
+
