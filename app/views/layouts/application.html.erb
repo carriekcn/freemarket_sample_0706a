@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <title>メルカリ スマホでかんたん フリマアプリ</title>
+    <link rel="icon" href="./images/mercari_icon.ico">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,18 +12,123 @@
   </head>
 
   <body>
+    <div class="header">
+      <div class="header-top">
+        <h1>
+        <a href="https://www.mercari.com/jp/">
+          <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2927923569" alt="mercari" width="134" height="36">
+        </a>
+      </h1>
+    
+      <form action="https://www.mercari.com/jp/search/" class="header-top__form">
+        <input type="search" name="keyword" value="" placeholder="何かお探しですか？" class="i-entry">
+        <i class="icon-search"></i>
+      </form>
+      </div>
 
-  <a href="/">
-    <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2927923569" alt="mercari" width="134" height="36">
-  </a>
-
-  <!-- tbl完成後、form action, helperメソッドを適用していく -->
-  <form>
-    <input type="search" name="keyword" placeholder="何かお探しですか？">
-  </form>
+      <div class="header-bottom">
+        <div class="header-bottom__left">
+          <ul>
+            <li class="header-bottom__left--list-icon">
+              <%= fa_icon 'list-ul', class: 'icon'%>
+            </li>
+            <li class="header-bottom__left--list">カテゴリから探す</li>
+            <li class="header-bottom__left--list-icon">
+              <%= fa_icon 'tag', class: 'icon' %>
+            </li>
+            <li class="header-bottom__left--list">ブランドから探す</li>
+          </ul>
+        </div>
+        
+        <div class="header-bottom__right">
+          <ul>
+            <li class="header-bottom__right--icon">
+              <%= fa_icon 'heart', class: 'icon' %>
+            </li>
+            <li class="header-bottom__right--list">いいね！一覧</li>
+            <li class="header-bottom__right--icon">
+              <%= fa_icon 'bell', class: 'icon' %>
+            </li>
+            <li class="header-bottom__right--list">お知らせ</li>
+            <li class="header-bottom__right--icon">
+              <%= fa_icon 'check', class: 'icon' %>
+            </li>
+            <li class="header-bottom__right--list">やることリスト</li>
+            <li class="header-bottom__right--face">
+              <img src="//static.mercdn.net/images/member_photo_noimage_thumb.png" class="img-me" alt="">
+            </li>
+            <li class="header-bottom__right--list">マイページ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
 
     <%= yield %>
 
-  <p>footter info</p>
+    
+    <div class="footer">
+      <div class="footer-top">
+        <div class="footer-top__one">
+          <ul>
+            <li class="footer-top__one--title">メルカリについて</li>
+            <li class="footer-top__one--list">会社概要（運営会社）</li>
+            <li class="footer-top__one--list">採用情報</li>
+            <li class="footer-top__one--list">プレスリリース</li>
+            <li class="footer-top__one--list">公式ブログ</li>
+            <li class="footer-top__one--list">メルカリロゴ利用ガイドライン</li>
+            <li class="footer-top__one--logo">
+              <p><%= fa_icon 'twitter', class: 'icon' %></p>
+              <p><%= fa_icon 'facebook-square', class: 'icon' %></p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-top__one">
+          <ul>
+            <li class="footer-top__one--title">ヘルプ＆ガイド</li>
+            <li class="footer-top__one--list">メルカリガイド</li>
+            <li class="footer-top__one--list">らくらくメルカリ便</li>
+            <li class="footer-top__one--list">ゆうゆうメルカリ便</li>
+            <li class="footer-top__one--list">大型メルカリ便</li>
+            <li class="footer-top__one--list">車体取引ガイド</li>
+            <li class="footer-top__one--list">メルカリあんしん・あんぜん宣言！</li>
+            <li class="footer-top__one--list">偽ブランド品撲滅への取り組み</li>
+            <li class="footer-top__one--list">メルカリボックス</li>
+          </ul>
+        </div>
+        <div class="footer-top__two">
+          <span class="footer-top__two--title clearfix">プライバシーと利用規約</span>
+          <ul class="footer-top__two--left">
+            <li class="footer-top__two--left--list">プライバシーポリシー</li>
+            <li class="footer-top__two--left--list">メルカリ利用規約</li>
+            <li class="footer-top__two--left--list">あんしんスマホサポート精度に関<br>する利用特約</li>
+            <li class="footer-top__two--left--list">コンプライアンスポリシー</li>
+          </ul>
+          <ul class="footer-top__two--right">
+            <li class="footer-top__two--right--list">個人データの安全管理に係る基本<br>方針</li>
+            <li class="footer-top__two--right--list">特定商品取引に関する表記</li>
+            <li class="footer-top__two--right--list">資金決済法に基づく表示</li>
+            <li class="footer-top__two--right--list">法令遵守と犯罪抑止のために</li>
+            <li class="footer-top__two--right--list">返品・返金ポリシー</li>
+          </ul>
+        </div>
+        <div class="footer-top__one">
+          <ul>
+            <li class="footer-top__one--title">国</li>
+            <li class="footer-top__one--list">日本</li>
+            <li class="footer-top__one--list">United States</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-bottom__left">
+          <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?2927923569" width="124" height="33" alt="mercari">
+        </p>
+        <p class="footer-bottom__right"><small>© 2019 team0706a</small></p>
+      </div>
+    </div>
+
+
   </body>
 </html>
