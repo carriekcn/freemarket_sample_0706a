@@ -29,35 +29,47 @@
       <div class="header-bottom">
         <div class="header-bottom__left">
           <ul>
-            <li class="header-bottom__left--list-icon">
-              <%= fa_icon 'list-ul', class: 'icon'%>
-            </li>
-            <li class="header-bottom__left--list">カテゴリから探す</li>
-            <li class="header-bottom__left--list-icon">
-              <%= fa_icon 'tag', class: 'icon' %>
-            </li>
-            <li class="header-bottom__left--list">ブランドから探す</li>
+            <a href="#">
+              <li class="header-bottom__left--list-icon">
+                <%= fa_icon 'list-ul', class: 'icon'%>
+              </li>
+              <li class="header-bottom__left--list">カテゴリから探す</li>
+              </a>
+              <a href="#">
+              <li class="header-bottom__left--list-icon">
+                <%= fa_icon 'tag', class: 'icon' %>
+              </li>
+              <li class="header-bottom__left--list">ブランドから探す</li>
+            </a>
           </ul>
         </div>
         
         <div class="header-bottom__right">
           <ul>
-            <li class="header-bottom__right--icon">
-              <%= fa_icon 'heart', class: 'icon' %>
-            </li>
-            <li class="header-bottom__right--list">いいね！一覧</li>
+            <a href="#">
+              <li class="header-bottom__right--icon">
+                <%= fa_icon 'heart', class: 'icon' %>
+              </li>
+              <li class="header-bottom__right--list">いいね！一覧</li>
+            </a>
+            <a href="#">
             <li class="header-bottom__right--icon">
               <%= fa_icon 'bell', class: 'icon' %>
             </li>
             <li class="header-bottom__right--list">お知らせ</li>
+            </a>
+            <a href="#">
             <li class="header-bottom__right--icon">
               <%= fa_icon 'check', class: 'icon' %>
             </li>
             <li class="header-bottom__right--list">やることリスト</li>
+            </a>
+            <a href="#">
             <li class="header-bottom__right--face">
               <img src="//static.mercdn.net/images/member_photo_noimage_thumb.png" class="img-me" alt="">
             </li>
             <li class="header-bottom__right--list">マイページ</li>
+            </a>
           </ul>
         </div>
       </div>
