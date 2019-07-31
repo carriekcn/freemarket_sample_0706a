@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   #before_action :authenticate_user!
 
-  def add_card
+  def card
     #form表示
   end
 
