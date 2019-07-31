@@ -1,6 +1,6 @@
 # README
 
-![ER図](https://i.gyazo.com/31ebf2540e3d00e18e4f11428b655984.png)
+![ER図](https://gyazo.com/68f46ef8c550154cc98cb37f0953711f)
 
 ## usersテーブル
 |Column|Type|Options|
@@ -13,6 +13,7 @@
 - has_one :user_detail
 - has_many :valuations, through: :users_valuations
 - has_many :comments
+- has_many :buyers
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -66,6 +67,7 @@
 - has_many :comments
 - has_many :categories, through: :items_categories
 - has_many :item_images
+- has_one :buyer
 
 ## item_imagesテーブル
 |Column|Type|Options|
@@ -100,6 +102,17 @@
 |body|text|null: false|
 |created_at|datetime|null: false|
 |updated_at|datetime|null: false|
+### Association
+- belongs_to :item
+- belongs_to :user
+
+## buyersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|created_at|datetime|null: false|
+
 ### Association
 - belongs_to :item
 - belongs_to :user
