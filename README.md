@@ -1,6 +1,6 @@
 # README
 
-![ER図](https://gyazo.com/68f46ef8c550154cc98cb37f0953711f)
+![ER図](https://i.gyazo.com/68f46ef8c550154cc98cb37f0953711f.png)
 
 ## usersテーブル
 |Column|Type|Options|
