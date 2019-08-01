@@ -10,7 +10,7 @@
           %h2.single-head
             商品の情報を入力
           -# :item仮置き。コントローラ作成後インスタンス変数に変換
-          = form_for :item do |f|
+          = form_for :item, html: { class: "sell-form" } do |f|
             .upload-box
               %h3.upload-box__head
                 出品画像
