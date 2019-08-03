@@ -1,0 +1,257 @@
+.items-detail-wrap
+  .item-name
+    -# インスタンス変数に変換
+    %h1 アディダス Tシャツ他
+
+  .item-detail-content
+    .item-detail-content__images
+      .image-detail
+        -# 商品に紐づいた画像の読み込む記述に変換
+        = image_tag 'adidas-tops-image.jpg', width: '300', height: '300'
+      .image-row
+        -# eachメソッドで商品に紐づいた画像の読み込む記述挿入
+        .image-mini
+          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+
+    %table.item-detail-content__table
+      %tr
+        %th 出品者
+        %td
+          =link_to "#" do
+            -# インスタンス変数に変換
+            %p あきさん
+          .rate
+            .rate-good
+              %i.fa.fa-star
+              20
+            .rate-normal
+              %i.fa.fa-star-half
+              10
+            .rate-bad
+              %i.fa.fa-star
+              0
+      %tr
+        %th カテゴリー
+        %td
+          =link_to '#' do
+            %span メンズ
+            %br
+            %i.fa.fa-chevron-right
+            %span トップス
+            %br
+            %i.fa.fa-chevron-right
+            %span Tシャツ/カットソー
+      %tr
+        %th ブランド
+        %td
+          =link_to '#' do
+            %p アディダス
+      %tr
+        %th サイズ
+        -# インスタンス変数に変換
+        %td L
+      %tr
+        %th 商品の状態
+        -# インスタンス変数に変換
+        %td やや傷や汚れあり
+      %tr
+        %th 配送料の負担
+        -# インスタンス変数に変換
+        %td 送料込み(出品者負担)
+      %tr
+        %th 配送の方法
+        -# インスタンス変数に変換
+        %td 未定
+      %tr
+        %th 配送元地域
+        %td
+          =link_to '#' do
+            -# インスタンス変数に変換
+            %p 東京
+      %tr
+        %th 発送日の目安
+        -# インスタンス変数に変換
+        %td 2-3日で発送
+
+
+  .item-detail-price
+    %span.item-detail-price__taxed-price
+      -# ¥後改行して価格をインスタンス変数で表示
+      ¥ 2,650
+    %span.item-detail-price__tax
+      (税込)
+    %span.item-detail-price__sum
+      送料込み
+
+  -#  ログイン周りのバリデーション完成後反映 *インデント数注意
+  -# - if current_user.id == @item.user_id
+  .item-edit__btn
+    = link_to "#" do
+      %p 商品の編集
+  %p.text-center-or or
+  .item-delete__btn
+    = link_to "#" do
+      %p この商品を削除する
+  -# - else
+  .item-purchase__btn
+    = link_to "#", class: 'buy-btn' do
+      %p 購入画面に進む
+
+  .item-detail-description
+    -# インスタンス変数に変換
+    %p
+      サイズは170です。やや細身です
+      黒のアディダスのtシャツに目立たないシミがあります。
+      自宅保管ですので、神経質な方はご遠慮ください。
+
+  .item-btn-content
+    .item-btn-content-left
+      .item-btn-content__like
+        %i.fa.fa-heart
+        %span いいね! 5
+      .item-btn-content__report
+        = link_to '#', class: 'report-btn' do
+          %i.fa.fa-flag
+          %span 不適切な商品の報告
+
+    .item-btn-content-right
+      = link_to '#', class: 'report-btn' do
+        %i.fa.fa-lock
+        %span あんしん・あんぜんへの取り組み
+
+.items-detail-message__box
+  .items-detail-message__body.clearfix
+    .items-message-content
+    = image_tag('icon-image.png', class: 'user-face', width: '40', height: '40')
+    .chatting
+      .chats
+        %p こんにちは
+        .time
+          %i.fa.fa-history
+          %span 1日前
+
+  .items-detail-message__body.clearfix
+    .items-message-content
+    = image_tag('icon-image.png', class: 'user-face', width: '40', height: '40')
+    .chatting
+      .chats
+        %p こんにちは
+        .time
+          %i.fa.fa-history
+          %span 2日前
+
+  .items-message-head
+    %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    -# コメントの変数用意
+    = form_with do |f|
+      = f.text_area :comment, type: 'input', class: 'message-head'
+    .items-message-head__btn
+      = link_to '#', class: 'messege-btn' do
+        %span コメントする
+
+%ul.item-link
+  %li.item-link__prev
+    =link_to '#' do
+      %i.fa.fa-chevron-left
+      %span サンダル ミュール パンプス 靴 春夏
+  %li.item-link__next
+    =link_to '#' do
+      %span THE TEAM5つの法則
+      %i.fa.fa-chevron-right
+
+.social-medias
+  %ul.social-media-box
+    .facebook-box
+      %li
+        = link_to '#', class: 'facebook-icon' do
+          %i.fa.fa-facebook-square
+    .twitter-box
+      %li
+        = link_to '#', class: 'twitter-icon' do
+          %i.fa.fa-twitter-square
+    %li.pinterest-box
+      = link_to '#', class: 'pinterest-icon' do
+        %i.fa.fa-pinterest-square
+
+
+
+
+.items-user-box
+  %section.items-user-box__items
+    %h4
+      -# ユーザー名に変換
+      =link_to "あき"+"さんのその他の出品", "#"
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 大型流木
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 水陸空RC
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 ミクロソリウム
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
+
+.items-user-box
+  %section.items-user-box__items
+    %h4
+      =link_to "アディダスのTシャツ/カットソー(半袖/袖なし) その他の商品", "#"
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 激安!
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 激レア!
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
+
+    .items-user-box__items__row
+      .items-user-box__items__row__listing
+        =link_to '#' do
+          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
+          .items-user-box__items__row__listing--body
+            %h5 アディダス
+            .items-user-box__items__row__listing--body--price
+              ¥ 300
+              %p (税込)
