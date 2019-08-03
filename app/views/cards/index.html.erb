@@ -1,21 +1,35 @@
 <div class="contents">
 
-  <div class="mypage-nav">menu-bar</div>
+  <div class="mypage-nav">TBP by kurimura-san</div>
  
   <div class="main">
-    <h2>payment method</h2>
+
+    <a href="#" class="fixed_btn">
+      出品<br><%= fa_icon 'camera', class: 'icon' %>
+    </a>
+
+    <h2>支払い方法</h2>
     <div class="main-middle">
-      <p class="one">card list</p>
+      <p class="one">クレジットカード一覧</p>
       <a href="/top/:1/cards/new">
-        <p class="two">add card</p>
+        <p class="two">
+          <%= fa_icon 'credit-card', class: 'icon' %> 
+          クレジットカードを追加する
+        </p>
       </a>
     </div>
     <hr>
-    <a href="#">
-      <p class="main-bottom">about payment ></p>
-    </a>
+    <p class="main-bottom">
+      <a href="#">
+        支払い方法について
+        <span>
+          <%= fa_icon 'chevron-right', class: 'icon'%>
+        </span>
+      </a>
+    </p>
+
   </div>
-    
+ 
 </div>
 
 
