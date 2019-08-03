@@ -4,6 +4,6 @@ class ItemsController < ApplicationController
   end
 
   def new
-    render :layout => "compact"
+    render layout:  "compact"
   end
 end
