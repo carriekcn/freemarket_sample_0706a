@@ -1,0 +1,68 @@
+.sell-wrap
+  %header.sell-header
+    %h1
+      = link_to root_path do
+        = image_tag 'mercari_logo_color.svg', alt: 'mercari', height: '50px', width: '180px'
+  %main.sell-main
+    %section.sell-item-container
+      %h2.single-head
+        購入内容の確認
+      %section.sell-content.confirm
+        .sell-content__inner.clearfix
+          %h3.confirm__image
+            = image_tag "adidas-tops-image.jpg", height: '60px', width: '60px'
+          %p.confirm__name
+            アディダス Tシャツ他
+          = form_with url: root_path, class: "buy-form" do |f|
+            %p.confirm__price
+              ¥2,222
+              %span.item-shipping-fee 送料込み
+            %ul.confirm__point
+              %li.confirm__point--list
+                ポイントはありません
+            %ul.confirm__payment
+              %li.confirm__payment-list
+                .buy-price 支払金額
+                .buy-price
+                  %span
+                    "¥2,222"
+              = f.submit "購入する", {class: "btn--purchase"}
+      %section.sell-content.buy-user__info
+        .sell-content__inner
+          %h3 配送先
+          %address.buy-user__info--text
+            〒000-0000
+            %br
+            東京都 渋谷
+            ○○ビル
+            %br
+            名前
+          %p.buy-user__info--text
+          = link_to "#", {class: 'buy-user__info--text--fix'} do
+            %span 変更する
+            %i.fa.fa-chevron-right
+      %section.sell-content.buy-user__info{data: {buy: 'pay-method'}}
+        .sell-content__inner
+          %h3 支払方法
+          %p.buy-user__info--text
+            = "**** **** **** 0000"
+            %br
+            = "00/00"
+          = image_tag "credit-logo.svg", height: '20', width: '26'
+          %p
+          = link_to "#", {class: 'buy-user__info--text--fix'} do
+            %span 変更する
+            %i.fa.fa-chevron-right
+  %footer.sell-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to 'プライバシーポリシー', '#'
+        %li
+          = link_to 'メルカリ利用規約', '#'
+        %li
+          = link_to '特定商取引に関する表記', '#'
+    = link_to "#", class: "sell-footer__logo" do
+      = image_tag 'footer-logo-gray.svg', alt: 'mercari', height: '65', width: '80'
+    %p
+      %small ©︎ 2019 team0707a
