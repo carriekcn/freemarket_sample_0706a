@@ -83,8 +83,7 @@
                     発送元の地域
                     %span.form-require 必須
                   .select-wrap
-                    -# 都道府県仮置き,都道府県のクラス作成後編集
-                    = f.select :shipping_source_area, [["東京", "東京"], ["大阪", "大阪"]], {prompt: "---"}, {class: 'select-default'}
+                    = f.collection_select :shipping_source_area, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                     %i.fa.fa-chevron-down.fa-lg
                 .form-group
                   = f.label :days_ship do
