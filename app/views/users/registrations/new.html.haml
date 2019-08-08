@@ -1,0 +1,68 @@
+= render 'users/shared/mercari-logo'
+.personal
+  .personal__header
+    %h2.personal__header--logo 会員情報入力
+  .personal__body
+    .personal__body--wrap
+      .personal-form
+        %p.personal-form__logo ニックネーム
+        .red-mark
+          %p.red-mark__logo 必須
+        %input{:placeholder => "例) メルカリ太郎", :type => "text",class:"personal-form__form"}
+      .personal-form
+        %p.personal-form__logo メールアドレス
+        .red-mark
+          %p.red-mark__logo 必須
+        %input{:placeholder => "PC・携帯どちらでも可", :type => "text",class:"personal-form__form"}
+      .personal-form
+        %p.personal-form__logo パスワード
+        .red-mark
+          %p.red-mark__logo 必須
+        %input{:placeholder => "6文字以上", :type => "text",class:"personal-form__form"}
+      .personal-form
+        %p.personal-form__logo パスワード(確認)
+        .red-mark
+          %p.red-mark__logo 必須
+        %input{:placeholder => "6文字以上", :type => "text",class:"personal-form__form"}
+      .attention
+        %h2.attention__title 本人確認
+        %p.attention__text 安心・安全にご使用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .user-form
+        %p.user-form__logo お名前(全角)
+        .red-mark
+          %p.red-mark__logo 必須
+        .user-form__form
+          %input{:placeholder => "例) 山田", :type => "text",class:"user-form__form--fam"}
+          %input{:placeholder => "例) 彩", :type => "text",class:"user-form__form--last"}
+        .user-form
+        %p.user-form__logo お名前カナ(全角)
+        .red-mark
+          %p.red-mark__logo 必須
+        .user-form__form
+          %input{:placeholder => "例) ヤマダ", :type => "text",class:"user-form__form--fam"}
+          %input{:placeholder => "例) アヤ", :type => "text",class:"user-form__form--last"}
+        .user-form
+        %p.user-form__logo 生年月日
+        .red-mark
+          %p.red-mark__logo 必須
+        .user-form__birth-form
+          %select{:placeholder => "--", :type => "text",class:"user-form__birth-form--year"}
+            %i.fas.fa-chevron-down
+          %p.add 年
+          %select{:placeholder => "--", :type => "text",class:"user-form__birth-form--month"}
+          %p.add 月
+          %select{:placeholder => "--", :type => "text",class:"user-form__birth-form--day"}
+          %p.add 日
+        %p.user-form__info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合がございます。
+        .log-in__body-form--robot 私はロボットではありませんをここに入れる
+        %p.user-form__agree 
+        「次へ進む」のボタンを押したことにより、
+        %a{href: "#", class: "user-form__agree--link", :style=>"color:#0099e8;"}利用規約
+        に同意したものとみなします
+        %a{href: "#"}
+          .jump-next
+            %p.jump-next__logo 次へ進む
+        .about
+          %a{ href: "#", class: "about__signup", :style=>"color:#0099e8;"} 本人情報の登録について
+          %i{ class: "fa fa-chevron-right", :style=>"color:#0099e8;"}
+= render "users/shared/footer" 

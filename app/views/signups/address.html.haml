@@ -1,0 +1,52 @@
+= render "mercari-logo"
+.address-main
+  .address-main__header
+    %p.address-main__header--logo 住所入力
+  .address-main__body
+    .address-form-box
+      %p.address-form-box__sub お名前 
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      .address-form-box__many
+        %input{ class: "address-form-box__many--first", placeholder: "例) 山田", type: "text"}
+        %input{ class: "address-form-box__many--second", placeholder: "例) 彩", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub お名前 カナ
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      .address-form-box__many
+        %input{ class: "address-form-box__many--first", placeholder: "例) ヤマダ", type: "text"}
+        %input{ class: "address-form-box__many--second", placeholder: "例) アヤ", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 郵便番号
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 123-4567", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 都道府県
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 北海道", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 市区町村
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 横浜市緑区", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 番地
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 青山1-1-1", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 建物名
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 柳ビル103", type: "text"}
+    .address-form-box
+      %p.address-form-box__sub 電話
+      .address-form-box__mark
+        %p.address-form-box__mark--logo 必須
+      %input{ class: "address-form-box__form", placeholder: "例) 09012345678", type: "string"}
+      %a{href: "#"}
+        = render "go-to-next"
+= render "footer"
