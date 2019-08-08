@@ -1,5 +1,4 @@
 .contents {
-  //width: 1292px;
   position: relative;
   width: 100%;
   height: 1020px;
@@ -9,12 +8,10 @@
   padding-top: 20px;
   padding-left: 150px;
   display: flex;
-
   
   .mypage-nav {
     display: block;
     height: 800px;
-    //margin-left: 20px;
     margin: 20px 0 0 20px;
     width: 280px;
     background-color: #ffffff;
@@ -30,15 +27,12 @@
 
     .fixed_btn {
       position: fixed;
-      //position: absolute;
       bottom: 30px;
       right: 20px;
-      //top: 220px;
       padding: 25px 40px;
       text-decoration: none;
     }
 
-  
     h2 {
       height: 50px;
       line-height: 30px;
@@ -82,7 +76,6 @@
       border-bottom: none;
       border-left: none; 
     }
-
  
     .main-bottom {
       line-height: 50px;
@@ -104,7 +97,5 @@
           font-weight: bold;
       }
     }
-
-
   }
 }

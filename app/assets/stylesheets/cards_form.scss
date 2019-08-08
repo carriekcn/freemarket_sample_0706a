@@ -8,9 +8,7 @@
     position: fixed;
     bottom: 20px;
     right: 40px;
-    //top: 220px;
     padding: 25px 40px;
-  
     display: inline-block;
     text-decoration: none;
     background-color: red;
@@ -18,7 +16,6 @@
     color: #FFF;
     width: 150px;
     height: 150px;
-    // line-height: 120px;
     border-radius: 50%;
     text-align: center;
     overflow: hidden;
@@ -28,7 +25,6 @@
       font-size: 55.5px;
     }
   }
-
 
   h2 {
     height: 50px;
@@ -42,7 +38,6 @@
   }
 
   .payment-form {
-    //background-color: lightgray;
     margin: 40px auto;
     width: 350px;
     height: 410px;
@@ -81,14 +76,12 @@
         float: left;
         padding-right: 8px;
         padding-bottom: 20px;
-
       }
     }
 
     .select-default {
       width: 131.5px;
       height: 48px;
-
       position: relative;
       z-index: 2;
       padding: 0 16px;
@@ -121,22 +114,13 @@
          color: #fff;
          line-height: 14px;
          font-size: 12px;
-         //text-align: center;
-       }
-     }
-   }
+        }
+      }
+    }
   .form-submit {
     margin-top: 55px;
 
     &__btn {
-      // background-color: red;
-      // width: 343px;     
-      // height: 48px;
-      // border: 1px solid #ccc;
-      // line-height: 1.5;
-      // font-size: 16px;
-      // padding: 10px 16px 8px;
-
       display: block;
       width: 343px;
       line-height: 48px;
@@ -146,15 +130,9 @@
       text-align: center;
       background: #ea352d;
       border: 1px solid #ea352d;
-      color: #fff;
-
-      
-    }
-    
+      color: #fff;  
+    }   
   }
-
-
-
-
+  
   }
 }
