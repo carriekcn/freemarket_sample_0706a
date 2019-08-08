@@ -1,0 +1,29 @@
+.pay-main {
+  width: 700px;
+  margin: 30px auto 0;
+  &__header {
+    height: 50px;
+    background-color: white;
+    &--logo {
+      text-align: center;
+      line-height: 50px;
+    }
+  }
+  &__body {
+    background-color: white;
+    margin-top: 2px;
+    .pay-form-box {
+      &__sub {
+
+      }
+      &__mark {}
+      &__form {
+
+      }
+      .creditcard-logo img{
+        width: 35px;
+        height: 20px;
+      }
+    }
+  }
+}

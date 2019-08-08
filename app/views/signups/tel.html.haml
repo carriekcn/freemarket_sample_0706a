@@ -1,0 +1,16 @@
+= render "mercari-logo"
+.tel-main
+  .tel-main__header
+    %p.tel-main__header--logo 電話番号の確認
+  .tel-main__body
+    .tel-box
+      %p.tel-box__logo 携帯電話の番号
+      %input{:placeholder => "携帯電話の番号を入力", :type => "string", class: "tel-box__form"}
+      %p.tel-box__explain 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+    .tel-send-box
+      %a{href: "/sign_up/address"}
+        .tel-send-box__button
+          %p.tel-send-box__button--logo SMSを送信する
+      %p.tel-send-box__explain ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      %p.tel-send-box__reason 電話番号の確認が必要な理由
+= render "footer"

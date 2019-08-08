@@ -1,0 +1,24 @@
+= render "users/shared/mercari-logo"
+.log-in
+  .log-in__header
+    %p.log-in__header--no-account アカウントをお持ちでない方はこちら
+    = link_to "/users/sign_up" do
+      .create-new
+        %p.create-new__logo 新規会員登録
+  .log-in__body-account
+    .facebook-box
+      %i.fa.fa-facebook-square
+      %p.facebook-box__logo Facebookでログイン
+    .google-box
+      %img{src: "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"}
+      %p.google-box__logo Googleでログイン
+  .log-in__body-form
+    %input{placeholder: "メールアドレス", type: "text", class:"log-in__body-form--address"}
+    %input{placeholder: "パスワード", type: "text", class:"log-in__body-form--password"}
+    .log-in__body-form--robot 私はロボットではありませんをここに入れる
+    = link_to "#" do
+      .log-in__body-form--enter
+        %p.log-in__body-form--enter--logo ログイン
+    = link_to "#" do
+      %p.log-in__body-form--forget パスワードをお忘れの方
+= render "users/shared/footer" 
