@@ -47,6 +47,6 @@
       .address-form-box__mark
         %p.address-form-box__mark--logo 必須
       %input{ class: "address-form-box__form", placeholder: "例) 09012345678", type: "string"}
-      %a{href: "#"}
+      = link_to "#" do
         = render "go-to-next"
 = render "footer"
