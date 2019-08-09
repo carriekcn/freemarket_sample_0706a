@@ -1,0 +1,88 @@
+.address-main {
+  width: 700px;
+  margin: 30px auto 0;
+  &__header {
+    height: 100px;
+    background-color: white;
+    &--logo {
+      font-size: 22px;
+      line-height: 100px;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    background-color: white;
+    margin-top: 1px;
+    padding-bottom: 64px;
+    .address-form-box {
+      clear: both;
+      width: 343px;
+      margin: 0 auto;
+      padding-top: 20px;
+      &__sub {
+        float: left;
+        font-weight: bold;
+      }
+      &__mark {
+        float: left;
+        background-color: #e3252d;
+        width: 32px;
+        height: 19px;
+        margin-left: 8px;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 19px;
+      }
+      &__many {
+        display: block;
+        clear: both;
+        margin-top: 8px;
+        &--first {
+          float: left;
+          width: 165.5px;
+          height: 48px;
+          margin-right: 8px;
+          padding: 10px 16px 8px;
+          border-radius: 5px;
+          border: solid 1px #dcdcdc;
+          font-size: 16px;
+        }
+        &--second {
+          float: left;
+          width: 165.5px;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 5px;
+          border: solid 1px #dcdcdc;
+          font-size: 16px;
+        }
+      }
+      &__form {
+        display: block;
+        width: 343px;
+        height: 48px;
+        margin-top: 8px;
+        padding: 10px 16px 8px;
+        border-radius: 5px;
+        border: solid 1px #dcdcdc;
+        font-size: 16px;
+      }
+    }
+  }
+  .address-form-box__many--first:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .address-form-box__many--second:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+    a {
+      text-decoration: none;
+      }
+}

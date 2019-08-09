@@ -1,0 +1,28 @@
+.devise-footer {
+  clear: both;
+  width: 456px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  margin: 0 auto;
+  padding: 40px 0px;
+  bottom: 0;
+  &__list {
+    font-size: 12px;
+    text-align: center;
+    &--logo {
+      float: left;
+      width: calc(100% / 3);
+    }
+  }
+  &__icon {
+    clear: both;
+    margin-top: 50px;
+    margin-left: 188px;
+    margin-right: 188px;
+  }
+  &__credit {
+    clear: both;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+  }
+} 

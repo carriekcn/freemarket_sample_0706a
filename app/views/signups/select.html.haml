@@ -1,0 +1,17 @@
+= render "mercari-logo"
+.sign-up
+	.sign-up__header
+		%h2.sign-up__header--logo 新規会員登録
+	.sign-up__body
+		.sign-up__body--box
+			= link_to "/users/sign_up" do
+				.mail-box
+					%i.fa.fa-envelope
+					%p.mail-box__logo メールアドレスで登録する
+			.facebook-box
+				%i.fa.fa-facebook-square
+				%p.facebook-box__logo Facebookで登録する
+			.google-box
+				= image_tag "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"
+				%p.google-box__logo Googleで登録する
+= render "footer"

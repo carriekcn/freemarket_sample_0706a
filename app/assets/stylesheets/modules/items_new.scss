@@ -1,0 +1,313 @@
+.clearfix {
+  @include clearfix;
+}
+
+body {
+  position: relative;
+  background: #fff;
+  background-color: #f5f5f5;
+  min-height: 100%;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .sell-wrap {
+    padding: 0 0 220px;
+    .sell-header {
+      height: 128px;
+      text-align: center;
+      h1 {
+        margin: 40px 0 0 ;
+        display: inline-block;
+        a {
+          width: 180px;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+    }
+    .sell-main {
+      .sell-item-container {
+        width: 700px;
+        margin: 0 auto
+      }
+      .sell-item-container {
+        background: #fff;
+        .single-head {
+          padding: 32px 16px;
+          font-size: 20px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight: bold;
+        }
+        .sell-form {
+          border-top: 1px solid #eee;
+          .upload-box {
+            padding: 40px;
+            &__head {
+              font-size: 16px;
+              font-weight: bold;
+              .form-require {
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 3px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+              }
+            }
+            p {
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+            .items-container {
+              margin: 16px auto 0;
+              &__drop-box {
+                position: relative;
+                width: 600px;
+                min-height: 150px;
+                padding: 40px;
+                background: #f5f5f5;
+                border: 1px dashed #aaa;
+                pre{
+                  white-space: pre-wrap;
+                }
+                .visible-pc {
+                  display: block;
+                  position: absolute;
+                  top: 35%;
+                  left: 16px;
+                  right: 16px;
+                  text-align: center;
+                  line-height: 1.5;
+                }
+              }
+            }
+          }
+          .sell-content {
+            padding: 40px;
+            border-top: 1px solid #eee;
+            .sub-head {
+              color: #888;
+              font-size: 14px;
+              font-weight: bold;
+              display: block;
+            }
+            .fa-question-circle {
+              margin-top: 4px;
+              width: 14px;
+              height: 14px;
+              line-height: 14px;
+              text-align: center;
+              color: #0099e8;
+            }
+            .form-box {
+              margin: 40px 0 0;
+              .price{
+                .l-left {
+                  line-height: 48px;
+                }
+                li {
+                  padding: 24px 0;
+                  .l-left {
+                    width: 50%;
+                    line-height: 14px;
+                  }
+                  .price-input {
+                    text-align: right;
+                    color: #333333;
+                    div {
+                      display: inline-block;
+                      width: 80%;
+                      margin: 0 0 0 5%;
+                      .input-default {
+                        margin: 0;
+                        text-align: right;
+                      }
+                      #item_price{
+                        height: 40px;
+                      }
+                    }
+                  }
+                  .l-right {
+                    width: 50%;
+                    text-align: right;
+                  }
+                }
+                .top_border{
+                  border-top: 1px solid #eee;
+                }
+                .clearfix {
+                  display: flex;
+                }
+                .bold {
+                  font-weight: 600;
+                  .l-left {
+                    font-size: 16px;
+                  }
+                  .l-right {
+                    font-size: 34px;
+                  }
+                }
+              }
+            }
+            .sub-head {
+              float: left;
+            }
+            .form-box {
+              float: right;
+              width: 400px;
+              margin: 0;
+            }
+              .form-group:first-child {
+                margin: 0;
+              }
+              .form-group {
+                margin: 40px 0 0;
+                label {
+                  font-weight: 600;
+                  display: inline-block;
+                  span {
+                    background: #ea352d;
+                    margin: 0 0 0 8px;
+                    padding: 2px 4px;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-size: 12px;
+                    vertical-align: top;
+                  }
+                }
+                .input-default {
+                  width: 100%;
+                  margin: 8px 0 0;
+                  height: 48px;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #eee;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;
+                  &__width{
+                    width: 600px;
+                  }
+                }
+                .textarea-default {
+                  display: block;
+                  width: 600px;
+                  min-height: 104px;
+                  margin: 8px 0 0;
+                  padding: 10px;
+                  border: 1px solid #eee;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;
+                }
+                .select-wrap {
+                  margin: 8px 0 0;
+                  position: relative;
+                  background: #fff;
+                  select {
+                    width: 100%;
+                    -webkit-appearance: none;
+                  }
+                  .select-default {
+                    position: relative;
+                    z-index: 2;
+                    height: 48px;
+                    padding: 0 16px;
+                    border-radius: 4px;
+                    border: 1px solid #eee;
+                    background: 0;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    cursor: pointer;
+                    appearance: none;
+                  }
+                  .fa-chevron-down {
+                    position: absolute;
+                    right: 16px;
+                    bottom: 35%;
+                    z-index: 2;
+                    color: #888;
+                  }
+                }
+              }
+          }
+          .btn-box {
+            &__notes {
+              &__note {
+                line-height: 1.5;
+                a {
+                  color: #0099e8;
+                }
+              }
+            }
+            &--red {
+              margin: 40px 0 0;
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;
+            }
+            &__default {
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              cursor: pointer;
+              text-align: center;
+              transition: all ease-out .3s;
+            }
+            &--gray {
+              width: 45%;
+              margin: 24px auto 0;
+              background: #aaa;
+              border: 1px solid #aaa;
+              color: #fff;
+            }
+            &--gray:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+    .sell-footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      text-align: center;
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      ul {
+        padding: 30px 0;
+        font-size: 0;
+      }
+      li {
+        margin: 16px 0 0;
+        font-size: 12px;
+        display: inline-block;
+        margin: 0 0 0 16px;
+      }
+      a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+      }
+      &__logo {
+        width: 80px;
+        height: 65px;
+        margin: 0 auto;
+        img {
+          margin: 0;
+        }
+      }
+      p {
+        margin: 8px 0 0;
+      }
+      small {
+        font-size: 13px;
+      }
+    }
+  }
+}
