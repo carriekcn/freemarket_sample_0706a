@@ -1,0 +1,80 @@
+.mypage
+  .mypage__main
+    .mypage__main__user
+      = link_to "#", class: 'mypage__main__user__link' do
+        %figure
+          = image_tag "", width:"60", height:"60"
+        %h2.mypage__main__user__link__user-name
+          myname
+        .mypage__main__user__link__count
+          .mypage__main__user__link__count__rate
+            評価
+            5
+          .mypage__main__user__link__count__exhibit
+            出品数
+            2
+
+    .mypage__main__menu
+      .mypage__main__menu__tabs
+        %input#info-tab{checked: "checked", name: "tab-menu", type: "radio"}/
+        %label.tab-name{for: "info_tab"}
+          お知らせ
+        %input#todo-tab{name: "tab-menu", type: "radio"}/
+        %label.tab-name{for: "todo_tab"}
+          やることリスト
+
+        #info__contets.mypage__main__menu__tabs__contents
+          %ul.mypage__main__menu__tabs__contents__lists
+            %li.mypage__main__menu__tabs__contents__lists__body
+              = link_to "#", class: 'mypage__main__menu__tabs__contents__lists__body__link' do
+                %figure
+                  =image_tag "mercari_icon.png", class: "mypage__main__menu__tabs__contents__lists__body__link__icon"
+                .mypage__main__menu__tabs__contents__lists__body__link__body__box
+                  .mypage__main__menu__tabs__contents__lists__body__link__body__box__text
+                    テキスト1
+                    %time.mypage__main__menu__tabs__contents__lists__body__link__body__box__text
+                      %i.far.fa-clock
+                      1日前
+
+            %li.mypage__main__menu__tabs__contents__lists__body
+              = link_to "#", class: 'mypage__main__menu__tabs__contents__lists__link' do
+                %figure
+                  =image_tag "mercari_icon.png", class: "mypage__main__menu__tabs__contents__lists__link__icon"
+                .mypage__main__menu__tabs__contents__lists__link__body__box
+                  .mypage__main__menu__tabs__contents__lists__link__body__box__text
+                    テキスト2
+                    %time.mypage__main__menu__tabs__contents__lists__link__body__box__text
+                      %i.far.fa-clock
+                      3日前
+
+            %li.mypage__main__menu__tabs__contents__view
+              = link_to "#", class: '.mypage__main__menu__tabs__contents__view__link' do
+                一覧を見る
+
+        #todo__contets.mypage__main__menu__tabs__contents
+          %ul.mypage__main__menu__tabs__contents__todo_lists
+            %ul.mypage__main__menu__tabs__contents__todo_lists__body
+              現在、やることリストはありません
+    .mypage__main__purchased_product
+      %h2.mypage__main__purchased_product__title
+        購入した商品
+      %h2.mypage__main__purchased_product__tabs
+        %input#trading_tab{checked: "checked", name: "tab_purchased", type: "radio"}/
+        %label.tab-name{for: "trading_tab"}
+        %a.mypage__main__purchased_product__tabs__trading
+          取引中
+        %input#transactions_tab{name: "tab_purchased", type: "radio"}/
+        %label.tab-name{for: "transactions_tab"}
+        %a.mypage__main__purchased_product__tabs__transactions
+          過去の取引
+
+        #trading__contents.mypage__main__purchased_product__tabs__contents
+          %ul.mypage__main__purchased_product__tabs__contents__trading_lists
+            %li.mypage__main__purchased_product__tabs__contents__trading_lists__body
+            取り引き中の商品がありません
+        #transactions__contents.mypage__main__purchased_product__tabs__contents
+          %ul.mypage__main__purchased_product__tabs__contents__transactions_lists
+            %li.mypage__main__purchased_product__tabs__contents__transactions_lists__body
+              過去に取引した商品がありません
+
+  =render partial: "./side_menu"
