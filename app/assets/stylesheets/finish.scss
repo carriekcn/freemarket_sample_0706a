@@ -1,0 +1,38 @@
+.finish-main {
+  width: 700px; 
+  margin: 30px auto 0;
+  &__header {
+    height: 50px;
+    background-color: white;
+    &--logo {
+      font-size: 22px;
+      line-height: 50px;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    margin-top: 1px;
+    background-color: white;
+    padding: 0 40px 64px 40px;
+    &--text {
+      padding-top: 30px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .start-mercari-button {
+      margin: 30px auto 0;
+      width: 343px;
+      height: 50px;
+      background-color: #ea352d;
+      &__logo {
+        color: white;
+        text-align: center;
+        line-height: 50px;
+      }
+    }
+  }
+  &__image img {
+    width: 700px;
+  }
+}
