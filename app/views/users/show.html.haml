@@ -3,7 +3,7 @@
     .mypage__main__user
       = link_to "#", class: 'mypage__main__user__link' do
         %figure
-          = image_tag "", width:"60", height:"60"
+          = image_tag "adidas-tops-image.jpg", width:"60", height:"60"
         %h2.mypage__main__user__link__user-name
           myname
         .mypage__main__user__link__count
@@ -77,4 +77,4 @@
             %li.mypage__main__purchased_product__tabs__contents__transactions_lists__body
               過去に取引した商品がありません
 
-  =render partial: "./side_menu"
+  =render partial: "users/side_menu"
