@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+  get 'signup/select' , to: 'signups#select'
+  get 'signup/tel' , to: 'signups#tel'
+  get 'signup/address' , to: 'signups#address'
+  get 'signup/pay' , to: 'signups#pay'
+  get 'signup/finish' , to: 'signups#finish'
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'top#index'
   resources :top, only: [:index]
+  resources :items, only: [:new, :show]
+  resources :purchases, only: [:index]
+  resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
-
 end

@@ -1,0 +1,145 @@
+.sell-wrap
+  %header.sell-header
+    %h1
+      = link_to root_path do
+        = image_tag 'mercari_logo_color.svg', alt: 'mercari', height: '50px', width: '180px'
+  %main.sell-main
+    %section.sell-item-container
+      #sell-container
+        .container__inner
+          %h2.single-head
+            商品の情報を入力
+          -# :item仮置き。コントローラ作成後インスタンス変数に変換
+          = form_for :item, html: { class: "sell-form" } do |f|
+            .upload-box
+              %h3.upload-box__head
+                出品画像
+                %span.form-require
+                  必須
+              %p
+                最大10枚までアップロードできます
+              .items-container.clearfix
+                %ul#image-list
+                  = f.fields_for :images do |image|
+                    = image.label :image_url, id: 'image-list-before' do
+                      = image.file_field :image_url, multiple: true , style: 'display: none;'
+                      .items-container__drop-box#image-drop-box
+                        %pre.visible-pc
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+            .sell-content
+              .form-group
+                = f.label :name do
+                  商品名
+                  %span.form-require 必須
+                %div
+                  = f.text_field :name, class: 'input-default input-default__width', placeholder: "商品名（必須 40文字まで)"
+              .form-group
+                = f.label :description do
+                  商品の説明
+                  %span.form-require 必須
+                = f.text_area :description, class: 'textarea-default', size: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            .sell-content.clearfix
+              %h3.sub-head 商品の詳細
+              .form-box
+                .form-group
+                  = f.label :category_id do
+                    カテゴリー
+                    %span.form-require 必須
+                  %div
+                    .select-wrap
+                      = f.select :category_id, [["レディース", "1"], ["メンズ", "2"], ["ベビー・キッズ","3"], ["インテリア・住まい・小物","4"], ["本・音楽・ゲーム","5"], ["おもちゃ・ホビー・グッズ","6"], ["コスメ・香水・美容","7"], ["家電・スマホ・カメラ","8"], ["スポーツ・レジャー","9"], ["ハンドメイド","10"], ["チケット","11"], ["自転車・オートバイ","12"], ["その他", "13"]], {prompt: "---"}, {class: 'select-default'}
+                      %i.fa.fa-chevron-down.fa-lg
+                .form-group
+                  = f.label :state do
+                    商品の詳細
+                    %span.form-require 必須
+                  .select-wrap
+                    = f.select :state, [["新品・未使用", "新品・未使用"], ["未使用に近い", "未使用に近い"], ["目立った傷や汚れなし", "目立った傷や汚れなし"], ["やや傷や汚れあり", "やや傷や汚れあり"], ["傷や汚れあり", "傷や汚れあり"], ["全体的に状態が悪い", "全体的に状態が悪い"],], {prompt: "---"}, {class: "select-default"}
+                    %i.fa.fa-chevron-down.fa-lg
+            .sell-content.clearfix
+              %h3.sub-head 配送について
+              = link_to "#", class: "form-question" do
+                %i.fa.fa-question-circle
+              .form-box
+                .form-group
+                  = f.label :shipping_charges do
+                    配送料の負担
+                    %span.form-require 必須
+                  %div
+                    .select-wrap
+                      = f.select :shipping_charges, [["送料込み(出品者負担)", "送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"]], {prompt: "---"}, {class: 'select-default'}
+                      %i.fa.fa-chevron-down.fa-lg
+                .form-group
+                  = f.label :shipping_method do
+                    配送の方法
+                    %span.form-require 必須
+                  %div
+                    .select-wrap
+                      = f.select :shipping_method, [["未定", "未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパッ"], ["普通郵便(定型、定形外)", "普通郵便(定型、定形外)"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["クリックポスト", "クリックポスト"], ["ゆうパケット", "ゆうパケット"]], {prompt: "---"}, {class: 'select-default'}
+                      %i.fa.fa-chevron-down.fa-lg
+                .form-group
+                  = f.label :shipping_source_area do
+                    発送元の地域
+                    %span.form-require 必須
+                  .select-wrap
+                    = f.collection_select :shipping_source_area, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                    %i.fa.fa-chevron-down.fa-lg
+                .form-group
+                  = f.label :days_ship do
+                    発送までの日数
+                    %span.form-require 必須
+                  .select-wrap
+                    = f.select :days_ship, [["1~2日で発送", "1~2日で発送"], ["2~3日で発送", "2~3日で発送"], ["4~7日で発送", "4~7日で発送"]], {prompt: "---"}, {class: 'select-default'}
+                    %i.fa.fa-chevron-down.fa-lg
+            .sell-content.clearfix
+              %h3.sub-head 販売価格(300〜9,999,999)
+              = link_to "#", class: "form-question" do
+                %i.fa.fa-question-circle
+              .form-box
+                %ul.price
+                  %li.form-group
+                    .clearfix
+                      = f.label :price, class: "l-left" do
+                        価格
+                        %span.form-require 必須
+                      .l-right.price-input
+                        ¥
+                        .price-input__container
+                          = f.text_field :price, class: 'input-default', id: 'item_price', placeholder: "例）300"
+                  %li.top_border.clearfix
+                    .l-left 販売手数料 (10%)
+                    .l-right#item_commission -
+                  %li.top_border.clearfix.bold
+                    .l-left 販売利益
+                    .l-right#item_profit -
+            .sell-content.btn-box
+              .btn-box__notes
+                %p.btn-box__notes__note
+                  = link_to '禁止されている出品', '#'
+                  、
+                  = link_to '行為', '#'
+                  を必ずご確認ください。
+                %p.btn-box__notes__note
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  = link_to '偽ブランドの販売','#'
+                  は犯罪であり処罰される可能性があります。
+                %p.btn-box__notes__note
+                  また、出品をもちまして
+                  = link_to '加盟店規約', '#'
+                  に同意したことになります。
+              = f.submit "出品する", {class: "btn-box__default btn-box--red", id: "item-sell-submit-btn"}
+              .btn-box__default.btn-box--gray もどる
+  %footer.sell-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to 'プライバシーポリシー', '#'
+        %li
+          = link_to 'メルカリ利用規約', '#'
+        %li
+          = link_to '特定商取引に関する表記', '#'
+    = link_to "#", class: "sell-footer__logo" do
+      = image_tag 'footer-logo-gray.svg', alt: 'mercari', height: '65', width: '80'
+    %p
+      %small ©︎ 2019 team0706a
