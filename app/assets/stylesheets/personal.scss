@@ -137,6 +137,8 @@ body {
             height: 50px;
             background-color: #ea352d;
             margin-top: 24px;
+            color: white;
+            border: none;
             &__logo {
               color: white;
               font-size: 14px;
@@ -148,6 +150,7 @@ body {
             float: right;
             margin-top: 24px;
             &__signup {
+              color: #0099e8;
               padding-top: 24px;
               font-size: 14px;
             }
@@ -157,6 +160,9 @@ body {
           }
         }
       }
+    }
+    #new_user{
+      padding-bottom: 40px;
     }
   }
   .red-mark {
