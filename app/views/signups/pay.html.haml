@@ -8,19 +8,19 @@
       .pay-form-box__mark 必須
       %input{ class: "pay-form-box__form", placeholder: "半角数字のみ", type: "string"}
       .credit-card
-        %span.creditcard-logo
-          = image_tag ('visa-credit.svg'), width: "49px", height: "20px"
-        %span.creditcard-logo
-          = image_tag ('master-card-credit.svg'), width: "34px", height: "20px"
-        %span.creditcard-logo
-          = image_tag ('saison-card-credit.svg'), width: "30px", height: "20px"
-        %span.creditcard-logo 
-          = image_tag ('jcb-credit.svg'), width: "32px", height: "20px"
-        %span.creditcard-logo
-          = image_tag ('american_express-credit.svg'), width: "21px", height: "20px"
-        %span.creditcard-logo
-          =image_tag ('dinersclub-credit.svg'), width: "32px", height: "20px"
-        %span.creditcard-logo
+        %span.creditcard-logo__visa
+          = image_tag ('visa-credit.svg')
+        %span.creditcard-logo__master
+          = image_tag ('master-card-credit.svg')
+        %span.creditcard-logo__saison
+          = image_tag ('saison-card-credit.svg')
+        %span.creditcard-logo__jcb
+          = image_tag ('jcb-credit.svg')
+        %span.creditcard-logo__american
+          = image_tag ('american_express-credit.svg')
+        %span.creditcard-logo__dinersclub
+          =image_tag ('dinersclub-credit.svg')
+        %span.creditcard-logo__discover
           = image_tag ('discover-credit.svg'), width: "32px", height: "20px"
     .pay-form-box
       %p.pay-form-box__sub 有効期限
@@ -37,4 +37,4 @@
     = link_to "#" do
       %span.next-page
         = render "go-to-next"
-= render "footer"  
+= render "footer"   

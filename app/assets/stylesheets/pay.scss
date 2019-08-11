@@ -21,7 +21,6 @@
       width: 343px;
       margin: 0 auto;
       padding-top: 30px;
-      clear: both;
       &__sub {
         font-weight: bold;
         float: left;
@@ -39,14 +38,51 @@
         line-height: 19px;
       }
       &__form {
-        display: block;
         width: 343px;
         height: 48px;
-        margin-top: 8px;
         padding: 10px 16px 8px;
         border-radius: 5px;
         border: solid 1px #dcdcdc;
         font-size: 16px;
+        margin-top: 8px;
+      }
+      .pay-form-box:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .credit-card {
+        margin-top: 8px;
+        .creditcard-logo {
+          &__visa img {
+            width: 49px;
+            height: 20px;
+          }
+          &__master img {
+            width: 34px;
+            height: 20px;
+          }
+          &__saison img {
+            width: 30px;
+            height: 20px;
+          }
+          &__jcb img {
+            width: 32px;
+            height: 20px;
+          }
+          &__american img {
+            width: 21px;
+            height: 20px;
+          }
+          &__dinersclub img {
+            width: 32px;
+            height: 20px;
+          }
+          &__discover img {
+            width: 32px;
+            height: 20px;
+          }
+        }
       }
       &__form-mini {
         clear: both;
@@ -70,8 +106,3 @@
     }
   }
 } 
-.pay-form-box:after {
-  content: "";
-  display: block;
-  clear: both;
-}
