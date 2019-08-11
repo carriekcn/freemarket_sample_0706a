@@ -4,28 +4,30 @@
  
   <div class="main">
 
-    <a href="#" class="fixed_btn">
+    <%= link_to '#', class: "fixed_btn" do %>
       出品<br><%= fa_icon 'camera', class: 'icon' %>
-    </a>
+    <% end %>
 
     <h2>支払い方法</h2>
     <div class="main-middle">
       <p class="one">クレジットカード一覧</p>
-      <a href="/cards/new">
+      <%= link_to '/cards/new' do %>
         <p class="two">
           <%= fa_icon 'credit-card', class: 'icon' %> 
           クレジットカードを追加する
         </p>
-      </a>
+      <% end %>
     </div>
+
     <hr>
     <p class="main-bottom">
-      <a href="#">
+
+      <%= link_to '#' do %>
         支払い方法について
         <span>
           <%= fa_icon 'chevron-right', class: 'icon'%>
         </span>
-      </a>
+      <% end %>
     </p>
 
   </div>
