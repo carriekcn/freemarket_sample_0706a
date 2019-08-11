@@ -3,27 +3,28 @@
   .personal__header
     %h2.personal__header--logo 会員情報入力
   .personal__body
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .personal__body--wrap
       .personal-form
         %p.personal-form__logo ニックネーム
         .red-mark
           %p.red-mark__logo 必須
-        %input{placeholder: "例) メルカリ太郎", type: "text", class:"personal-form__form"}
+        = f.text_field :nickname, class: "personal-form__form", placeholder: '例) メルカリ太郎'
       .personal-form
         %p.personal-form__logo メールアドレス
         .red-mark
           %p.red-mark__logo 必須
-        %input{placeholder: "PC・携帯どちらでも可", type: "text", class:"personal-form__form"}
+        = f.email_field :email, class: "personal-form__form", placeholder: "PC・携帯どちらでも可"
       .personal-form
         %p.personal-form__logo パスワード
         .red-mark
           %p.red-mark__logo 必須
-        %input{placeholder: "6文字以上", type:  "text", class:"personal-form__form"}
+        = f.password_field :password, class: "personal-form__form", placeholder: "6文字以上"
       .personal-form
         %p.personal-form__logo パスワード(確認)
         .red-mark
           %p.red-mark__logo 必須
-        %input{placeholder: "6文字以上", type: "text", class:"personal-form__form"}
+        = f.password_field :password_confirmation, class: "personal-form__form", placeholder: "6文字以上"
       .attention
         %h2.attention__title 本人確認
         %p.attention__text 安心・安全にご使用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -60,9 +61,7 @@
         = link_to "#", class: "user-form__agree--link" do
           利用規約
         に同意したものとみなします
-        = link_to "#" do
-          .jump-next
-            %p.jump-next__logo 次へ進む
+        = f.submit "次へ進む", class: "jump-next"
         .about
           = link_to "#", class: "about__signup" do
             %i.about__signup 本人情報の登録について
