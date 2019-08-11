@@ -147,22 +147,21 @@
         }
       }
     }
-  .form-submit {
-    margin-top: 55px;
+    .form-submit {
+      margin-top: 55px;
 
-    &__btn {
-      display: block;
-      width: 343px;
-      line-height: 48px;
-      font-size: 14px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-align: center;
-      background: #ea352d;
-      border: 1px solid #ea352d;
-      color: #fff;  
-    }   
-  }
-
+     &__btn {
+       display: block;
+        width: 343px;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;  
+      }   
+    }
   }
 }
