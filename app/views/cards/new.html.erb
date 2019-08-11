@@ -3,10 +3,9 @@
   <div class="mypage-nav">TBP by kurimura-san</div>
 
   <div class="main-two">
-
-    <a href="#" class="fixed_btn">
+    <%= link_to '#', class: 'fixed_btn' do %>
       出品<br><%= fa_icon 'camera', class: 'icon' %>
-    </a>
+    <% end %>
 
     <h2>クレジットカード情報</h2>
     <form class="payment-form">
@@ -15,28 +14,29 @@
       <div class="input">
         <input type="text" class="input-default" id="card_no" maxlength="19" placeholder="半角数字のみ">
       </div>
+
       <div class="card-type clearfix">
         <ul>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?863303983" width="49" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?863303983', class: 'visa' %>
           </li>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?863303983" width="34" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?863303983', class: 'master' %>
           </li>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?863303983" width="30" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?863303983', class: 'saison' %>
           </li class="card-type__list">
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?863303983" width="32" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?863303983', class: 'jcb' %>
           </li>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?863303983" width="21" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?863303983', class: 'amex' %>
           </li>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?863303983" width="32" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?863303983', class: 'diners' %>
           </li>
           <li class="card-type__list">
-            <img src="//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?863303983" width="32" height="20" alt="">
+            <%= image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?863303983', class: 'discover' %>
           </li>
         </ul>
       </div>

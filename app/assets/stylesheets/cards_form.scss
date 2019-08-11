@@ -76,6 +76,36 @@
         float: left;
         padding-right: 8px;
         padding-bottom: 20px;
+
+        .visa {
+          width: 49px;
+          height: 20px; 
+        }
+        .master {
+          width: 34px;
+          height: 20px;
+        }
+        .saison {
+          width: 30px;
+          height: 20px;
+        }
+        .jcb {
+          width: 32px;
+          height: 20px;
+        }
+        .amex {
+          width: 21px;
+          height: 20px;
+        }
+        .diners {
+          width: 32px;
+          height: 20px;
+        }
+        .discover {
+          width: 32px;
+          height: 20px;
+        }
+
       }
     }
 
@@ -133,6 +163,6 @@
       color: #fff;  
     }   
   }
-  
+
   }
 }
