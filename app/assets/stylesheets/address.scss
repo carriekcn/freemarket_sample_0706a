@@ -24,9 +24,21 @@
         float: left;
         font-weight: bold;
       }
-      &__mark {
+      &__mark-red {
         float: left;
         background-color: #e3252d;
+        width: 32px;
+        height: 19px;
+        margin-left: 8px;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 19px;
+      }
+      &__mark-gray {
+        float: left;
+        background-color: #ccc;
         width: 32px;
         height: 19px;
         margin-left: 8px;

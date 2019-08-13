@@ -5,25 +5,104 @@
     height: 50px;
     background-color: white;
     &--logo {
+      font-size: 22px;
+      line-height: 50px;
+      text-align: center;
+      font-weight: bold;
       text-align: center;
       line-height: 50px;
     }
   }
   &__body {
     background-color: white;
-    margin-top: 2px;
+    margin-top: 1px;
+    padding-bottom: 64px;
     .pay-form-box {
+      width: 343px;
+      margin: 0 auto;
+      padding-top: 30px;
       &__sub {
-
+        font-weight: bold;
+        float: left;
       }
-      &__mark {}
+      &__mark {
+        float: left;
+        background-color: #e3252d;
+        width: 32px;
+        height: 19px;
+        margin-left: 8px;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 19px;
+      }
       &__form {
-
+        width: 343px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 5px;
+        border: solid 1px #dcdcdc;
+        font-size: 16px;
+        margin-top: 8px;
+      }
+      .pay-form-box:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .credit-card {
+        margin-top: 8px;
+        .creditcard-logo {
+          &__visa img {
+            width: 49px;
+            height: 20px;
+          }
+          &__master img {
+            width: 34px;
+            height: 20px;
+          }
+          &__saison img {
+            width: 30px;
+            height: 20px;
+          }
+          &__jcb img {
+            width: 32px;
+            height: 20px;
+          }
+          &__american img {
+            width: 21px;
+            height: 20px;
+          }
+          &__dinersclub img {
+            width: 32px;
+            height: 20px;
+          }
+          &__discover img {
+            width: 32px;
+            height: 20px;
+          }
+        }
+      }
+      &__form-mini {
+        clear: both;
+        &--date {
+          width: 165.5px;
+          height: 48px;
+          clear: both;
+          border-radius: 5px;
+          border: solid 1px #dcdcdc;
+          font-size: 16px;
+          margin-top: 8px;
+          padding: 10px 16px 8px;
+        }
+      }
+      .form-date {
+        display: inline;
       }
       .creditcard-logo img{
-        width: 35px;
-        height: 20px;
+        margin-top: 8px;
       }
     }
   }
-}
+} 

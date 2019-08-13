@@ -5,19 +5,36 @@
   .pay-main__body
     .pay-form-box
       %p.pay-form-box__sub カード番号
-      .pay-form-box__mark
+      .pay-form-box__mark 必須
       %input{ class: "pay-form-box__form", placeholder: "半角数字のみ", type: "string"}
-      .creditcard-logo
-        = image_tag ('mc_symbol_opt_45_3x.png')
+      .credit-card
+        %span.creditcard-logo__visa
+          = image_tag ('visa-credit.svg')
+        %span.creditcard-logo__master
+          = image_tag ('master-card-credit.svg')
+        %span.creditcard-logo__saison
+          = image_tag ('saison-card-credit.svg')
+        %span.creditcard-logo__jcb
+          = image_tag ('jcb-credit.svg')
+        %span.creditcard-logo__american
+          = image_tag ('american_express-credit.svg')
+        %span.creditcard-logo__dinersclub
+          =image_tag ('dinersclub-credit.svg')
+        %span.creditcard-logo__discover
+          = image_tag ('discover-credit.svg'), width: "32px", height: "20px"
     .pay-form-box
       %p.pay-form-box__sub 有効期限
-      .pay-form-box__mark
-      %input{ class: "pay-form-box__form-first", placeholder: "01", type: "string"}
-      %input{ class: "pay-form-box__form-second", placeholder: "19", type: "string"}
+      .pay-form-box__mark 必須
+      .pay-form-box__form-mini
+        %input{ class: "pay-form-box__form-mini--date", placeholder: "01", type: "string"}
+        %p.form-date 年
+        %input{ class: "pay-form-box__form-mini--date", placeholder: "19", type: "string"}
+        %p.form-date 月
     .pay-form-box
       %p.pay-form-box__sub セキュリティーコード
-      .pay-form-box__mark
+      .pay-form-box__mark 必須
       %input{ class: "pay-form-box__form", placeholder: "カード背面4桁もしくは3桁の番号", type: "string"}
-    %a{href: "/sign_up/finish"}
-      = render "go-to-next"
-= render "footer" 
+    = link_to "#" do
+      %span.next-page
+        = render "go-to-next"
+= render "footer"   
