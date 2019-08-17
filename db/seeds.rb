@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# ユーザーデータ
+User.create( nickname:'KI', email:'ki@test.fm', password:'111111', password_confirmation:'111111' )
+User.create( nickname:'YK', email:'yk@test.fm', password:'222222', password_confirmation:'222222' )
+User.create( nickname:'HR', email:'hr@test.fm', password:'333333', password_confirmation:'333333' )
+User.create( nickname:'KM', email:'km@test.fm', password:'444444', password_confirmation:'444444' )
+
+# カテゴリーデータ
 lady = Category.create( id: 1, name: "レディース", path: "1/")
 men = Category.create( id: 2, name: "メンズ", path: "2/")
 baby = Category.create( id: 3, name: "べビー・キッズ", path: "3/" )
