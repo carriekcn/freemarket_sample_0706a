@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Itemデータ
+Item.create( name: 'ポーチ', state: 'New', shipping_charges: ‘250’, shipping_method: ‘メルカリ便’, days_ship: ‘3-5日’, price: 1200, description: ‘新品です！’, shipping_source_area: ‘東京都’, size: ‘M’, user_id: 1, category_id: 1 )
+
 # ユーザーデータ
 User.create( nickname:'KI', email:'ki@test.fm', password:'111111', password_confirmation:'111111' )
 User.create( nickname:'YK', email:'yk@test.fm', password:'222222', password_confirmation:'222222' )
