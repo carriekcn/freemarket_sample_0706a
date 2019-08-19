@@ -5,6 +5,8 @@
 @import 'config/colors';
 
 @import './top';
+@import 'modules/users.scss';
+@import 'modules/side_menu.scss';
 @import 'modules/items_new.scss';
 @import 'modules/items_show.scss';
 @import 'modules/purchases_index.scss';

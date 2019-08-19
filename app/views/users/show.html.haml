@@ -1,27 +1,36 @@
+.bread_crumb
+  .bread_crumb__text
+    メルカリ　
+    %i.fa.fa-angle-right
+    %span マイページ
+
 .mypage
   .mypage__main
     .mypage__main__user
-      = link_to "#", class: 'mypage__main__user__link' do
-        %figure
-          = image_tag "adidas-tops-image.jpg", width:"60", height:"60"
-        %h2.mypage__main__user__link__user-name
-          myname
-        .mypage__main__user__link__count
-          .mypage__main__user__link__count__rate
-            評価
-            5
-          .mypage__main__user__link__count__exhibit
-            出品数
-            2
+      .mypage__main__user__container
+        = link_to "#", class: 'mypage__main__user__container__link' do
+          %figure.mypage__main__user__container__link__icon
+            = image_tag "sample01.jpg", width:"60px", height:"60px"
+          %h3.mypage__main__user__container__link__user_name
+            myname
+          .mypage__main__user__container__link__count
+            .mypage__main__user__container__link__count__rate
+              評価
+              %span 5
+            .mypage__main__user__container__link__count__exhibit
+              出品数
+              %span 2
 
     .mypage__main__menu
       .mypage__main__menu__tabs
-        %input#info-tab{checked: "checked", name: "tab-menu", type: "radio"}/
-        %label.tab-name{for: "info_tab"}
-          お知らせ
-        %input#todo-tab{name: "tab-menu", type: "radio"}/
-        %label.tab-name{for: "todo_tab"}
-          やることリスト
+        %input#info_tab{checked: "checked", name: "tab_menu", type: "radio"}/
+        %label.tab_name{for: "info_tab"}
+          %h3 お知らせ
+          %span.tab_number
+            1
+        %input#todo_tab{name: "tab_menu", type: "radio"}/
+        %label.tab_name{for: "todo_tab"}
+          %h3 やることリスト
 
         #info__contets.mypage__main__menu__tabs__contents
           %ul.mypage__main__menu__tabs__contents__lists

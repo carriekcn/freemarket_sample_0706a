@@ -1,0 +1,239 @@
+html, body {
+  // position: relative;
+  min-height: 100%;
+  // font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", "sans-serif";
+  // font-size: 14px;
+  // color: rgb(51, 51, 51);
+  // line-height: 1;
+  // background: rgb(245, 245, 245);
+}
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+
+  border-style: solid;
+  border-width: 0;
+
+  font-size: inherit;
+  line-height: inherit;
+
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+h2{
+  font-size: 22px;
+  line-height: 1.4;
+
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 16px;
+
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+span{
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+.bread_crumb{
+  @include bread_crumb;
+
+  &__text{
+    @include bread_crumb__text
+  }
+}
+
+
+.mypage{
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  max-width: 1052px;
+
+  &__main{
+    width: 100%;
+    width: 700px;
+    height: 1223.310px;
+    margin: 0 auto;
+
+    &__user{
+      margin: 0 auto;
+
+      &__container{
+        background-image: url("sample02.jpg");
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        padding: 20px;
+        width: 660px;
+        height: 160px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+
+        &__link{
+          display: block;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translate(0, -50%);
+          color: #333;
+          width: 700px;
+          height: 111px;
+          position: absolute;
+
+          &__icon{
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            margin: 0 320px;
+            border-radius: 50%;
+
+            vertical-align: middle;
+          }
+
+          &user_name{
+            margin: 8px 0 0;
+            font-size: 14px;
+
+            font-weight: 600;
+          }
+
+          &__count{
+            width: 700px;
+            height: 16px;
+            margin: 8px 0 0;
+            font-size: 0;
+
+            &__rate{
+              display: inline-block;
+              font-size: 14px;
+              width: 47px;
+              height: 16px;
+
+              p{
+                margin: 0 0 0 8px;
+                font-size: 16px;
+              }
+            }
+
+            &__exhibit{
+              margin: 0 0 0 16px;
+              display: inline-block;
+              font-size: 14px;
+              width: 61px;
+              height: 16px;
+
+              p{
+                margin: 0 0 0 8px;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__menu{
+      margin: 0 auto;
+      background: #fff;
+      width: 700px;
+      height: 600px;
+
+      &__tabs{
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        height: 74px;
+
+        border-top: 2px solid #ea352d;
+
+        background: #fff;
+        width: 50%;
+        height: 72px;
+
+        input{
+          display: none;
+        }
+
+        input:checked + .tab_name {
+          background-color: #5ab4bd;
+          color: #fff;
+        }
+
+        #info_tab:checked ~ #info__contets,
+        #todo_tab:checked ~ #todo__contets {
+          display: block;
+
+        }
+
+        #info_tab{
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+
+        &tab_name{
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+
+          &tab_number{
+            position: absolute;
+            top: 50%;
+            right: 32px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ea352d;
+            text-align: center;
+            line-height: 24px;
+            color: #fff;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+
+        #todo_tab{
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+
+        &__contents{
+          width: 700px;
+        }
+      }
+    }
+  }
+}
+
+.mypage__side-menu{
+                  float: left;
+}
