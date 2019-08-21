@@ -14,80 +14,36 @@
 
   <h1>ビックアップカテゴリー</h1>
 
-    <% @img.each do |i| %>
-      <%= i.item.name %>
-      <%= image_tag(i.image) %>
-    <% end %>
-
-
-
   <a href="#">
     <h2>レディース新着アイテム</h2>
   </a>
   <div class="container clearfix">
 
+  <% @img.each do |product| %>
     <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m32907717342_1.jpg?1557628668">
+      <%= image_tag(product.image, class: 'container-cell__pix') %>
+
       <div class="container-cell__description">
         <ul>
           <li class="container-cell__description--product">
-            商品名 & 商品説明
+            <%= product.item.name %>
           </li>
           <li class="container-cell__description--info">
-            <p class="one">価格</p>
+            <p class="one">￥<%= product.item.price %></p>
             <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
+            <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
           </li>
         </ul>
       </div>
     </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m30916176154_1.jpg?1564063319">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m95567458401_1.jpg?1562655995">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m89557941890_1.jpg?1559538620">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+      <% end %>
   </div>
+
+
+
+
+
+
  
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
