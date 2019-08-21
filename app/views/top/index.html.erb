@@ -39,161 +39,43 @@
       <% end %>
   </div>
 
-
-
-
-
-
- 
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
+
+
+
 
   <a href="#">
     <h2>メンズ新着アイテム</h2>
   </a>
   <div class="container clearfix">
 
+  <% @men.each do |product| %>
     <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="https://static.mercdn.net/thumb/photos/m79369156502_1.jpg?1564273132">
+      <%= image_tag(product.image, class: 'container-cell__pix') %>
+
       <div class="container-cell__description">
         <ul>
           <li class="container-cell__description--product">
-            商品名 & 商品説明
+            <%= product.item.name %>
           </li>
           <li class="container-cell__description--info">
-            <p class="one">価格</p>
+            <p class="one">￥<%= product.item.price %></p>
             <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
+            <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
           </li>
         </ul>
       </div>
     </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+      <% end %>
   </div>
- 
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
 
-  <h1 class="pick_brand">ビックアップブランド</h1>
 
-  <a href="#">
-    <h2>シャネル新着アイテム</h2>
-  </a>
-  <div class="container clearfix">
 
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="https://static.mercdn.net/thumb/photos/m48730334373_1.jpg?1564279834">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
- 
-  <div class="container-bottom">
-    <a href="#">すべての処品を見る</a>
-  </div>
 
   <a href="#">
     <h2>ルイヴィトン新着アイテム</h2>
