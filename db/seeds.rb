@@ -30,3 +30,7 @@ ticket = Category.create( id: 11, name: "チケット", path: "11/" )
 car = Category.create( id: 12, name: "自動車・オートバイ", path: "12/" )
 etc = Category.create( id: 13,name: "その他", path: "13/" )
 
+chel = Category.create( id: 14, name: "Channel", path: "14/" )
+lv = Category.create( id: 15, name: "LouisVuitton", path: "15/" )
+nike = Category.create( id: 16, name: "Nike", path: "16/" )
+sup = Category.create( id: 17, name: "Supreme", path: "17/" )
