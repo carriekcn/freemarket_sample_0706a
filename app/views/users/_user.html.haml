@@ -1,0 +1,14 @@
+.mypage__main__user
+  .mypage__main__user__container
+    = link_to "#", class: 'mypage__main__user__container__link' do
+      %figure.mypage__main__user__container__link__icon
+        = image_tag "sample01.png", width:"60px", height:"60px"
+      %h3.mypage__main__user__container__link__user_name
+        sample01
+      .mypage__main__user__container__link__count
+        .mypage__main__user__container__link__count__rate
+          評価
+          %span 5
+        .mypage__main__user__container__link__count__exhibit
+          出品数
+          %span 2

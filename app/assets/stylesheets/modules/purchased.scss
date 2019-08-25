@@ -1,0 +1,92 @@
+$mypage_width: 700px;
+$mypage_white: #fff;
+
+.mypage__main{
+  &__purchased_product{
+    height: 382px;
+    width: $mypage_width;
+    margin: 40px auto 0;
+
+  &__title{
+    width: 668px;
+    height: 72px;
+    padding: 0 16px;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+  }
+
+    &__tabs{
+      @include tabs;
+      height: 310px;
+      width: $mypage_width;
+
+      input{
+        @include tabs_input;
+
+      }
+
+      &__name{
+        @include tabs_name;
+
+        :hover {
+          color: #777;
+        }
+      }
+
+      &__contents{
+        @include tabs_contents;
+        width: $mypage_width;
+        height: 236px;
+
+        &__trading_lists{
+          width: $mypage_width;
+          height: 236px;
+
+          &__body{
+            position: relative;
+            width: $mypage_width;
+            height: 236px;
+
+            &__icon{
+              position: absolute;
+              top:0;
+            }
+          }
+        }
+
+        &__transactions_lists{
+            width: $mypage_width;
+            height: 236px;
+
+          &__body{
+            position: relative;
+            width: $mypage_width;
+            height: 236px;
+
+            &__icon{
+              position: absolute;
+              top:0;
+            }
+          }
+        }
+
+        li{
+          @include tabs_none
+        }
+      }
+    }
+  }
+}
+
+.mypage__main__purchased_product__tabs input:checked + .mypage__main__purchased_product__tabs__name {
+  background-color: $mypage_white;
+  color: #000;
+  height: 72px;
+  border-top: 2px solid #ea352d;
+}
+
+#transactions_tab:checked ~ #transactions__contents,
+#trading_tab:checked ~ #trading__contents {
+  display: block;
+}

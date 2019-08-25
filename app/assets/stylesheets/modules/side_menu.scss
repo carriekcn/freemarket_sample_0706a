@@ -1,4 +1,4 @@
-$side_width: 700px;
+$mypage_width: 280px;
 $title_height: 16px;
 
 body{
@@ -7,34 +7,26 @@ body{
 }
 
 * {
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  border-style: solid;
-  border-width: 0;
-  font-size: inherit;
-  line-height: inherit;
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
   text-decoration: none;
 }
 
 .mypage__side_menu{
-  width: $side_width;
+
   height: 1252px;
-  margin: 40px auto 0;
+
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: #000;
   cursor: default;
+  float: left;
 
   &__lists{
     @include side_menu__lists;
 
     li:first-child{
       border: 0;
-      #select{
-        @include side_menu__selection;
+      #show{
+      @include side_menu__selection;
       }
       i{
         color: #333;
@@ -62,7 +54,6 @@ body{
 
   &__merupay{
     height: 161px;
-    width: $side_width;
 
     &__title{
       @include side_menu__title
@@ -74,7 +65,7 @@ body{
 
       li:first-child{
         border: 0;
-      }
+        }
 
       :hover{
         i{
@@ -97,8 +88,7 @@ body{
   }
 
   &__setting{
-    height: 161px;
-    width: $side_width;
+    height: 406px;
 
     &__title{
       @include side_menu__title
