@@ -37,6 +37,8 @@ ul {
 
       img {
         vertical-align: middle;
+        height: 36px;
+        width: 134px;
       }
     }
 
@@ -220,6 +222,11 @@ ul {
       padding-right: 250px;
       padding-bottom: 10px;
       line-height: 30px;
+
+      &--img {
+        height: 33px;
+        width: 124px;
+      }
     }
 
     &__right {
