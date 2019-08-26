@@ -8,9 +8,9 @@ class TopController < ApplicationController
     @nikes = searchItemImage(16)
   end
 
-  def searchItemImage (category)
-    catg = Item.where(category_id: category).limit(4)
-    ItemImage.includes(:item).group(:item_id).where(item_id: catg.ids).order('created_at DESC')
+  def searchItemImage (category_id)
+    items = Item.where(category_id: category_id).limit(4)
+    ItemImage.includes(:item).group(:item_id).where(item_id: items.ids).order('created_at DESC')
   end
 
 end
