@@ -13,75 +13,31 @@
   </a>
 
   <h1>ビックアップカテゴリー</h1>
-  
+
   <a href="#">
     <h2>レディース新着アイテム</h2>
   </a>
+
   <div class="container clearfix">
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m32907717342_1.jpg?1557628668">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
-          </li>
-        </ul>
+    <% @wmen.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m30916176154_1.jpg?1564063319">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m95567458401_1.jpg?1562655995">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="レディス" src="https://static.mercdn.net/thumb/photos/m89557941890_1.jpg?1559538620">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <% end %>
   </div>
- 
+
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
@@ -89,226 +45,150 @@
   <a href="#">
     <h2>メンズ新着アイテム</h2>
   </a>
+
   <div class="container clearfix">
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="https://static.mercdn.net/thumb/photos/m79369156502_1.jpg?1564273132">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
-          </li>
-        </ul>
+    <% @men.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="メンズ" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <% end %>
   </div>
- 
+
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
 
-  <h1 class="pick_brand">ビックアップブランド</h1>
 
-  <a href="#">
+<a href="#">
+    <h2>ベビー・キッズ 新着アイテム</h2>
+  </a>
+
+  <div class="container clearfix">
+    <% @kids.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container-bottom">
+    <a href="#">すべての処品を見る</a>
+  </div>
+
+
+  <h1>ビックアップブランド</h1>
+
+<a href="#">
     <h2>シャネル新着アイテム</h2>
   </a>
+
   <div class="container clearfix">
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="https://static.mercdn.net/thumb/photos/m48730334373_1.jpg?1564279834">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
-          </li>
-        </ul>
+    <% @chans.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="シャネル" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <% end %>
   </div>
- 
+
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
 
-  <a href="#">
+
+<a href="#">
     <h2>ルイヴィトン新着アイテム</h2>
   </a>
+
   <div class="container clearfix">
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="ルイヴィトン" src="https://static.mercdn.net/thumb/photos/m85835022841_1.jpg?1562391820">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two">
-            <%= fa_icon 'heart', class: 'icon' %> 10</p>
-          </li>
-        </ul>
+    <% @louvs.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="ルイヴィトン" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="ルイヴィトン" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container-cell">
-      <img class="container-cell__pix" alt="ルイヴィトン" src="#">
-      <div class="container-cell__description">
-        <ul>
-          <li class="container-cell__description--product">
-            商品名 & 商品説明
-          </li>
-          <li class="container-cell__description--info">
-            <p class="one">価格</p>
-            <p class="two"><%= fa_icon 'heart', class: 'icon' %> 20</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <% end %>
   </div>
- 
+
+  <div class="container-bottom">
+    <a href="#">すべての処品を見る</a>
+  </div>
+
+
+<a href="#">
+    <h2>ナイキ新着アイテム</h2>
+  </a>
+
+  <div class="container clearfix">
+    <% @nikes.each do |product| %>
+      <div class="container-cell">
+        <%= image_tag(product.image.url, class: 'container-cell__pix') %>
+          <div class="container-cell__description">
+            <ul>
+              <li class="container-cell__description--product">
+                <%= product.item.name %>
+              </li>
+              <li class="container-cell__description--info">
+                <p class="one">￥<%= product.item.price %></p>
+                <p class="two">
+                <%= fa_icon 'heart', class: 'icon' %> <%= product.item.good %></p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="container-bottom">
     <a href="#">すべての処品を見る</a>
   </div>
 
 </div>
-
-
-
-
 
 
 
