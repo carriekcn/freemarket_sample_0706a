@@ -20,4 +20,5 @@ class TopController < ApplicationController
     @nikes = ItemImage.includes(:item).group(:item_id).where(item_id: nike.ids).order('created_at DESC')
 
   end
+
 end
