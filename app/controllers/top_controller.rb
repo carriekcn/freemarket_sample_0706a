@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  
+
   def index
     @wmen = searchItemImage(1)
     @men = searchItemImage(2)
@@ -15,3 +15,4 @@ class TopController < ApplicationController
   end
 
 end
+
