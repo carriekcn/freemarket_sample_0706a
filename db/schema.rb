@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 2019_08_06_050801) do
     t.text "description", null: false
     t.string "shipping_source_area", null: false
     t.string "size"
-    t.string "status"
+    t.integer "status",default: 0
     t.integer "good"
     t.string "delivery_status"
-    t.string "payment_status"
+    t.integer "payment_status"
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
