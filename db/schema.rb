@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_050801) do
+ActiveRecord::Schema.define(version: 2019_08_28_114602) do
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_050801) do
     t.text "description", null: false
     t.string "shipping_source_area", null: false
     t.string "size"
-    t.integer "status",default: 0
+    t.integer "status", default: 0
     t.integer "good"
     t.string "delivery_status"
     t.integer "payment_status"

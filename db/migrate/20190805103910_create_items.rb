@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string  :shipping_source_area, null: false
 
       t.string  :size
-      t.string  :status,               default: 0  
+      t.string  :status
       t.integer :good
       t.string  :delivery_status
       t.integer  :payment_status 
