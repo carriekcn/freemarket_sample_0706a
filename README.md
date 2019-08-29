@@ -23,9 +23,14 @@
 |first_name|text|null: flase|
 |family_name_kana|text|null: flase|
 |first_name_kana|text|null: flase|
+|birthyear|date|null: false|
+|birthmonth|date|null: false|
 |birthday|date|null: false|
 |point_id|references|null: false, foreign_key: true|
+|prefecture|string|null: false|
+|city|string|null: false|
 |address|text|null: false|
+|building|string||
 |zip_code|string|null: false|
 |phone_number|string|null: false|
 |payjp_id|integer|
