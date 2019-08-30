@@ -33,11 +33,6 @@ $lite_black: #333;
   white-space: normal;
 }
 
-@mixin side_menu__lists{
-  height: 685px;
-  border-top: 1px solid $lite_gray;
-}
-
 @mixin side_menu__name{
   border: 0;
   height: $side_menu__lists_height;
@@ -76,16 +71,17 @@ $lite_black: #333;
 }
 
 @mixin side_menu__selection{
-  background: $lite_gray;
-  height: $side_menu__lists_height;
-  text-shadow: none;
-  font-weight: bold;
-  
+  border: 0;
+  #show{
+    background: $lite_gray;
+    height: $side_menu__lists_height;
+    text-shadow: none;
+    font-weight: bold;
+  }
 }
 
 @mixin side_menu__title{
   height: 16px;
-  margin: 40px auto 0;
   font-size: 16px;
   font-weight: bold;
 }
@@ -98,19 +94,9 @@ $lite_black: #333;
 @mixin tabs{
   border: 0;
   background: $lite_gray;
-  width: $mypage_width;
   margin: 0 auto;
   clear: both;
-  position: relative;
-  height: 100%;
-
-}
-
-@mixin tabs_select{
-  background: $white;
-  color: $black;
-  height: 72px;
-  border-top: 2px solid #ea352d;
+  display: inline-block;
 }
 
 @mixin tabs_input {
@@ -120,8 +106,15 @@ $lite_black: #333;
   height: 74px;
 }
 
+@mixin tabs_select{
+  background: $white;
+  color: $black;
+  height: 72px;
+  border-top: 2px solid #ea352d;
+}
+
 @mixin tabs_name{
-  height: 74px;
+  min-height: 74px;
   background: $lite_gray;
   color: $black;
   float: left;
@@ -134,21 +127,37 @@ $lite_black: #333;
 
 @mixin tabs_contents{
   background: $white;
-  top: 74px;
   display: none;
-  position: absolute;
-  border-bottom: 1px solid $lite_gray;
-  min-height: 236px;
-
+  padding: 74px 0 0;
 }
 
 @mixin tabs_none{
-  position: absolute;
-  padding: 60px 0;
-  text-align: center;
-  width: $mypage_width;
-  bottom: 0;
-  font-size: 16px;
-  color: $gray;
-  font-weight: 600;
+    position: absolute;
+    padding: 60px 0;
+    text-align: center;
+    width: $mypage_width;
+    bottom: 0;
+    font-size: 16px;
+    color: $gray;
+    font-weight: 600;
+}
+
+@mixin tabs_bottom_none{
+  position: relative;
+  height: 236px;
+
+  &__icon{
+    position: absolute;
+    top:0;
+  }
+  li{
+    position: absolute;
+    padding: 60px 0;
+    text-align: center;
+    width: $mypage_width;
+    bottom: 0;
+    font-size: 16px;
+    color: $gray;
+    font-weight: 600;
+  }
 }

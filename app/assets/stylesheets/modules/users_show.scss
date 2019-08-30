@@ -3,7 +3,7 @@ $small_side__width: 280px;
 
 html, body {
   position: relative;
-  height: 100%;
+  min-height: 100%;
 }
 
 * {
@@ -13,8 +13,6 @@ html, body {
   border-style: solid;
   border-width: 0;
   font-size: inherit;
-  line-height: inherit;
-  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -26,10 +24,6 @@ h2{
 
 h3{
   font-size: 16px;
-  font-weight: bold;
-}
-
-span{
   font-weight: bold;
 }
 
@@ -47,17 +41,20 @@ a{
   &__text{
     @include bread_crumb__text
   }
+  span{
+    font-weight: bold;
+  }
 }
 
 .mypage{
-  // max-height: 1252px;
-  height: 100%;
-
   &__main{
     width: 700px;
-    position: relative;
-    // max-height: 1247px;
-    height: 100%;
+  }
+
+  &__side_menu__lists{
+    li:first-child{
+      @include side_menu__selection;
+    }
   }
 }
 
@@ -67,6 +64,7 @@ a{
       width: 1020px;
     }
   }
+
   .mypage{
     width: 1020px;
     height: 1252px;
@@ -76,64 +74,65 @@ a{
       &__main{
         float: right;
       }
-  }
-  .mypage__side_menu{
-    height: 1252px;
-    margin: 0 40px 0 0;
-    width: $small_side__width;
-    float: left;
 
-    &__lists{
+    .mypage__side_menu{
+      height: 1252px;
+      margin: 0 40px 0 0;
       width: $small_side__width;
+      float: left;
 
-      &__name{
-        width: $small_side__width;
-
-        &__text{
-          width: $small_side__width;
-        }
-      }
-    }
-  
-    &__merupay{
-      width: $small_side__width;
-  
-      &__title{
-        width: $small_side__width;
-  
-      }
-  
       &__lists{
         width: $small_side__width;
-  
+
         &__name{
           width: $small_side__width;
-  
+
           &__text{
             width: $small_side__width;
-  
           }
         }
       }
-    }
-  
-    &__setting{
-      width: $small_side__width;
-  
-      &__title{
+    
+      &__merupay{
         width: $small_side__width;
-  
-      }
-  
-      &__lists{
-        width: $small_side__width;
-  
-        &__name{
+    
+        &__title{
           width: $small_side__width;
-  
-          &__text{
+    
+        }
+    
+        &__lists{
+          width: $small_side__width;
+    
+          &__name{
             width: $small_side__width;
-  
+    
+            &__text{
+              width: $small_side__width;
+    
+            }
+          }
+        }
+      }
+    
+      &__setting{
+        width: $small_side__width;
+    
+        &__title{
+          width: $small_side__width;
+    
+        }
+    
+        &__lists{
+          width: $small_side__width;
+    
+          &__name{
+            width: $small_side__width;
+    
+            &__text{
+              width: $small_side__width;
+    
+            }
           }
         }
       }
@@ -147,74 +146,74 @@ a{
       width: 700px;
     }
   }
+
   .mypage{
     margin: 24px auto 0;
     padding: 0 0 40px;
     width: 700px;
-    max-height: 2579px;
-    min-height: 2224px;
-    height: 100%;
+    // height: 2224px;
+    height: 2539px;
+    min-height: 100%;
 
     &__main{
       width: 700px;
       max-height: 1247px;
       min-height: 932px;
-      height: 100%;
-      
     }
-  }
-  .mypage__side_menu{
-    margin: 40px auto;
-    width: 700px;
-    height: 1252px;
 
-    &__lists{
-      width: $wide_side__width;
-  
-      &__name{
-        width: $wide_side__width;
-  
-        &__text{
-          width: $wide_side__width;
-        }
-      }
-    }
-  
-    &__merupay{
-      width: $wide_side__width;
-
-      &__title{
-        width: $wide_side__width;
-      }
+    .mypage__side_menu{
+      margin: 40px auto;
+      width: 700px;
+      height: 1252px;
   
       &__lists{
         width: $wide_side__width;
-
+    
         &__name{
           width: $wide_side__width;
-  
+    
           &__text{
             width: $wide_side__width;
           }
         }
       }
-    }
-  
-    &__setting{
-      width: $wide_side__width;
-
-      &__title{
-        width: $wide_side__width;
-      }
-  
-      &__lists{
+    
+      &__merupay{
         width: $wide_side__width;
   
-        &__name{
+        &__title{
+          width: $wide_side__width;
+        }
+    
+        &__lists{
           width: $wide_side__width;
   
-          &__text{
+          &__name{
             width: $wide_side__width;
+    
+            &__text{
+              width: $wide_side__width;
+            }
+          }
+        }
+      }
+    
+      &__setting{
+        width: $wide_side__width;
+  
+        &__title{
+          width: $wide_side__width;
+        }
+    
+        &__lists{
+          width: $wide_side__width;
+    
+          &__name{
+            width: $wide_side__width;
+    
+            &__text{
+              width: $wide_side__width;
+            }
           }
         }
       }

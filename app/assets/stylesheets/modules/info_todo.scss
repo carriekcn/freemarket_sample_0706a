@@ -7,19 +7,19 @@ $lite_gray: #eee;
     margin: 0 auto;
     background: $mypage_white;
     width: $mypage_width;
-    max-height: 625px;
     min-height: 237px;
-    height: 100%;
 
     &__tabs{
       @include tabs;
+      height: 100%;
+      width: 100%;
 
       input{
         @include tabs_input;
       }
 
       input:checked + &__name {
-        @include tabs_select;
+        @include tabs_select
       }
 
       &__name{
@@ -31,33 +31,29 @@ $lite_gray: #eee;
       }
 
       #info__contents{
-        width: $mypage_width;
-        height: 550px;
+        min-height: 550px;
       }
 
       #todo__contents{
-        width: $mypage_width;
-        height: 236px;
+        min-height: 236px;
       }
 
       &__contents{
         @include tabs_contents;
 
         &__info_lists{
-          width: $mypage_width;
-          height: 540px;
+          display: block;
 
           &__body{
             height: 92px;
             position: relative;
-            
+            border-bottom: 1px solid $lite_gray;
+
             &__link{
-              position: absolute;
-              top: 0;
+              display: block;
+              min-height: 80px;
               padding: 16px;
-              border-bottom: 1px solid $lite_gray;
               width: 668px;
-              height: 60px;
 
               figure{
                 overflow: hidden;
@@ -79,37 +75,42 @@ $lite_gray: #eee;
               &__box{
                 margin: 0 40px 0 68px;
                 width: 560px;
+                height: 60px;
 
                 &__text{
+                  height: 42px;
                   overflow: hidden;
+                  display: block;
                   max-height: 4.4em;
-                  -webkit-line-clamp: 3;
-                  -webkit-box-orient: vertical;
                   text-overflow: ellipsis;
                   line-height: 1.5;
-                  height: 42px;
+                }
 
-                  &__time{
-                    display: inline-block;
-                    color: #888;
-                    width: 632px;
+                &__time{
+                  display: inline-block;
+                  height: 18px;
+                  width: 62px;
+                  color: #888;
+
+                  i{
+                    margin: 0 8px 0 0; 
+                    width: 16px;
                     height: 18px;
-                    position: absolute;
-                    bottom: 20px;
-                    margin: 0 0 0 68px;
-                    left: 0;
-
-                    i{
-                      margin: 0 8px 0 0; 
-                      width: 16px;
-                      height: 18px;
-                      bottom: 20px;
-                      color: #333
-                    }
+                    color: #333;
+                    float: left;
+                  }
+                  span{
+                    font-weight: none;
+                    overflow: hidden;
+                    max-height: 4.4em;
+                    text-overflow: ellipsis;
+                    line-height: 1.5;
+                    float: right;
                   }
                 }
               }
             }
+
               .fa.fa-angle-right.fa-2x{
                 position: absolute;
                 width: 9px;
@@ -139,23 +140,15 @@ $lite_gray: #eee;
           }
         }
 
-        &__todo_lists{
+        &__todo_lists__body{
+          position: relative;
           height: 236px;
-          width: $mypage_width;
 
-          &__body{
-            position: relative;
-            height: 236px;
-            width: $mypage_width;
-
-            &__icon{
-              position: absolute;
-              top:0;
-            
-            }
-            li{
-              @include tabs_none
-            }
+          &__icon{
+            top:0;
+          }
+          li{
+            @include tabs_none
           }
         }
       }

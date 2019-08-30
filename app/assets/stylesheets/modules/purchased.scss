@@ -36,54 +36,20 @@ $mypage_white: #fff;
 
       &__contents{
         @include tabs_contents;
-        width: $mypage_width;
-        height: 236px;
 
-        &__trading_lists{
-          width: $mypage_width;
-          height: 236px;
-
-          &__body{
-            position: relative;
-            width: $mypage_width;
-            height: 236px;
-
-            &__icon{
-              position: absolute;
-              top:0;
-            }
-          }
+        &__trading_lists__body{
+          @include tabs_bottom_none
         }
 
-        &__transactions_lists{
-            width: $mypage_width;
-            height: 236px;
-
-          &__body{
-            position: relative;
-            width: $mypage_width;
-            height: 236px;
-
-            &__icon{
-              position: absolute;
-              top:0;
-            }
-          }
-        }
-
-        li{
-          @include tabs_none
+        &__transactions_lists__body{
+          @include tabs_bottom_none
         }
       }
     }
   }
 }
-
 .mypage__main__purchased_product__tabs input:checked + .mypage__main__purchased_product__tabs__name {
-  background-color: $mypage_white;
-  color: #000;
-  height: 72px;
-  border-top: 2px solid #ea352d;
+  @include tabs_select
 }
 
 #transactions_tab:checked ~ #transactions__contents,

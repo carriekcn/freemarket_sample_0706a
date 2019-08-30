@@ -1,37 +1,19 @@
-$mypage_width: 280px;
-$title_height: 16px;
-
-body{
-  position: relative;
-  min-height: 100%;
-}
+$bottom_title_margin: 40px auto 0;
 
 * {
   text-decoration: none;
 }
 
 .mypage__side_menu{
-
   height: 1252px;
-
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: #000;
   cursor: default;
   float: left;
 
   &__lists{
-    @include side_menu__lists;
-
-    li:first-child{
-      border: 0;
-      #show{
-      @include side_menu__selection;
-      }
-      i{
-        color: #333;
-      }
-    }
+    height: 685px;
+    border-top: 1px solid $lite_gray;
 
     &__name{
       @include side_menu__name;
@@ -53,7 +35,8 @@ body{
   }
 
   &__merupay{
-    height: 161px;
+    height: 121px;
+    margin: $bottom_title_margin;
 
     &__title{
       @include side_menu__title
@@ -88,7 +71,8 @@ body{
   }
 
   &__setting{
-    height: 406px;
+    height: 366px;
+    margin: $bottom_title_margin;
 
     &__title{
       @include side_menu__title
