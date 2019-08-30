@@ -62,6 +62,11 @@ a{
 }
 
 @media screen and (min-width: 1053px){
+  .bread_crumb{
+    &__text{
+      width: 1020px;
+    }
+  }
   .mypage{
     width: 1020px;
     height: 1252px;
@@ -137,6 +142,11 @@ a{
 }
 
 @media screen and (max-width: 1052px){
+  .bread_crumb{
+    &__text{
+      width: 700px;
+    }
+  }
   .mypage{
     margin: 24px auto 0;
     padding: 0 0 40px;
