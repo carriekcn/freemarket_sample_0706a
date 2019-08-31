@@ -4,7 +4,6 @@
     %p.line_one Free Market Apps
     %p.line_two Developed by Team 0706a
 .main
-  -# %a.fixed_btn{href: "#"}
   = link_to "/items/new", {class: 'fixed_btn'} do
     出品
     %br/
@@ -16,7 +15,7 @@
   .container.clearfix
     - @wmen.each do |product|
       .container-cell
-        = link_to '/items/1', method: :get do
+        = link_to(item_path(product.item.id)) do
           = image_tag(product.image.url, class: 'container-cell__pix')
           .container-cell__description
             %ul
