@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
 
   def show
     render layout:  "compact"
+    @item_id = params[:id]
   end
 
 end

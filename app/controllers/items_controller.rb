@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   layout "compact", only: [:new]
 
   def show
+    @item_id = params[:id]
   end
 
   def new
