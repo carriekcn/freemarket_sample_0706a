@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_120641) do
+ActiveRecord::Schema.define(version: 2019_08_29_130930) do
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 2019_08_29_120641) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "uid", null: false
+    t.string "provider", null: false
+    t.text "token"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "family_name", null: false
@@ -145,6 +155,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_120641) do
   add_foreign_key "items", "users"
   add_foreign_key "items_categories", "categories"
   add_foreign_key "items_categories", "items"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "user_details", "points"
   add_foreign_key "user_details", "users"
   add_foreign_key "users_valuations", "users"

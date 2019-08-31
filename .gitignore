@@ -31,7 +31,7 @@
 /config/master.key
 
 public/uploads/*
-config/secrets.
+config/secrets.yml
 
 #.DS_store banished!
 .DS_Store

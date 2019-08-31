@@ -9,9 +9,11 @@
 					%i.fa.fa-envelope
 					%p.mail-box__logo メールアドレスで登録する
 			.facebook-box
-				%i.fa.fa-facebook-square
-				%p.facebook-box__logo Facebookで登録する
+				= link_to user_facebook_omniauth_authorize_path do
+					%i.fa.fa-facebook-square
+					%p.facebook-box__logo Facebookで登録する
 			.google-box
-				= image_tag "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"
-				%p.google-box__logo Googleで登録する
+				= link_to user_google_oauth2_omniauth_authorize_path do
+					= image_tag "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"
+					%p.google-box__logo Googleで登録する
 = render "footer"
