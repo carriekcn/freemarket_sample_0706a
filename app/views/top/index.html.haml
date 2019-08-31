@@ -16,17 +16,19 @@
   .container.clearfix
     - @wmen.each do |product|
       .container-cell
-        = image_tag(product.image.url, class: 'container-cell__pix')
-        .container-cell__description
-          %ul
-            %li.container-cell__description--product
-              = product.item.name
-            %li.container-cell__description--info
-              %p.one
-                ￥#{product.item.price}
-              %p.two
-                = fa_icon 'heart', class: 'icon'
-                = product.item.good
+        = link_to '/items/1', method: :get do
+          = image_tag(product.image.url, class: 'container-cell__pix')
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+
   .container-bottom
     = link_to "#" do 
       すべての商品を見る
