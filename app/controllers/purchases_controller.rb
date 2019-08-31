@@ -1,11 +1,16 @@
 class PurchasesController < ApplicationController
+
+  before_action :render_layout
+
   def index
-    render layout:  "compact"
   end
 
   def show
-    render layout:  "compact"
     @item_id = params[:id]
+  end
+
+  def render_layout
+    render layout:  "compact"
   end
 
 end
