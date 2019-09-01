@@ -6,7 +6,8 @@ class PurchasesController < ApplicationController
   end
 
   def show
-    @item_id = params[:id]
+    item = Item.find(params[:id])
+    @item_id = item.id
   end
 
   def render_layout

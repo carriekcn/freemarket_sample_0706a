@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   layout "compact", only: [:new]
 
   def show
-    @item_id = params[:id]
+    item = Item.find(params[:id])
+    @item_id = item.id
   end
 
   def new
