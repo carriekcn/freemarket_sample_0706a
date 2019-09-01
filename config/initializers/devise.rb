@@ -261,13 +261,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook,
-    # Rails.application.credentials.facebook[:key],
-    # Rails.application.credentials.facebook[:secret],
+    Rails.application.credentials.facebook[:key],
+    Rails.application.credentials.facebook[:secret],
     scope: 'email',
     info_fields: 'email,name'
   config.omniauth :google_oauth2,
-    # Rails.application.credentials.google_oauth2[:key],
-    # Rails.application.credentials.google_oauth2[:secret],
+    Rails.application.credentials.google_oauth2[:key],
+    Rails.application.credentials.google_oauth2[:secret],
     scope: 'userinfo.email, userinfo.profile'
 
   # ==> Warden configuration
