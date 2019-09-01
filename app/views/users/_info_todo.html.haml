@@ -1,0 +1,77 @@
+.mypage__main__menu
+  %ul.mypage__main__menu__tabs
+    %input#info_tab{checked: "checked", name: "mypage__main__menu__tabs__name", type: "radio"}/
+    %label.mypage__main__menu__tabs__name{for: "info_tab"}
+      %li お知らせ
+
+    %input#todo_tab{name: "mypage__main__menu__tabs__name", type: "radio"}/
+    %label.mypage__main__menu__tabs__name{for: "todo_tab"}
+      %li やることリスト
+
+    #info__contents.mypage__main__menu__tabs__contents
+      %ul.mypage__main__menu__tabs__contents__info_lists
+        %li.mypage__main__menu__tabs__contents__info_lists__body
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__body__link' do
+            %figure
+              =image_tag "//static.mercdn.net/images/mercari_profile.png", class: "mypage__main__menu__tabs__contents__info_lists__body__link__icon", width:"48px", height:"48px"
+            .mypage__main__menu__tabs__contents__info_lists__body__link__box
+              .mypage__main__menu__tabs__contents__info_lists__body__link__box__text
+                テキスト1
+              %time.mypage__main__menu__tabs__contents__info_lists__body__link__box__time
+                %i.far.fa-clock
+                %span 1日前
+          %i.fa.fa-angle-right.fa-2x
+        %li.mypage__main__menu__tabs__contents__info_lists__body
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__body__link' do
+            %figure
+              =image_tag "//static.mercdn.net/images/mercari_profile.png", class: "mypage__main__menu__tabs__contents__info_lists__body__link__icon", width:"48px", height:"48px"
+            .mypage__main__menu__tabs__contents__info_lists__body__link__box
+              .mypage__main__menu__tabs__contents__info_lists__body__link__box__text
+                テキスト2
+              %time.mypage__main__menu__tabs__contents__info_lists__body__link__box__time
+                %i.far.fa-clock
+                %span 2日前
+          %i.fa.fa-angle-right.fa-2x
+        %li.mypage__main__menu__tabs__contents__info_lists__body
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__body__link' do
+            %figure
+              =image_tag "//static.mercdn.net/images/mercari_profile.png", class: "mypage__main__menu__tabs__contents__info_lists__body__link__icon", width:"48px", height:"48px"
+            .mypage__main__menu__tabs__contents__info_lists__body__link__box
+              .mypage__main__menu__tabs__contents__info_lists__body__link__box__text
+                テキスト3
+              %time.mypage__main__menu__tabs__contents__info_lists__body__link__box__time
+                %i.far.fa-clock
+                %span 3日前
+          %i.fa.fa-angle-right.fa-2x
+        %li.mypage__main__menu__tabs__contents__info_lists__body
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__body__link' do
+            %figure
+              =image_tag "//static.mercdn.net/images/mercari_profile.png", class: "mypage__main__menu__tabs__contents__info_lists__body__link__icon", width:"48px", height:"48px"
+            .mypage__main__menu__tabs__contents__info_lists__body__link__box
+              .mypage__main__menu__tabs__contents__info_lists__body__link__box__text
+                テキスト4
+              %time.mypage__main__menu__tabs__contents__info_lists__body__link__box__time
+                %i.far.fa-clock
+                %span 4日前
+          %i.fa.fa-angle-right.fa-2x
+        %li.mypage__main__menu__tabs__contents__info_lists__body
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__body__link' do
+            %figure
+              =image_tag "//static.mercdn.net/images/mercari_profile.png", class: "mypage__main__menu__tabs__contents__info_lists__body__link__icon", width:"48px", height:"48px"
+            .mypage__main__menu__tabs__contents__info_lists__body__link__box
+              .mypage__main__menu__tabs__contents__info_lists__body__link__box__text
+                テキスト5
+              %time.mypage__main__menu__tabs__contents__info_lists__body__link__box__time
+                %i.fa.far-clock
+                %span 5日前
+          %i.fa.fa-angle-right.fa-2x
+
+        .mypage__main__menu__tabs__contents__info_lists__view
+          = link_to "#", class: 'mypage__main__menu__tabs__contents__info_lists__view__link' do
+            一覧を見る
+
+    #todo__contents.mypage__main__menu__tabs__contents
+      .mypage__main__menu__tabs__contents__todo_lists
+        %ul.mypage__main__menu__tabs__contents__todo_lists__body
+          =image_tag "mercari_icon_white.png", class: "mypage__main__menu__tabs__contents__todo_lists__body__icon", width:"700px", height:"160px"
+          %li 現在、やることリストはありません

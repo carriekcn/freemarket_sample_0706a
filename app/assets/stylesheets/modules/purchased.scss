@@ -1,0 +1,58 @@
+$mypage_width: 700px;
+$mypage_white: #fff;
+
+.mypage__main{
+  &__purchased_product{
+    height: 382px;
+    width: $mypage_width;
+    margin: 40px auto 0;
+
+  &__title{
+    width: 668px;
+    height: 72px;
+    padding: 0 16px;
+    background: #fafafa;
+    font-size: 16px;
+    line-height: 72px;
+  }
+
+    &__tabs{
+      @include tabs;
+      height: 310px;
+      width: $mypage_width;
+
+      input{
+        @include tabs_input;
+
+      }
+
+      &__name{
+        @include tabs_name;
+
+        :hover {
+          color: #777;
+        }
+      }
+
+      &__contents{
+        @include tabs_contents;
+
+        &__trading_lists__body{
+          @include tabs_bottom_none
+        }
+
+        &__transactions_lists__body{
+          @include tabs_bottom_none
+        }
+      }
+    }
+  }
+}
+.mypage__main__purchased_product__tabs input:checked + .mypage__main__purchased_product__tabs__name {
+  @include tabs_select
+}
+
+#transactions_tab:checked ~ #transactions__contents,
+#trading_tab:checked ~ #trading__contents {
+  display: block;
+}

@@ -1,0 +1,21 @@
+.mypage__main__purchased_product
+  %h2.mypage__main__purchased_product__title
+    購入した商品
+  %ul.mypage__main__purchased_product__tabs
+    %input#trading_tab{checked: "checked", name: "tab_purchased", type: "radio"}/
+    %label.mypage__main__purchased_product__tabs__name{for: "trading_tab"}
+      %li 取引中
+    %input#transactions_tab{name: "tab_purchased", type: "radio"}/
+    %label.mypage__main__purchased_product__tabs__name{for: "transactions_tab"}
+      %li 過去の取引
+
+    #trading__contents.mypage__main__purchased_product__tabs__contents
+      %ul.mypage__main__purchased_product__tabs__contents__trading_lists
+        .mypage__main__purchased_product__tabs__contents__trading_lists__body
+          =image_tag "mercari_icon_white.png", class: "mypage__main__menu__tabs__contents__trading_lists__body__icon", width:"700px", height:"160px"
+          %li 取引中の商品がありません
+    #transactions__contents.mypage__main__purchased_product__tabs__contents
+      %ul.mypage__main__purchased_product__tabs__contents__transactions_lists
+        .mypage__main__purchased_product__tabs__contents__transactions_lists__body
+          =image_tag "mercari_icon_white.png", class: "mypage__main__menu__tabs__contents__transactions_lists__body__icon", width:"700px", height:"160px"
+          %li 過去に取引した商品がありません
