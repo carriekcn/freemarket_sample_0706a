@@ -15,10 +15,11 @@
                 出品画像
                 %span.form-require
                   必須
-              %p
-                最大10枚までアップロードできます
-              .items-container.clearfix
-                %ul#image-list
+              %p 最大10枚までアップロードできます
+	              .flex-box
+	              #imgfile{onclick:"$('#file').click()"}
+	              %label.sell-form__upload__dropbox
+	                .sell-form__upload__dropitem
                   = f.fields_for :item_images do |image|
                     = image.label :image, id: 'image-list-before' do
                       = image.file_field :image, type: 'file', name: 'item_images[image][]', multiple: true, style: 'display: none;'
