@@ -13,8 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    item = Item.find(params[:id])
-    @item_id = item.id
+    @item = Item.find(params[:id])
   end
 
   def create
