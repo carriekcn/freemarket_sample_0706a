@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   resources :purchases, only: [:index]
   resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
+
+  resources :items do
+    get :confirmation, on: :member
+  end
+
 end
