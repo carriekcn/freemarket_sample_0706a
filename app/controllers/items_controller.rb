@@ -2,14 +2,17 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   layout "compact", only: [:new]
 
-  def show
-    item = Item.find(params[:id])
-    @item_id = item.id
-  end
-
   def new
     @item = Item.new
     @item_image = @item.item_images.build
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
   end
 
   def create
