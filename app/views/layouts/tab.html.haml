@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    -# %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta(charset="UTF-8")
+    %title メルカリ スマホでかんたん フリマアプリ
+    %link{href: "./images/mercari_icon.ico", rel: "icon"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'common', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+  
+= render 'layouts/header'
+= yield
+= render 'layouts/footer'
