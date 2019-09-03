@@ -1,38 +1,21 @@
-.logout-body {
-  margin-top: 40px;
-  margin-left: 210px;
-  padding-bottom: 40px;
-  .logout-side {
-    float: left;
-    width: 280px;
-    height: 1252px;
-    background-color: white;
-    margin-right: 40px;
-  }
-  .logout-box {
-    float: left;
-    width: 700px;
-    height: 179px;
-    background-color: white;
-    padding: 64px;
-    &__btn {
-      width: 320px;
-      height: 50px;
-      margin: 0 auto;
-      background-color: #ea352d;
-      &--logo {
-        text-align: center;
-        line-height: 50px;
-        color: white;
-      }
-      a{
-        color: white;
-      }
+.logout-box {
+  float: left;
+  width: 700px;
+  height: 179px;
+  background-color: white;
+  padding: 70px 0 0 0;
+  &__btn {
+    width: 320px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #ea352d;
+    &--logo {
+      text-align: center;
+      line-height: 50px;
+      color: white;
+    }
+    a{
+      color: white;
     }
   }
-}
-.logout-body:after {
-  content: "";
-  clear: both;
-  display: block;
 }
