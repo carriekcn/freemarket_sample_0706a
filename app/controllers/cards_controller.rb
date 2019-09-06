@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  layout "tab", only: [:index]
   def index
   end
 
