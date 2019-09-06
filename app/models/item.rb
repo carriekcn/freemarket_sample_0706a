@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many   :item_images, dependent: :destroy
+  belongs_to :user_detail
 
   accepts_nested_attributes_for :item_images, allow_destroy: true
 
