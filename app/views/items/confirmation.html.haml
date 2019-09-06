@@ -7,15 +7,18 @@
     %section.sell-item-container
       %h2.single-head
         購入内容の確認
+        = @item.name
       %section.sell-content.confirm
         .sell-content__inner.clearfix
           %h3.confirm__image
-            = image_tag "adidas-tops-image.jpg", height: '60px', width: '60px'
+            -# = image_tag "adidas-tops-image.jpg", height: '60px', width: '60px'
+            = image_tag(@img.image.url, height: '60px', width: '60px')
           %p.confirm__name
-            アディダス Tシャツ他
+            = @item.name
           = form_with url: root_path, class: "buy-form" do |f|
             %p.confirm__price
-              ¥2,222
+              ￥
+              = @item.price
               %span.item-shipping-fee 送料込み
             %ul.confirm__point
               %li.confirm__point--list
@@ -25,16 +28,18 @@
                 .buy-price 支払金額
                 .buy-price
                   %span
-                    "¥2,222"
+                    ￥
+                    = @item.price
               = f.submit "購入する", {class: "btn--purchase"}
       %section.sell-content.buy-user__info
         .sell-content__inner
           %h3 配送先
           %address.buy-user__info--text
-            〒000-0000
+            〒
+            = @prof.zip_code
             %br
-            東京都 渋谷
-            ○○ビル
+            = @prof.address
+            = @prof.building
             %br
             名前
           %p.buy-user__info--text

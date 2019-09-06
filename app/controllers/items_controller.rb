@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
 
   def confirmation
     @item = Item.find(params[:id])
+    # @img = ItemImage.find_by(item_id: 1)
+    @img = ItemImage.find_by(item_id: @item)
+    @prof = UserDetail.find(1)
+    #@test = UserDetail.includes(:item_image).merge(@item)
   end
 
   def create
