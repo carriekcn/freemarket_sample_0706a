@@ -1,10 +1,4 @@
-.bread_crumb
-  .bread_crumb__text
-    メルカリ　
-    %i.fa.fa-angle-right
-    マイページ　
-    %i.fa.fa-angle-right
-    %span お支払い方法
+= render 'layouts/breadcrumbs'
 
 .mypage
   .mypage__main
@@ -28,3 +22,4 @@
             %span
               = fa_icon 'chevron-right', class: 'icon'
   =render partial: "users/side_menu"
+
