@@ -2,13 +2,8 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :exhibit do
-  link "出品ページ", new_item_path
-  parent :root
-end
-
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(id: current_user.id)
   parent :root
 end
 
