@@ -93,15 +93,15 @@
       送料込み
 
   -#  ログイン周りのバリデーション完成後反映 *インデント数注意
-  -# - if current_user.id == @item.user_id
-    -# .item-edit__btn
-    -#   = link_to "#" do
-    -#     %p 商品の編集
-    -# %p.text-center-or or
-    -# .item-delete__btn
-    -#   = link_to "#" do
-    -#     %p この商品を削除する
-  -# - else
+  - if current_user.id == @item.user_id
+    .item-edit__btn
+      = link_to "#" do
+        %p 商品の編集
+    %p.text-center-or or
+    .item-delete__btn
+      = link_to "/items/#{@item.id}", method: :delete do
+        %p この商品を削除する
+  - else
   .item-purchase__btn
     = link_to(edit_item_path(@item.id), class: 'buy-btn') do
       %p 購入画面に進む
