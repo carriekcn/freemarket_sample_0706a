@@ -1,0 +1,15 @@
+.profile
+  .profile-sub
+    %p.profile-sub__text プロフィール
+  .profile-main
+    .profile-main__img
+      .profile-main__img__form
+        .profile-main__img__form--icon
+          = image_tag ('https://static.mercdn.net/images/member_photo_noimage_thumb.png')
+        %input{placeholder: "name", class: "profile-main__img__form--namebox"}
+  .profile-edit
+    %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+    %a{href: "#"}
+      .profile-edit__btn
+        %p.profile-edit__btn--text 変更する
+  
