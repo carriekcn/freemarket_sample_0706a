@@ -1,0 +1,20 @@
+html, body {
+  position: relative;
+  min-height: 100%;
+}
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  font-size: inherit;
+  box-sizing: inherit;
+}
+.header{
+  box-sizing: border-box;
+}
+.footer{
+  box-sizing: border-box;
+}

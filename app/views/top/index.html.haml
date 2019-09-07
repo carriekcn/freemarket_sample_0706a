@@ -16,7 +16,14 @@
     - @wmen.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+
           .container-cell__description
             %ul
               %li.container-cell__description--product
@@ -38,7 +45,13 @@
     - @men.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+
           .container-cell__description
             %ul
               %li.container-cell__description--product
@@ -59,7 +72,12 @@
     - @kids.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
           .container-cell__description
             %ul
               %li.container-cell__description--product
@@ -81,7 +99,12 @@
     - @chans.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
           .container-cell__description
             %ul
               %li.container-cell__description--product
@@ -102,7 +125,12 @@
     - @louvs.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
           .container-cell__description
             %ul
               %li.container-cell__description--product
@@ -123,7 +151,12 @@
     - @nikes.each do |product|
       .container-cell
         = link_to(item_path(product.item.id)) do
-          = image_tag(product.image.url, class: 'container-cell__pix')
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
           .container-cell__description
             %ul
               %li.container-cell__description--product
