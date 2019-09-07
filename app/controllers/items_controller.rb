@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  layout "compact", only: [:new]
+  layout "compact", only: [:new, :edit]
 
   def new
     @item = Item.new
