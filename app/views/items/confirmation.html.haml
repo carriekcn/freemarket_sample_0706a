@@ -11,7 +11,6 @@
       %section.sell-content.confirm
         .sell-content__inner.clearfix
           %h3.confirm__image
-            -# = image_tag "adidas-tops-image.jpg", height: '60px', width: '60px'
             = image_tag(@img.image.url, height: '60px', width: '60px')
           %p.confirm__name
             = @item.name
