@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root to: 'top#index'
   resources :users, only: [:show]
   resources :top, only: [:index]
-  resources :items, only: [:new, :create, :show]
+  resources :items, only: [:new, :create, :show, :update]
   resources :purchases, only: [:index]
   resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
