@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'profile/index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   resources :purchases, only: [:index]
   resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
+  resources :profile, only: [:index]
 end
