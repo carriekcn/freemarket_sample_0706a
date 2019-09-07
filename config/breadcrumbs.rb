@@ -2,14 +2,14 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :exhibit do
-  link "出品ページ", new_item_path
+crumb :mypage do
+  link "マイページ", user_path(id: current_user.id)
   parent :root
 end
 
 crumb :card do
   link "支払い方法", cards_path
-  parent :root
+  parent :mypage
 end
 
 crumb :card_pay do
@@ -24,7 +24,7 @@ end
 
 crumb :profile do
   link "プロフィール", profile_index_path
-  parent :root
+  parent :mypage
 end
 # crumb :projects do
 #   link "Projects", projects_path
