@@ -1,0 +1,183 @@
+.banner-top
+  = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?2927923569', class: 'img_phone')
+  .banner-text
+    %p.line_one Free Market Apps
+    %p.line_two Developed by Team 0706a
+.main
+  = link_to "/items/new", {class: 'fixed_btn'} do
+    出品
+    %br/
+    = fa_icon 'camera', class: 'icon'
+
+  %h1 ビックアップカテゴリー
+  = link_to "#" do
+    %h2 レディース新着アイテム
+  .container.clearfix
+    - @wmen.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+  = link_to "#" do
+    %h2 メンズ新着アイテム
+  .container.clearfix
+    - @men.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+  = link_to "#" do
+    %h2 ベビー・キッズ 新着アイテム
+  .container.clearfix
+    - @kids.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+  %h1 ビックアップブランド
+  = link_to "#" do
+    %h2 シャネル新着アイテム
+  .container.clearfix
+    - @chans.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+  = link_to "#" do
+    %h2 ルイヴィトン新着アイテム
+  .container.clearfix
+    - @louvs.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+  = link_to "#" do
+    %h2 ナイキ新着アイテム
+  .container.clearfix
+    - @nikes.each do |product|
+      .container-cell
+        = link_to(item_path(product.item.id)) do
+          - if product.item.status == 'Sold'
+            .status
+              %p.sold SOLD
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          - else
+            = image_tag(product.image.url, class: 'container-cell__pix')
+          .container-cell__description
+            %ul
+              %li.container-cell__description--product
+                = product.item.name
+              %li.container-cell__description--info
+                %p.one
+                  ￥#{product.item.price}
+                %p.two
+                  = fa_icon 'heart', class: 'icon'
+                  = product.item.good
+  .container-bottom
+    = link_to "#" do 
+      すべての商品を見る
+
+.banner-bottom
+  .banner-bottom__left.clearfix
+    %p.text_01 スマホでかんたんフリマアプリ
+    %p.text_02 今すぐ無料ダウンロード！
+    .banner-bottom__left--bottom
+      =image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2098311808',class: 'icon_01')
+      =image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2098311808', class: 'icon_02')
+      =image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2098311808', class: 'icon_03')
+  =image_tag('//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2927923569', class: 'img_phones')
+

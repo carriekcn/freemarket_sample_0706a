@@ -1,7 +1,163 @@
+$mypage_width: 280px;
+$side_menu__lists_height: 48px;
+
+$white: #fff;
+$lite_gray: #eee;
+$gray: #ccc;
+$black: #000;
+$lite_black: #333;
+
 @mixin clearfix {
   &:after {
     content: "";
     display: block;
     clear: both;
+  }
+}
+
+@mixin bread_crumb{
+  width: 100%;
+  height: 48px;
+  border-top: 1px solid $lite_gray;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: $white;
+  margin: 0 auto;
+}
+
+@mixin bread_crumb__text{
+  height: 16px;
+  overflow: visible;
+  width: $mypage_width;
+  margin: 0 auto;
+  padding: 16px 0;
+  white-space: normal;
+}
+
+@mixin side_menu__name{
+  border: 0;
+  height: $side_menu__lists_height;
+  position: relative;
+
+}
+
+@mixin side_menu__text{
+  height: $side_menu__lists_height;
+  position: absolute;
+  display: block;
+  padding: 16px;
+  background: $white;
+  font-size: 14px;
+  color: $lite_black;
+  float: left;
+  border-bottom: 1px solid $lite_gray ;
+}
+
+@mixin side_menu__icon{
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: $gray;
+  transform: translate(0, -50%);
+  transition: all ease-out .2s;
+}
+
+@mixin side_menu__select_icon{
+  color: $lite_black;
+  right: 12px;
+}
+
+@mixin side_menu__active{
+  font-weight: 600;
+}
+
+@mixin side_menu__selection{
+  border: 0;
+  #show{
+    background: $lite_gray;
+    height: $side_menu__lists_height;
+    text-shadow: none;
+    font-weight: bold;
+  }
+}
+
+@mixin side_menu__title{
+  height: 16px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@mixin side_menu__bottom_lists{
+  margin: 8px auto 0;
+  border-top: 1px solid $lite_gray;
+}
+
+@mixin tabs{
+  border: 0;
+  background: $lite_gray;
+  margin: 0 auto;
+  clear: both;
+  display: inline-block;
+}
+
+@mixin tabs_input {
+  display: none;
+  color: $lite_black;
+  line-height: 72px;
+  height: 74px;
+}
+
+@mixin tabs_select{
+  background: $white;
+  color: $black;
+  height: 72px;
+  border-top: 2px solid #ea352d;
+}
+
+@mixin tabs_name{
+  min-height: 74px;
+  background: $lite_gray;
+  color: $black;
+  float: left;
+  text-align: center;
+  width: 50%;
+  font-size: 16px;
+  line-height: 74px;
+  font-weight: bold;
+}
+
+@mixin tabs_contents{
+  background: $white;
+  display: none;
+  padding: 74px 0 0;
+}
+
+@mixin tabs_none{
+    position: absolute;
+    padding: 60px 0;
+    text-align: center;
+    width: $mypage_width;
+    bottom: 0;
+    font-size: 16px;
+    color: $gray;
+    font-weight: 600;
+}
+
+@mixin tabs_bottom_none{
+  position: relative;
+  height: 236px;
+
+  &__icon{
+    position: absolute;
+    top:0;
+  }
+  li{
+    position: absolute;
+    padding: 60px 0;
+    text-align: center;
+    width: $mypage_width;
+    bottom: 0;
+    font-size: 16px;
+    color: $gray;
+    font-weight: 600;
   }
 }

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'profile/index'
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
@@ -14,8 +15,9 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'top#index'
+  resources :users, only: [:show]
   resources :top, only: [:index]
-  resources :items, only: [:new, :create, :show]
+  resources :items, only: [:new, :create, :show, :edit]
   resources :purchases, only: [:index]
   resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
