@@ -1,10 +1,4 @@
-.bread_crumb
-  .bread_crumb__text
-    メルカリ　
-    %i.fa.fa-angle-right
-    マイページ　
-    %i.fa.fa-angle-right
-    %span プロフィール
+= render 'layouts/breadcrumbs'
 
 .mypage
   .mypage__main
@@ -21,3 +15,4 @@
         %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
         = link_to "変更する", "#", class: "profile-btn"
   =render partial: "users/side_menu"
+

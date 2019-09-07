@@ -21,6 +21,11 @@ crumb :logout do
   link "ログアウト", logout_path
   parent :root
 end
+
+crumb :profile do
+  link "プロフィール", profile_index_path
+  parent :root
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
