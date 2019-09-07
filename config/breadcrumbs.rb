@@ -7,9 +7,14 @@ crumb :exhibit do
   parent :root
 end
 
+crumb :mypage do
+  link "マイページ", user_path
+  parent :root
+end
+
 crumb :card do
   link "支払い方法", cards_path
-  parent :root
+  parent :mypage
 end
 
 crumb :card_pay do
@@ -24,7 +29,7 @@ end
 
 crumb :profile do
   link "プロフィール", profile_index_path
-  parent :root
+  parent :mypage
 end
 # crumb :projects do
 #   link "Projects", projects_path
