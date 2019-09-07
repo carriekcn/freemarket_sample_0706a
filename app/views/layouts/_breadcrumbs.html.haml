@@ -1,0 +1,17 @@
+.breadcrumb
+  - case params.values_at :controller, :action
+
+  - when ['items', 'new']
+    - breadcrumb :exhibit 
+
+  - when ['cards', 'index']
+    - breadcrumb :card
+
+  - when ['cards', 'new']
+    - breadcrumb :card_pay
+
+  - when ['logout', 'index']
+    - breadcrumb :logout
+
+  %span.breadcrumb__separator
+    = breadcrumbs separator: " &rsaquo; "

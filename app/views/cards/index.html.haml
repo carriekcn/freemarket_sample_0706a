@@ -1,0 +1,25 @@
+= render 'layouts/breadcrumbs'
+
+.mypage
+  .mypage__main
+    .contents
+      .main
+        = link_to '#', class: "fixed_btn" do
+          出品
+          %br/
+          = fa_icon 'camera', class: 'icon'
+        %h2 支払い方法
+        .main-middle
+          %p.one クレジットカード一覧
+          = link_to '/cards/new' do
+            %p.two
+              = fa_icon 'credit-card', class: 'icon'
+              クレジットカードを追加する
+        %hr/
+        %p.main-bottom
+          = link_to '#' do
+            支払い方法について
+            %span
+              = fa_icon 'chevron-right', class: 'icon'
+  =render partial: "users/side_menu"
+

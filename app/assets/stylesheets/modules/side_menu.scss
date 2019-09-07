@@ -1,0 +1,108 @@
+$bottom_title_margin: 40px auto 0;
+
+* {
+  text-decoration: none;
+}
+
+.mypage__side_menu{
+  height: 1252px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: default;
+  float: left;
+
+  &__lists{
+    height: 685px;
+    border-top: 1px solid $lite_gray;
+
+    &__name{
+      @include side_menu__name;
+
+      :hover{
+        i{
+          @include side_menu__select_icon;
+        }
+      }
+
+      &__text{
+        @include side_menu__text;
+
+        i{
+          @include side_menu__icon;
+        }
+      }
+    }
+  }
+
+  &__merupay{
+    height: 121px;
+    margin: $bottom_title_margin;
+
+    &__title{
+      @include side_menu__title
+    }
+
+    &__lists{
+      height: 96px;
+      @include side_menu__bottom_lists;
+
+      li:first-child{
+        border: 0;
+        }
+
+      :hover{
+        i{
+          @include side_menu__select_icon;
+        }
+      }
+
+      &__name{
+        @include side_menu__name;
+
+        &__text{
+          @include side_menu__text;
+
+          i{
+            @include side_menu__icon;
+          }
+        }
+      }
+    }
+  }
+
+  &__setting{
+    height: 366px;
+    margin: $bottom_title_margin;
+
+    &__title{
+      @include side_menu__title
+    }
+
+    &__lists{
+      height: 350px;
+      @include side_menu__bottom_lists;
+
+      li:first-child{
+        border: 0;
+      }
+
+      :hover{
+        i{
+          @include side_menu__select_icon;
+        }
+      }
+
+      &__name{
+        @include side_menu__name;
+
+        &__text{
+          @include side_menu__text;
+
+          i{
+            @include side_menu__icon;
+          }
+        }
+      }
+    }
+  }
+}

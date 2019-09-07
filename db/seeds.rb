@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 # ユーザーデータ
 User.create( nickname:'KI', email:'ki@test.fm', password:'111111', password_confirmation:'111111' )
 User.create( nickname:'YK', email:'yk@test.fm', password:'222222', password_confirmation:'222222' )
@@ -27,3 +28,21 @@ ticket = Category.create( id: 11, name: "チケット", path: "11/" )
 car = Category.create( id: 12, name: "自動車・オートバイ", path: "12/" )
 etc = Category.create( id: 13,name: "その他", path: "13/" )
 
+chel = Category.create( id: 14, name: "Channel", path: "14/" )
+lv = Category.create( id: 15, name: "LouisVuitton", path: "15/" )
+nike = Category.create( id: 16, name: "Nike", path: "16/" )
+sup = Category.create( id: 17, name: "Supreme", path: "17/" )
+
+
+# ***適宜お使いください***
+# items
+# Item.create( name:'サンダル', state:'used', shipping_charges:'300', shipping_method:'メルカリ便', days_ship: '5日', price: '890', description: 'かわいいです', shipping_source_area: '香川県', size: 'S', status: 'Open', good: '3', user_id: '1', category_id: '3', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# Item.create( name:'コスメ', state:'New', shipping_charges:'590', shipping_method:'ヤマト', days_ship: '3日', price: '3200', description: '新品です', shipping_source_area: '東京都', size: 'M', status: 'Open', good: '1', user_id: '1', category_id: '14', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# Item.create( name:'ブランド財布', state:'Used', shipping_charges:'380', shipping_method:'佐川急便', days_ship: '7日以内', price: '8500', description: 'ほぼ未使用', shipping_source_area: '大阪府', size: 'M', status: 'Open', good: '2', user_id: '1', category_id: '15', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# Item.create( name:'バックパック', state:'Used', shipping_charges:'400', shipping_method:'メルカリ便', days_ship: '5日', price: '1200', description: '多少よごれあり', shipping_source_area: '静岡県', size: 'L', status: 'Open', good: '2', user_id: '1', category_id: '16', created_at: '2019-08-20', updated_at: '2019-08-20' )
+
+#item_images
+# ItemImage.create( image: 'kid_sandal.png', item_id: '10', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# ItemImage.create( image: 'accs.png', item_id: '11', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# ItemImage.create( image: 'wallet.png', item_id: '12', created_at: '2019-08-20', updated_at: '2019-08-20' )
+# ItemImage.create( image: 'bagpack.png', item_id: '13', created_at: '2019-08-20', updated_at: '2019-08-20' )

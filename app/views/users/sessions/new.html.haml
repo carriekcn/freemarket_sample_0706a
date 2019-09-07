@@ -7,11 +7,13 @@
         %p.create-new__logo 新規会員登録
   .log-in__body-account
     .facebook-box
-      %i.fa.fa-facebook-square
-      %p.facebook-box__logo Facebookでログイン
+      = link_to user_facebook_omniauth_authorize_path do
+        %i.fa.fa-facebook-square
+        %p.facebook-box__logo Facebookでログイン
     .google-box
-      %img{src: "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"}
-      %p.google-box__logo Googleでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path do
+        = image_tag "https://img.icons8.com/color/24/000000/google-logo.png", class: "google-img"
+        %p.google-box__logo Googleでログイン
   .log-in__body-form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       = f.email_field :email, class:"log-in__body-form--address", placeholder: "メールアドレス"

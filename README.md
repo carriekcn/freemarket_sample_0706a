@@ -14,6 +14,7 @@
 - has_many :valuations, through: :users_valuations
 - has_many :comments
 - has_many :buyers
+- has_many :sns_credentials
 
 ## user_detailsテーブル
 |Column|Type|Options|
@@ -23,9 +24,14 @@
 |first_name|text|null: flase|
 |family_name_kana|text|null: flase|
 |first_name_kana|text|null: flase|
+|birthyear|date|null: false|
+|birthmonth|date|null: false|
 |birthday|date|null: false|
 |point_id|references|null: false, foreign_key: true|
+|prefecture|string|null: false|
+|city|string|null: false|
 |address|text|null: false|
+|building|string||
 |zip_code|string|null: false|
 |phone_number|string|null: false|
 |payjp_id|integer|
@@ -135,3 +141,15 @@
 ### Association
 - belongs_to :item
 - belongs_to :category
+
+## sns_credentials TB
+
+| Column | Type | Options |
+|:-----------|------------:|:------------:|
+| uid | string | null: false, unique: true |
+| provider | string | null: false |
+| token | text | -- |
+| user_id | references | null: false, index: true, foreign_key: true |
+
+### Association
+- belongs_to :user

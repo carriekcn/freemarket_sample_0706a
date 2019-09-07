@@ -14,7 +14,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string  :status
       t.integer :good
       t.string  :delivery_status
-      t.string  :payment_status
+      t.integer  :payment_status 
 
       t.references :user,     foreign_key: true, null: false
       t.references :category, foreign_key: true, null: false
