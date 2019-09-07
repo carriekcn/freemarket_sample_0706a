@@ -1,8 +1,7 @@
 .profile {
   width: 700px;
-  margin-top: 40px;
-  margin-left: 550px;
-  // サイドバーの分の余白、仮設定
+  box-sizing: border-box;
+  
   .profile-sub {
     height: 50px;
     background-color: white;
