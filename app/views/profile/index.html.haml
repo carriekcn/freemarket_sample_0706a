@@ -1,13 +1,35 @@
-.profile
-  .profile-sub
-    %p.profile-sub__text プロフィール
-  .profile-main
-    .profile-main__img
-      .profile-main__img__form
-        .profile-main__img__form--icon
-          = image_tag ('https://static.mercdn.net/images/member_photo_noimage_thumb.png')
-        %input{placeholder: "name", class: "profile-main__img__form--namebox"}
-  .profile-edit
-    %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-    = link_to "変更する", "#", class: "profile-btn"
-  
+-# .profile
+-#   .profile-sub
+-#     %p.profile-sub__text プロフィール
+-#   .profile-main
+-#     .profile-main__img
+-#       .profile-main__img__form
+-#         .profile-main__img__form--icon
+-#           = image_tag ('https://static.mercdn.net/images/member_photo_noimage_thumb.png')
+-#         %input{placeholder: "name", class: "profile-main__img__form--namebox"}
+-#   .profile-edit
+-#     %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+-#     = link_to "変更する", "#", class: "profile-btn"
+.bread_crumb
+  .bread_crumb__text
+    メルカリ　
+    %i.fa.fa-angle-right
+    マイページ　
+    %i.fa.fa-angle-right
+    %span プロフィール
+
+.mypage
+  .mypage__main
+    .profile
+      .profile-sub
+        %p.profile-sub__text プロフィール
+      .profile-main
+        .profile-main__img
+          .profile-main__img__form
+            .profile-main__img__form--icon
+              = image_tag ('https://static.mercdn.net/images/member_photo_noimage_thumb.png')
+            %input{placeholder: "name", class: "profile-main__img__form--namebox"}
+      .profile-edit
+        %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        = link_to "変更する", "#", class: "profile-btn"
+  =render partial: "users/side_menu"
