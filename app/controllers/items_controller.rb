@@ -15,11 +15,12 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
-    @item = Item.find(params[:id])
-    # @img = ItemImage.find_by(item_id: 1)
-    @img = ItemImage.find_by(item_id: @item)
-    @prof = UserDetail.find(1)
-    #@test = UserDetail.includes(:item_image).merge(@item)
+    @item = Item.includes(:user).find(params[:id])
+    @detail = UserDetail.find_by(user_id: @item.user_id)
+    @img = ItemImage.find_by(item_id: @item.id)
+  end
+
+  def update
   end
 
   def create
