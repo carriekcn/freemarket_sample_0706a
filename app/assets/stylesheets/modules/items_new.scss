@@ -311,3 +311,18 @@ body {
     }
   }
 }
+
+#new_images{
+  width: 600px;
+  max-height:200px;
+}
+
+#new_image_form{
+    display: table-cell;
+    vertical-align:middle;
+    border: 1px dashed #aaa;
+    height:200px;
+    text-align: center;
+    width: 600px;
+    background-color: #F5F5F5;
+}
