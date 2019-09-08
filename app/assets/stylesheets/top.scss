@@ -141,10 +141,45 @@ ul {
         }
       }
     }
+    &__right-logout {
+      &--signup {
+        float: left;
+        width: 106px;
+        height: 32px;
+        background-color: #ea352d;
+        border-radius: 5px;
+        p {
+          color: white;
+          line-height: 32px;
+          text-align: center;
+        }
+      }
+      &--login {
+        float: left;
+        width: 72px;
+        height: 32px;
+        background-color: #ffffff;
+        border: solid 1px #0095ee;  
+        margin-left: 10px;
+        border-radius: 5px;
+        p {
+          color: #0095ee;
+          line-height: 32px;
+          text-align: center;
+        }
+      }
+      &--login:hover {
+        background-color: #0095ee;
+        transition: all .6s;
+        p:hover {
+          color: #ffffff;
+        }
+      }
+    }
   }
 }
 
-
+ 
 .footer {
   background-color: #212121;
   color: #ffffff;
