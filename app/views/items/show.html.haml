@@ -92,7 +92,6 @@
     %span.item-detail-price__sum
       送料込み
 
-  -#  ログイン周りのバリデーション完成後反映 *インデント数注意
   - if user_signed_in? && current_user.id == @item.user_id then
     .item-edit__btn
       = link_to "#" do
