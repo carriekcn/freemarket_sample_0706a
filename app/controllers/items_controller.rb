@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def confirmation
@@ -22,6 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])     
+    item.update(status_params)
   end
 
   def create
@@ -35,6 +36,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def status_params
+    params.require(:item).permit(status: 'Sold')
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :state, :shipping_charges, :shipping_method, :shipping_source_area, :days_ship, :price, item_images_attributes: [:image]).merge(user_id: current_user.id)
