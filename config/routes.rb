@@ -16,13 +16,27 @@ Rails.application.routes.draw do
   root to: 'top#index'
   resources :users, only: [:show]
   resources :top, only: [:index]
+
+
   resources :items, only: [:new, :create, :show, :update]
+
+  # resources :items do
+  #   get :confirmation, on: :member
+  # end
+
+  resources :items do
+    member do
+      get :confirmation
+      patch :confirmed
+    end
+  end
+
   resources :purchases, only: [:index]
   resources :users, only: [:index]
   resources :cards, only: [:index, :new, :create]
 
-  resources :items do
-    get :confirmation, on: :member
-  end
+  # resources :items do
+  #   get :confirmation, on: :member
+  # end
 
 end
