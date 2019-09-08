@@ -33,7 +33,7 @@
             %li.header-bottom__right--icon
               = fa_icon 'check', class: 'icon'
             %li.header-bottom__right--list やることリスト
-          =link_to "/users/show" do
+          = link_to user_path(current_user.id) do
             %li.header-bottom__right--face
               =image_tag('//static.mercdn.net/images/member_photo_noimage_thumb.png', class: 'img-me')
             %li.header-bottom__right--list マイページ
