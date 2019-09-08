@@ -98,7 +98,7 @@
         %p 商品の編集
     %p.text-center-or or
     .item-delete__btn
-      = link_to item_path, method: :delete do
+      = link_to item_path(@item.id), method: :delete do
         %p この商品を削除する
   - else
   .item-purchase__btn
