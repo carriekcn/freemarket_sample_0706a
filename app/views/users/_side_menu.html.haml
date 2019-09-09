@@ -1,7 +1,7 @@
 .mypage__side_menu
   %ul.mypage__side_menu__lists
     %li.mypage__side_menu__lists__name
-      = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
+      = link_to "/users/show", class: 'mypage__side_menu__lists__name__text', id: "show" do
         マイページ
         %i.fa.fa-angle-right.fa-2x
     %li.mypage__side_menu__lists__name
@@ -75,7 +75,7 @@
       設定
     .mypage__side_menu__setting__lists
       %li.mypage__side_menu__setting__lists__name
-        = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
+        = link_to "/profile/index", class: 'mypage__side_menu__setting__lists__name__text' do
           プロフィール
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
@@ -83,7 +83,7 @@
           発送元・お届け先住所変更
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
-        = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
+        = link_to "/cards", class: 'mypage__side_menu__setting__lists__name__text' do
           支払い方法
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
@@ -99,6 +99,6 @@
           電話番号の確認
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
-        = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
+        = link_to "/logout", class: 'mypage__side_menu__setting__lists__name__text' do
           ログアウト
           %i.fa.fa-angle-right.fa-2x

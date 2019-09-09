@@ -1,5 +1,9 @@
-.logout-body
-  .logout-side TBP by kurimura-san
-  .logout-box
-    .logout-box__btn
-      %p.logout-box__btn--logo ログアウト
+= render 'layouts/breadcrumbs'
+.mypage
+  .mypage__main
+    .logout-box
+      .logout-box__btn
+        %p.logout-box__btn--logo
+          =link_to destroy_user_session_path, method: :DELETE do
+            ログアウト
+  =render partial: "users/side_menu"

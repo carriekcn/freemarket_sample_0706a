@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  layout "compact", only: [:new]
+  layout "compact", only: [:new, :edit]
 
   def new
     @item = Item.new
@@ -39,6 +39,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+      if @item.user_id == current_user.id
+        @item.destroy
+        redirect_to root_path
+      end
+  end
 
   private
 
