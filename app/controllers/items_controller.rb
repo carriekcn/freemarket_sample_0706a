@@ -24,13 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def confirmed
-    item = Item.find(params[:id])
-    #if item.status == 'Open'     
-      item.update(status: 'Sold')
-      item.save
-    #else
-    #  redirect_to action: :show
-    #end
+    item = Item.find(params[:id])  
+    item.update(status: 'Sold')
+    item.save
   end
 
   def create
@@ -51,3 +47,4 @@ class ItemsController < ApplicationController
   end
 
 end
+
