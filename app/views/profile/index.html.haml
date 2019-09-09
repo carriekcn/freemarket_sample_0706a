@@ -10,7 +10,7 @@
           .profile-main__img__form
             .profile-main__img__form--icon
               = image_tag ('https://static.mercdn.net/images/member_photo_noimage_thumb.png')
-            %input{placeholder: "name", class: "profile-main__img__form--namebox"}
+            %input{value: "#{current_user.nickname}", placeholder: "例)AYA☆セール中", class: "profile-main__img__form--namebox"}
       .profile-edit
         %textarea{class: "profile-edit__textbox", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
         = link_to "変更する", "#", class: "profile-btn"
