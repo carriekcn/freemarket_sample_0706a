@@ -1,9 +1,16 @@
 .mypage__side_menu
   %ul.mypage__side_menu__lists
-    %li.mypage__side_menu__lists__name
-      = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
-        マイページ
-        %i.fa.fa-angle-right.fa-2x
+    -# %li{(controller_path == 'users' && action_name == 'show')? id: "select" : ""}
+    - if (controller_path == 'users' && action_name == 'show')
+      %li#select.mypage__side_menu__lists__name    
+        = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
+          マイページ
+          %i.fa.fa-angle-right.fa-2x
+    - else
+      %li.mypage__side_menu__lists__name
+        = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
+          マイページ
+          %i.fa.fa-angle-right.fa-2x
     %li.mypage__side_menu__lists__name
       = link_to "#", class: 'mypage__side_menu__lists__name__text' do
         お知らせ
@@ -90,10 +97,16 @@
         = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
           メール/パスワード
           %i.fa.fa-angle-right.fa-2x
-      %li.mypage__side_menu__setting__lists__name
-        = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
-          本人情報
-          %i.fa.fa-angle-right.fa-2x
+      - if (controller_path == 'users' && action_name == 'new')
+        %li#select.mypage__side_menu__setting__lists__name
+          = link_to "new", class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
+            本人情報
+            %i.fa.fa-angle-right.fa-2x
+      - else
+        %li.mypage__side_menu__setting__lists__name
+          = link_to "new", class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
+            本人情報
+            %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
         = link_to "#", class: 'mypage__side_menu__setting__lists__name__text' do
           電話番号の確認

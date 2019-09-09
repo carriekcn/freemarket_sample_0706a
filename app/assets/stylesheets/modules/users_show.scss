@@ -31,30 +31,24 @@ ul {
   list-style: none;
 }
 
-a{
-  color: #000;
-}
+
 
 .bread_crumb{
   @include bread_crumb;
-
-  &__text{
-    @include bread_crumb__text
-  }
-  span{
-    font-weight: bold;
-  }
 }
 
 .mypage{
   &__main{
     width: 700px;
-  }
-
-  &__side_menu__lists{
-    li:first-child{
-      @include side_menu__selection;
+    a{
+      color: #000;
     }
+  }
+}
+
+.new.mypage__side_menu{
+  li:first-child{
+    @include side_menu__selection;
   }
 }
 

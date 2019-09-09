@@ -106,3 +106,7 @@ $bottom_title_margin: 40px auto 0;
     }
   }
 }
+
+#select{
+  @include side_menu__selection;
+}
