@@ -4,7 +4,7 @@
       %figure.mypage__main__user__container__link__icon
         = image_tag "sample01.png", width:"60px", height:"60px"
       %h3.mypage__main__user__container__link__user_name
-        sample01
+        = current_user.nickname
       .mypage__main__user__container__link__count
         .mypage__main__user__container__link__count__rate
           評価
