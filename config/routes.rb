@@ -21,8 +21,15 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show, :update]
 
   # resources :items do
-  #   get :confirmation, on: :member
+  #   member do
+  #     get :confirmation
+  #     patch :confirmed
+  #   end
   # end
+
+  resources :purchases, only: [:index]
+  resources :users, only: [:index]
+  resources :cards, only: [:index, :new, :create]
 
   resources :items do
     member do
@@ -30,13 +37,5 @@ Rails.application.routes.draw do
       patch :confirmed
     end
   end
-
-  resources :purchases, only: [:index]
-  resources :users, only: [:index]
-  resources :cards, only: [:index, :new, :create]
-
-  # resources :items do
-  #   get :confirmation, on: :member
-  # end
 
 end
