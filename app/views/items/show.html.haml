@@ -43,6 +43,7 @@
         %th カテゴリー
         %td
           =link_to '#' do
+            -# インスタンス変数に変換
             %span メンズ
             %br
             %i.fa.fa-chevron-right
@@ -57,7 +58,6 @@
             %p アディダス
       %tr
         %th サイズ
-        -# インスタンス変数に変換
         %td L
       %tr
         %th 商品の状態
@@ -92,18 +92,17 @@
     %span.item-detail-price__sum
       送料込み
 
-  -#  ログイン周りのバリデーション完成後反映 *インデント数注意
-  -# - if current_user.id == @item.user_id
-    -# .item-edit__btn
-    -#   = link_to "#" do
-    -#     %p 商品の編集
-    -# %p.text-center-or or
-    -# .item-delete__btn
-    -#   = link_to "#" do
-    -#     %p この商品を削除する
-  -# - else
+  - if user_signed_in? && current_user.id == @item.user_id then
+    .item-edit__btn
+      = link_to "#" do
+        %p 商品の編集
+    %p.text-center-or or
+    .item-delete__btn
+      = link_to item_path(@item.id), method: :delete do
+        %p この商品を削除する
+  - else
   .item-purchase__btn
-    = link_to "/purchases/#{@item_id}", class: 'buy-btn' do
+    = link_to(edit_item_path(@item.id), class: 'buy-btn') do
       %p 購入画面に進む
 
   .item-detail-description

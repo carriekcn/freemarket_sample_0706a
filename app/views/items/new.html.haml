@@ -17,15 +17,11 @@
                   必須
               %p
                 最大10枚までアップロードできます
-              .items-container.clearfix
-                %ul#image-list
-                  = f.fields_for :item_images do |image|
-                    = image.label :image, id: 'image-list-before' do
-                      = image.file_field :image, type: 'file', name: 'item_images[image][]', multiple: true, style: 'display: none;'
-                      .items-container__drop-box#image-drop-box
-                        %pre.visible-pc
-                          ドラッグアンドドロップ
-                          またはクリックしてファイルをアップロード
+              .image-uproading.clearfix
+                = f.fields_for :item_images do |image|
+                  #new_images
+                    .dropping#new_image_form{onclick:"$('#new_file1').click()",data: {count: 1}} ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                  = image.file_field :image,  multiple: true,id:"new_file1",name: "item_images[image][]",class:"new_file",style: "display:none"
             .sell-content
               .form-group
                 = f.label :name do

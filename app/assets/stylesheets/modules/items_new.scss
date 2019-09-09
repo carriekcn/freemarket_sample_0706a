@@ -311,3 +311,71 @@ body {
     }
   }
 }
+
+#new_images{
+  width: 600px;
+  max-height:200px;
+}
+
+#new_image_form{
+    display: table-cell;
+    vertical-align:middle;
+    border: 1px dashed #aaa;
+    height:200px;
+    text-align: center;
+    width: 600px;
+    background-color: #F5F5F5;
+}
+
+.itempreview{
+  width:118.5px;
+  height:80px;
+  float:left;
+  background-color: #f6f6f6;
+  border-top: dotted 1px #d9d9d9;
+  border-right: dotted 1px #d9d9d9;
+  border-left: dotted 1px #d9d9d9;
+}
+
+.up_view{
+  width: 118.5px;
+  background-color: #f6f6f6;
+  border-right: dotted 1px #d9d9d9;
+  border-left: dotted 1px #d9d9d9;
+  border-bottom: dotted 1px #d9d9d9;
+
+  &__cover{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    border-right: dotted 1px #d9d9d9;
+    margin-right: 8px;
+  }
+  .up_del {
+    font-size: 14px;
+    text-decoration: none;
+    color: #0099e8;
+    text-align: center;
+  }
+  .up_del:hover {
+    text-decoration: underline;
+    opacity: 0.6;
+  }
+  .up_edit{
+    text-decoration: none;
+    color: #0099e8;
+    text-align: center;
+    cursor: pointer;
+  }
+  .up_edit:hover {
+    text-decoration: underline;
+    opacity: 0.6;
+  }
+}
+
+.previewfield{
+   width: 118.5px;
+   float: left;
+   padding-right: 12px;
+   padding-bottom: 12px;
+}
