@@ -1,7 +1,8 @@
 .items-detail-wrap
   .item-name
     -# インスタンス変数に変換
-    %h1 アディダス Tシャツ他 
+    %h1 
+    = @cat.category.name 
 
   .item-detail-content
     .item-detail-content__images
@@ -28,7 +29,8 @@
         %td
           =link_to "#" do
             -# インスタンス変数に変換
-            %p あきさん
+            %p
+            = @detail.user.nickname
           .rate
             .rate-good
               %i.fa.fa-star
@@ -44,53 +46,63 @@
         %td
           =link_to '#' do
             -# インスタンス変数に変換
-            %span メンズ
+            %span
+            = @cat.category.name 
             %br
             %i.fa.fa-chevron-right
-            %span トップス
+            %span カテゴリ1
             %br
             %i.fa.fa-chevron-right
-            %span Tシャツ/カットソー
+            %span カテゴリ2
       %tr
         %th ブランド
         %td
           =link_to '#' do
-            %p アディダス
+            %p その他
       %tr
         %th サイズ
-        %td L
+        %td 
+          = @item.size
       %tr
         %th 商品の状態
         -# インスタンス変数に変換
-        %td やや傷や汚れあり
+        %td 
+          = @item.state
       %tr
         %th 配送料の負担
         -# インスタンス変数に変換
-        %td 送料込み(出品者負担)
+        %td
+          = @item.delivery_status
       %tr
         %th 配送の方法
         -# インスタンス変数に変換
-        %td 未定
+        %td
+          = @item.shipping_method
       %tr
         %th 配送元地域
         %td
           =link_to '#' do
             -# インスタンス変数に変換
-            %p 東京
+            %p
+            = @item.shipping_source_area
       %tr
         %th 発送日の目安
         -# インスタンス変数に変換
-        %td 2-3日で発送
+        %td
+          = @item.days_ship
 
 
   .item-detail-price
     %span.item-detail-price__taxed-price
       -# ¥後改行して価格をインスタンス変数で表示
-      ¥ 2,650
+      ¥ 
+      = @item.price
     %span.item-detail-price__tax
       (税込)
     %span.item-detail-price__sum
-      送料込み
+      = @item.delivery_status
+
+    
 
   - if user_signed_in? && current_user.id == @item.user_id then
     .item-edit__btn
@@ -108,9 +120,7 @@
   .item-detail-description
     -# インスタンス変数に変換
     %p
-      サイズは170です。やや細身です
-      黒のアディダスのtシャツに目立たないシミがあります。
-      自宅保管ですので、神経質な方はご遠慮ください。
+      = @item.description
 
   .item-btn-content
     .item-btn-content-left

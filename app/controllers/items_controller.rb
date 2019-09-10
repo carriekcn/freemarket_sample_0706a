@@ -8,7 +8,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    #カテゴリ取得
+    @cat = Item.includes(:category).find(params[:id])
+    @item = Item.includes(:user).find(params[:id])
+    @detail = UserDetail.find_by(user_id: @item.user_id)
+    
+    #imageを複数表示するには whereを使用する
+    @img = ItemImage.find_by(item_id: @item.id)
+
   end
 
   def edit
