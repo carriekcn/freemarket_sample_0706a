@@ -1,6 +1,5 @@
 .mypage__side_menu
   %ul.mypage__side_menu__lists
-    -# %li{(controller_path == 'users' && action_name == 'show')? id: "select" : ""}
     - if (controller_path == 'users' && action_name == 'show')
       %li#select.mypage__side_menu__lists__name    
         = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
