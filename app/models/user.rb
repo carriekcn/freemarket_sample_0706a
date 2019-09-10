@@ -8,7 +8,8 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :items
   has_many :sns_credentials, dependent: :destroy
-
+  has_one :user_detail
+  
   # バリデーション
   validates :nickname,                presence: true, length: {maximum: 20}
   validates :email,                   presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
