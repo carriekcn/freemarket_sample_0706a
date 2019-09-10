@@ -304,17 +304,6 @@ $form__content_height: 70px;
 
   &__side_menu{
     float: left;
-
-    &__lists{
-      li:first-child{
-        ba: initial;
-      }
-    }
-    &setting__lists{
-      li:nth-of-type(5){
-        @include side_menu__selection;
-      }
-    }
   }
 }
 
