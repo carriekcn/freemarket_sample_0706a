@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :items
   has_many :sns_credentials, dependent: :destroy
+  has_one :user_detail
   
   # バリデーション
   validates :nickname,                presence: true, length: {maximum: 20}
