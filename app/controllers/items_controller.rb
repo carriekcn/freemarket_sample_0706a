@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
   layout "compact", only: [:new, :edit]
 
   def new
