@@ -2,12 +2,12 @@
   %ul.mypage__side_menu__lists
     - if (controller_path == 'users' && action_name == 'show')
       %li#select.mypage__side_menu__lists__name    
-        = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
+        = link_to user_path(id: current_user.id), class: 'mypage__side_menu__lists__name__text', id: "show" do
           マイページ
           %i.fa.fa-angle-right.fa-2x
     - else
       %li.mypage__side_menu__lists__name
-        = link_to "show", class: 'mypage__side_menu__lists__name__text', id: "show" do
+        = link_to user_path(id: current_user.id), class: 'mypage__side_menu__lists__name__text', id: "show" do
           マイページ
           %i.fa.fa-angle-right.fa-2x
     %li.mypage__side_menu__lists__name
