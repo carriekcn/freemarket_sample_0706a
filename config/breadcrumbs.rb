@@ -26,6 +26,11 @@ crumb :profile do
   link "プロフィール", profile_index_path
   parent :mypage
 end
+
+crumb :detail do
+  link "本人情報の登録", new_user_path
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
