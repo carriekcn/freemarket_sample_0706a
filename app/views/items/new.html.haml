@@ -18,7 +18,7 @@
               %p
                 最大10枚までアップロードできます
               .image-uproading.clearfix
-                = f.fields_for :images do |image|
+                = f.fields_for :item_images do |image|
                   #new_images
                     .dropping#new_image_form{onclick:"$('#new_file1').click()",data: {count: 1}} ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
                   = image.file_field :image,  multiple: true,id:"new_file1",name: "item_images[image][]",class:"new_file",style: "display:none"

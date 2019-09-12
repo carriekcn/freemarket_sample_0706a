@@ -8,12 +8,15 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :items
   has_many :sns_credentials, dependent: :destroy
+  has_one :user_detail
   
   # バリデーション
   validates :nickname,                presence: true, length: {maximum: 20}
   validates :email,                   presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
   validates :password,                presence: true, length: {minimum: 6}
   # validates :password_confirmation,   presence: true, length: {minimum: 6}
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
   def self.from_auth(auth)
     uid = auth.uid
