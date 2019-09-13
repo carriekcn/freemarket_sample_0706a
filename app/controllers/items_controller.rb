@@ -7,27 +7,27 @@ class ItemsController < ApplicationController
     @item_image = @item.item_images.build
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+
   def show
     #カテゴリ取得
     @cat = Item.includes(:category).find(params[:id])
     @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
-    
+
     #imageを複数表示するには whereを使用する
     @img = ItemImage.find_by(item_id: @item.id)
-
-  end
-
-  def edit
   end
 
   def confirmation
     @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
-  end
-
-  def update
   end
 
   def confirmed

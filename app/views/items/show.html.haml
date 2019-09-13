@@ -1,6 +1,5 @@
 .items-detail-wrap
   .item-name
-    -# インスタンス変数に変換
     %h1 
     = @cat.category.name 
 
@@ -28,7 +27,6 @@
         %th 出品者
         %td
           =link_to "#" do
-            -# インスタンス変数に変換
             %p
             = @detail.user.nickname
           .rate
@@ -45,7 +43,6 @@
         %th カテゴリー
         %td
           =link_to '#' do
-            -# インスタンス変数に変換
             %span
             = @cat.category.name 
             %br
@@ -65,36 +62,30 @@
           = @item.size
       %tr
         %th 商品の状態
-        -# インスタンス変数に変換
         %td 
           = @item.state
       %tr
         %th 配送料の負担
-        -# インスタンス変数に変換
         %td
           = @item.delivery_status
       %tr
         %th 配送の方法
-        -# インスタンス変数に変換
         %td
           = @item.shipping_method
       %tr
         %th 配送元地域
         %td
           =link_to '#' do
-            -# インスタンス変数に変換
             %p
             = @item.shipping_source_area
       %tr
         %th 発送日の目安
-        -# インスタンス変数に変換
         %td
           = @item.days_ship
 
 
   .item-detail-price
     %span.item-detail-price__taxed-price
-      -# ¥後改行して価格をインスタンス変数で表示
       ¥ 
       = @item.price
     %span.item-detail-price__tax
@@ -118,7 +109,6 @@
       %p 購入画面に進む
 
   .item-detail-description
-    -# インスタンス変数に変換
     %p
       = @item.description
 
@@ -197,8 +187,7 @@
 .items-user-box
   %section.items-user-box__items
     %h4
-      -# ユーザー名に変換
-      =link_to "あき"+"さんのその他の出品", "#"
+      =link_to "#{@detail.user.nickname}"+"さんのその他の出品", "#"
 
     .items-user-box__items__row
       .items-user-box__items__row__listing
@@ -229,39 +218,3 @@
             .items-user-box__items__row__listing--body--price
               ¥ 300
               %p (税込)
-
-.items-user-box
-  %section.items-user-box__items
-    %h4
-      =link_to "アディダスのTシャツ/カットソー(半袖/袖なし) その他の商品", "#"
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 激安!
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 激レア!
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 アディダス
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
