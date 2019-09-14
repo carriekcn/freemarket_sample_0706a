@@ -18,8 +18,8 @@ class CardsController < ApplicationController
       redirect_ action: "new"
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト'  #optional
-      email: current_user.email, #optional
+      # description: '登録テスト'  #optional
+      # email: current_user.email, #optional
       card: params['payjjp-token'],
       metadata: {user_id: current_user.id} #optional
       )
@@ -54,5 +54,5 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
-  
+
 end
