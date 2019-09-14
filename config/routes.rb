@@ -20,7 +20,13 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show, :update, :destroy]
   resources :purchases, only: [:index]
   resources :users, only: [:index]
-  resources :cards, only: [:index, :new, :create]
+  resources :cards, only: [:index, :new] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
   resources :items do
     member do
       get :confirmation
