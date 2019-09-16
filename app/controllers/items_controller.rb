@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
 
     #imageを複数表示するには whereを使用する
     @img = ItemImage.find_by(item_id: @item.id)
+    @imgs = ItemImage.where(item_id: @item.id)
     card = Card.find_by(user_id: current_user)
 
     # if card.blank?
