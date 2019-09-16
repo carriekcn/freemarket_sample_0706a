@@ -22,22 +22,26 @@ $lite_black: #333;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: $white;
   margin: 0 auto;
-}
 
-@mixin bread_crumb__text{
-  height: 16px;
-  overflow: visible;
-  width: $mypage_width;
-  margin: 0 auto;
-  padding: 16px 0;
-  white-space: normal;
+  &__text{
+    height: 16px;
+    overflow: visible;
+    width: $mypage_width;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+  }
+
+  span{
+    font-weight: bold;
+  }
 }
 
 @mixin side_menu__name{
   border: 0;
   height: $side_menu__lists_height;
   position: relative;
-
+  background: $white;
 }
 
 @mixin side_menu__text{
@@ -45,7 +49,6 @@ $lite_black: #333;
   position: absolute;
   display: block;
   padding: 16px;
-  background: $white;
   font-size: 14px;
   color: $lite_black;
   float: left;
@@ -71,13 +74,10 @@ $lite_black: #333;
 }
 
 @mixin side_menu__selection{
-  border: 0;
-  #show{
     background: $lite_gray;
     height: $side_menu__lists_height;
     text-shadow: none;
     font-weight: bold;
-  }
 }
 
 @mixin side_menu__title{
@@ -160,4 +160,67 @@ $lite_black: #333;
     color: $gray;
     font-weight: 600;
   }
+}
+
+@mixin identification_item{
+  margin: 40px 0 0;
+  width: 572px;
+}
+
+@mixin identification_label{
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 600;
+  height: 14px;
+}
+
+@mixin identification_optional{
+  background: $gray;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: $white;
+  font-size: 12px;
+  vertical-align: top;
+  border-style: solid;
+  border-width: 0;
+  height: 19px;
+  width: 60px;
+}
+
+@mixin identification_form{
+  margin: 8px 0 0;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid $gray;
+  background: $white;
+  line-height: 1.5;
+  font-size: 16px;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  text-transform: none;
+  resize: none;
+  cursor: text;
+  font: 400 16px;
+  display: inline-block;
+  height: 26px;
+  width: 538px;
+}
+
+@mixin select_form{
+  margin: 40px 0 0;
+  background: $white;
+  display: inline-block;
+  position: relative;
+  height: 70px;
+  width: 570px;
+}
+
+@mixin select{
+  position: relative;
+  margin: 8px 0 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

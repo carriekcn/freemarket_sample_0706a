@@ -15,12 +15,18 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'top#index'
-  resources :users, only: [:show]
+  resources :users, only: [:show, :new]
   resources :top, only: [:index]
   resources :items, only: [:new, :create, :show, :update, :destroy]
   resources :purchases, only: [:index]
   resources :users, only: [:index]
-  resources :cards, only: [:index, :new, :create]
+  resources :cards, only: [:index, :new] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :items do
     member do
       get :confirmation
