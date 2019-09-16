@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 
-  require "payjp"
+  require 'payjp'
 
   before_action :authenticate_user!, only: [:index, :new]
   before_action :card_info, only: [:delete, :show]
@@ -50,7 +50,7 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
-  
+
 
   def card_info
     user = User.find(current_user)
