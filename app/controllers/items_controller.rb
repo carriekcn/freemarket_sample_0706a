@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
     @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
-
     card = Card.find_by(user_id: current_user)
 
     if card.blank?
