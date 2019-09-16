@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :sns_credentials, dependent: :destroy
   has_one :user_detail
+  has_one :card
   
   # バリデーション
   validates :nickname,                presence: true, length: {maximum: 20}
