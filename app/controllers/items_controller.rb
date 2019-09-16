@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user)
 
     if card.blank?
       redirect_to controller: 'cards', action: 'new'
