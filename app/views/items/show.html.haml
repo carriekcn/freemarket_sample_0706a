@@ -7,7 +7,7 @@
     .item-detail-content__images
       .image-detail
         -# 商品に紐づいた画像の読み込む記述に変換
-        = image_tag 'adidas-tops-image.jpg', width: '300', height: '300'
+        = image_tag(@img.image.url, width: '300', height: '300')
       .image-row
         -# eachメソッドで商品に紐づいた画像の読み込む記述挿入
         .image-mini
