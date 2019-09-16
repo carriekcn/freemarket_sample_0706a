@@ -9,11 +9,11 @@
           %br/
           = fa_icon 'camera', class: 'icon'
         %h2 クレジットカード情報
-        %form.payment-form
-          %p カード番号
+        = form_tag(pay_cards_path, method: :post, class: 'payment-form', id: 'charge-form', name: "inputForm") do
+          %label カード番号
           %p.mandatory 必須
           .input
-            %input#card_no.input-default{maxlength: "19", placeholder: "半角数字のみ", type: "text"}/
+            = text_field_tag "card_no", "", class: "input-default", placeholder: "半角英数のみ", maxlength: "16", type: "text", id: "card_number"
           .card-type.clearfix
             %ul
               %li.card-type__list
@@ -30,10 +30,12 @@
                 = image_tag 'dinersclub-credit.svg', class: 'diners'
               %li.card-type__list
                 = image_tag 'discover-credit.svg', class: 'discover'
-          %p 有効期限
+          %label 有効期限
+
           %p.mandatory 必須
           .input
-            %select#card_exp_mm.select-default
+            %select#card_exp_mm{name: "card_exp_mm", type: "text", class: "select-default"}
+              %option{value: ""} --
               %option{value: "01"} 01
               %option{value: "02"} 02
               %option{value: "03"} 03
@@ -46,8 +48,9 @@
               %option{value: "10"} 10
               %option{value: "11"} 11
               %option{value: "12"} 12
-            %span 月
-            %select#card_exp_yy.select-default
+            %span 月/
+            %select#card_exp_yy{name: "card_exp_yy", type: "text", class: "select-default"}
+              %option{value: ""} --
               %option{value: "19"} 19
               %option{value: "20"} 20
               %option{value: "21"} 21
@@ -61,13 +64,13 @@
               %option{value: "29"} 29
             %span 年
           .security
-            %p セキュリティコード
+            %label セキュリティコード
             %p.mandatory 必須
             .input
-              %input#security_code.input-default{maxlength: "4", placeholder: "カード背面4桁もしくは3桁の番号", type: "text"}/
+              = text_field_tag "security_code", "", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
             %p.security-about
               %span.security-about__question ?
               カード裏面の番号とは？
           .form-submit.clearfix
-            %button#submit-button.form-submit__btn{type: "button"} 追加する
+            = submit_tag "追加する", class: "form-submit__btn", id: "token_submit"
   =render partial: "users/side_menu"
