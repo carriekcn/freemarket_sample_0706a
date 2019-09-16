@@ -53,8 +53,7 @@ class CardsController < ApplicationController
 
 
   def card_info
-    user = User.find(current_user)
-    card = Card.includes(:user)
+    card = Card.find_by(user_id: current_user)
   end
 
 end
