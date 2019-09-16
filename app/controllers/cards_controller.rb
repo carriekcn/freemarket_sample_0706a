@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   before_action :authenticate_user!, only: [:index, :new]
+  before_action :card_info, only: [:delete, :show]
   layout "tab", only: [:index, :new]
 
   def index
@@ -30,7 +31,6 @@ class CardsController < ApplicationController
   end
 
   def delete
-    card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new"
     else 
@@ -41,8 +41,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def show
-    card = Card.where(user_id: current_user.id).first
+  def show 
     if card.blank?
       redirect_to action: "new"
     else
@@ -50,6 +49,12 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+  
+
+  def card_info
+    user = User.find(current_user)
+    card = Card.includes(:user)
   end
 
 end
