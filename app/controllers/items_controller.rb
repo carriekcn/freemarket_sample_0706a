@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+
+  require 'payjp'
+
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
   layout "compact", only: [:new, :edit]
 
@@ -18,6 +21,15 @@ class ItemsController < ApplicationController
     @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
+    card = Card.find_by(user_id: current_user)
+
+    if card.blank?
+      redirect_to controller: 'cards', action: 'new'
+    else
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def update
