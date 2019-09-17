@@ -18,14 +18,19 @@ class ItemsController < ApplicationController
 
 
   def show
-    #カテゴリ取得
     @cat = Item.includes(:category).find(params[:id])
     @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
 
-    #imageを複数表示するには whereを使用する
     @img = ItemImage.find_by(item_id: @item.id)
     @imgs = ItemImage.where(item_id: @item.id)
+
+    item = Item.find(params[:id])
+    user_id = item.user_id
+    @user_items = Item.where(user_id: user_id)
+    @images = ItemImage.where(item_id: @user_items)
+    # @images = ItemImage.includes(:item).where(item_id: @user_items)
+
     card = Card.find_by(user_id: current_user)
 
     # if card.blank?

@@ -11,16 +11,18 @@
       .image-row
         -# eachメソッドで商品に紐づいた画像の読み込む記述挿入
         .image-mini
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          = @imgs.each do |img|
+            = image_tag(img.image.url, width: '60', height: '60', class: 'mini-image')
+          -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
+          -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
 
     %table.item-detail-content__table
       %tr
@@ -222,3 +224,23 @@
             .items-user-box__items__row__listing--body--price
               ¥ 300
               %p (税込)
+
+.items-user-box
+  %section.items-user-box__items
+    %h4
+      =link_to "#{@detail.user.nickname}"+"さんのその他の出品", "#"
+
+    = @images.each do |img|
+      .items-user-box__items__row
+        .items-user-box__items__row__listing
+          =link_to '#' do
+            = image_tag(img.image.url, width: '220', height: '220')
+            .items-user-box__items__row__listing--body
+              %h5 test
+              .items-user-box__items__row__listing--body--price
+                ¥ 300
+                %p (税込)
+
+
+
+
