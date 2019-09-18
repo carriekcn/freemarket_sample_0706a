@@ -23,13 +23,13 @@ class ItemsController < ApplicationController
     @img = ItemImage.find_by(item_id: @item.id)
     card = Card.find_by(user_id: current_user)
 
-    if card.blank?
-      redirect_to controller: 'cards', action: 'new'
-    else
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+    # if card.blank?
+    #   redirect_to controller: 'cards', action: 'new'
+    # else
+    #   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    #   customer = Payjp::Customer.retrieve(card.customer_id)
+    #   @default_card_information = customer.cards.retrieve(card.card_id)
+    # end
   end
 
   def update
