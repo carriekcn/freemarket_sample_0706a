@@ -11,7 +11,7 @@
       .image-row
         -# eachメソッドで商品に紐づいた画像の読み込む記述挿入
         .image-mini
-          = @imgs.each do |img|
+          - @imgs.each do |img|
             = image_tag(img.image.url, width: '60', height: '60', class: 'mini-image')
           -# = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
           -# = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
@@ -187,58 +187,22 @@
       = link_to '#', class: 'pinterest-icon' do
         %i.fa.fa-pinterest-square
 
-
-
-
 .items-user-box
   %section.items-user-box__items
     %h4
       =link_to "#{@detail.user.nickname}"+"さんのその他の出品", "#"
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 大型流木
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 水陸空RC
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 ミクロソリウム
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-.items-user-box
-  %section.items-user-box__items
-    %h4
-      =link_to "#{@detail.user.nickname}"+"さんのその他の出品", "#"
-
-    = @images.each do |img|
+    - @user_items.zip(@images) do |user_item, img|
       .items-user-box__items__row
         .items-user-box__items__row__listing
           =link_to '#' do
             = image_tag(img.image.url, width: '220', height: '220')
             .items-user-box__items__row__listing--body
-              %h5 test
+              %h5
+                = user_item.name
               .items-user-box__items__row__listing--body--price
-                ¥ 300
+                ¥
+                = user_item.price
                 %p (税込)
 
 
