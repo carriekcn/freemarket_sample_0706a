@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     @images = ItemImage.where(item_id: @user_items)
 
     card = Card.find_by(user_id: current_user)
-
+    #payjpで必要なので残しておく
     # if card.blank?
     #   redirect_to controller: 'cards', action: 'new'
     # else
