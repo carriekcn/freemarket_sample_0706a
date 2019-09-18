@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
+  before_action :common_info, only: [:destroy]
   layout "compact", only: [:new, :edit]
 
   def new
@@ -29,7 +30,6 @@ class ItemsController < ApplicationController
     user_id = item.user_id
     @user_items = Item.where(user_id: user_id)
     @images = ItemImage.where(item_id: @user_items)
-    # @images = ItemImage.includes(:item).where(item_id: @user_items)
 
     card = Card.find_by(user_id: current_user)
 
@@ -65,7 +65,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
       if @item.user_id == current_user.id
         @item.destroy
         redirect_to root_path
@@ -76,6 +75,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :state, :shipping_charges, :shipping_method, :shipping_source_area, :days_ship, :price, item_images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def common_info
+    @item = Item.find(params[:id])
   end
 
 end
