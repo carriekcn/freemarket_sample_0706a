@@ -142,7 +142,7 @@
 - belongs_to :item
 - belongs_to :category
 
-## sns_credentials TB
+## sns_credentials テーブル
 
 | Column | Type | Options |
 |:-----------|------------:|:------------:|
@@ -150,6 +150,17 @@
 | provider | string | null: false |
 | token | text | -- |
 | user_id | references | null: false, index: true, foreign_key: true |
+
+### Association
+- belongs_to :user
+
+## cards テーブル
+
+| Column | Type | Options |
+|:-----------|------------:|:------------:|
+| user_id | integer | null: false |
+| customer_id | string | null: false |
+| card_id | string | null: false |
 
 ### Association
 - belongs_to :user
