@@ -500,18 +500,28 @@ ul {
   width: 133px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 1067px){
+  #like_icon{
+    display: none;
+  }
+  #like_text{
+    display: none;
+  }
+}
+@media screen and (max-width: 897px){
+  #like_icon{
+    display: none;
+  }
+  #like_text{
+    display: none;
+  }
+  #info_text{
+    display: none;
+  }
+  #todo_text{
+    display: none;
+  }
+  #mypage_text{
+    display: none;
+  }
+}

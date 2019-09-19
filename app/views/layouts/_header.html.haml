@@ -22,21 +22,21 @@
       .header-bottom__right
         %ul
           =link_to "#" do
-            %li.header-bottom__right--icon
+            %li#like_icon.header-bottom__right--icon
               = fa_icon 'heart', class: 'icon'
-            %li.header-bottom__right--list いいね！一覧
+            %li#like_text.header-bottom__right--list いいね！一覧
           =link_to "#" do
             %li.header-bottom__right--icon
               = fa_icon 'bell', class: 'icon'
-            %li.header-bottom__right--list お知らせ
+            %li#info_text.header-bottom__right--list お知らせ
           =link_to "#" do
             %li.header-bottom__right--icon
               = fa_icon 'check', class: 'icon'
-            %li.header-bottom__right--list やることリスト
+            %li#todo_text.header-bottom__right--list やることリスト
           = link_to user_path(current_user.id) do
             %li.header-bottom__right--face
               =image_tag('//static.mercdn.net/images/member_photo_noimage_thumb.png', class: 'img-me')
-            %li.header-bottom__right--list マイページ
+            %li#mypage_text.header-bottom__right--list マイページ
 
     - else
       .header-bottom__right-logout
