@@ -22,10 +22,6 @@ class ItemsController < ApplicationController
     @user_items = Item.where(user_id: @item.user_id)
     @images = ItemImage.where(item_id: @user_items)
     @detail = @item.user.user_detail
-    
-    # @imgs = ItemImage.where(item_id: @item.id)
-       #--> @item.item_images
-
  
     #payjpで必要なので残しておく
     # if current_user.card.blank?
@@ -74,4 +70,5 @@ class ItemsController < ApplicationController
   end
 
 end
+
 
