@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
-  before_action :common_info, only: [:destroy, :show, :confirmed]
+  before_action :set_item, only: [:destroy, :show, :confirmed]
   layout "compact", only: [:new, :edit]
 
   def new
@@ -19,11 +19,11 @@ class ItemsController < ApplicationController
 
 
   def show
-    @user_items = Item.where(user_id: @itm.user_id)
+    @user_items = Item.where(user_id: @item.user_id)
     @images = ItemImage.where(item_id: @user_items)
-    @item = Item.includes([:category, :user]).find(params[:id])
-    @detail = @item.user.user_detail
-    @imgs = ItemImage.where(item_id: @item.id)
+    @product = Item.includes([:category, :user]).find(params[:id])
+    @detail = @product.user.user_detail
+    @imgs = ItemImage.where(item_id: @product.id)
 
     card = Card.find_by(user_id: current_user)
     #payjpで必要なので残しておく
@@ -43,8 +43,8 @@ class ItemsController < ApplicationController
   end
 
   def confirmed
-    @itm.update(status: 'Sold')
-    @itm.save
+    @item.update(status: 'Sold')
+    @item.save
   end
 
   def create
@@ -58,8 +58,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-      if @itm.user_id == current_user.id
-        @itm.destroy
+      if @item.user_id == current_user.id
+        @item.destroy
         redirect_to root_path
       end
   end
@@ -70,8 +70,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :category_id, :state, :shipping_charges, :shipping_method, :shipping_source_area, :days_ship, :price, item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-  def common_info
-    @itm = Item.find(params[:id])
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

@@ -2,7 +2,7 @@
   .item-name
     %h1 
 
-    = @item.category.name
+    = @product.category.name
 
   .item-detail-content
     .item-detail-content__images
@@ -35,7 +35,7 @@
         %td
           =link_to '#' do
             %span
-            = @item.category.name 
+            = @product.category.name 
             %br
             %i.fa.fa-chevron-right
             %span カテゴリ1
@@ -50,62 +50,62 @@
       %tr
         %th サイズ
         %td 
-          = @item.size
+          = @product.size
       %tr
         %th 商品の状態
         %td 
-          = @item.state
+          = @product.state
       %tr
         %th 配送料の負担
         %td
-          = @item.delivery_status
+          = @product.delivery_status
       %tr
         %th 配送の方法
         %td
-          = @item.shipping_method
+          = @product.shipping_method
       %tr
         %th 配送元地域
         %td
           =link_to '#' do
             %p
-            = @item.shipping_source_area
+            = @productshipping_source_area
       %tr
         %th 発送日の目安
         %td
-          = @item.days_ship
+          = @product.days_ship
 
 
   .item-detail-price
     %span.item-detail-price__taxed-price
       ¥ 
-      = @item.price
+      = @product.price
     %span.item-detail-price__tax
       (税込)
     %span.item-detail-price__sum
-      = @item.delivery_status
+      = @product.delivery_status
 
     
-  - if @item.status == 'Sold' then
+  - if @product.status == 'Sold' then
     .item-close__btn
       = link_to root_path do
         %p 売り切れました
   - else
-    - if user_signed_in? && current_user.id == @item.user_id then
+    - if user_signed_in? && current_user.id == @product.user_id then
       .item-edit__btn
         = link_to "#" do
           %p 商品の編集
       %p.text-center-or or
       .item-delete__btn
-        = link_to item_path(@item.id), method: :delete do
+        = link_to item_path(@product.id), method: :delete do
           %p この商品を削除する
     - else
     .item-purchase__btn
-      = link_to(confirmation_item_path(@item.id), class: 'buy-btn') do
+      = link_to(confirmation_item_path(@product.id), class: 'buy-btn') do
         %p 購入画面に進む
 
   .item-detail-description
     %p
-      = @item.description
+      = @product.description
 
   .item-btn-content
     .item-btn-content-left
