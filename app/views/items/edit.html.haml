@@ -1,0 +1,34 @@
+.sell-wrap
+  %header.sell-header
+    %h1
+      = link_to root_path do
+        = image_tag 'mercari_logo_color.svg', alt: 'mercari', height: '50px', width: '180px'
+  %main.sell-main
+    %section.sell-item-container
+      #sell-container
+        .container__inner
+          %h2.single-head
+            商品の情報を編集
+          = form_for @item, html: { class: "sell-form" } do |f|
+            .upload-box{class: "#{'five' if @item.item_images.length >= 5}"}
+              %h3.upload-box__head
+                出品画像
+                %span.form-require
+                  必須
+              %p
+                最大10枚までアップロードできます
+              .image-uproading.clearfix
+                = f.fields_for @item.item_images do |image|
+                  #new_images
+                    - @item.item_images.each do |image|
+                      .previewfield
+                        = image_tag image.image_url.to_s, class: "itempreview", id:'id'
+                        .up_view
+                          .up_view__cover
+                            = link_to "編集", "#", class: "up_edit"
+                          = link_to "削除",  "#", class: "up_del"
+                    .dropping#new_image{id: "#{@item.item_images.length >= 5? 'form_edit' : 'form'}"}
+                      #new_image{onclick:"$('#new_file1').click()",data: {count: 1},id: "#{@item.item_images.length >= 5? 'form_edit' : 'form'}"} ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード                  
+                  = image.file_field :image,  multiple: true,id:"new_file1",name: "item_images[image][]",class:"new_file",style: "display:none"
+          =render partial: "items/form"
+          =render partial: "items/footer"
