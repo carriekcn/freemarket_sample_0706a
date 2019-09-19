@@ -21,9 +21,10 @@ class ItemsController < ApplicationController
   def show
     @user_items = Item.where(user_id: @item.user_id)
     @images = ItemImage.where(item_id: @user_items)
-    @product = Item.includes([:category, :user]).find(params[:id])
-    @detail = @product.user.user_detail
-    @imgs = ItemImage.where(item_id: @product.id)
+    @detail = @item.user.user_detail
+    
+    # @imgs = ItemImage.where(item_id: @item.id)
+       #--> @item.item_images
 
  
     #payjpで必要なので残しておく
@@ -69,7 +70,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.includes(:user).find(params[:id])
+    @item = Item.includes(:category, :user).find(params[:id])
   end
 
 end

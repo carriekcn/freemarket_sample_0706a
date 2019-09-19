@@ -2,15 +2,15 @@
   .item-name
     %h1 
 
-    = @product.category.name
+    = @item.category.name
 
   .item-detail-content
     .item-detail-content__images
       .image-detail
-        = image_tag(@imgs[0].image.url, width: '300', height: '300')
+        = image_tag(@item.item_images[0].image.url, width: '300', height: '300')
       .image-row
         .image-mini
-          - @imgs.each do |img|
+          - @item.item_images.each do |img|
             = image_tag(img.image.url, width: '60', height: '60', class: 'mini-image')
 
     %table.item-detail-content__table
@@ -35,7 +35,7 @@
         %td
           =link_to '#' do
             %span
-            = @product.category.name 
+            = @item.category.name 
             %br
             %i.fa.fa-chevron-right
             %span カテゴリ1
@@ -50,62 +50,62 @@
       %tr
         %th サイズ
         %td 
-          = @product.size
+          = @item.size
       %tr
         %th 商品の状態
         %td 
-          = @product.state
+          = @item.state
       %tr
         %th 配送料の負担
         %td
-          = @product.delivery_status
+          = @item.delivery_status
       %tr
         %th 配送の方法
         %td
-          = @product.shipping_method
+          = @item.shipping_method
       %tr
         %th 配送元地域
         %td
           =link_to '#' do
             %p
-            = @productshipping_source_area
+            = @item.shipping_source_area
       %tr
         %th 発送日の目安
         %td
-          = @product.days_ship
+          = @item.days_ship
 
 
   .item-detail-price
     %span.item-detail-price__taxed-price
       ¥ 
-      = @product.price
+      = @item.price
     %span.item-detail-price__tax
       (税込)
     %span.item-detail-price__sum
-      = @product.delivery_status
+      = @item.delivery_status
 
     
-  - if @product.status == 'Sold' then
+  - if @item.status == 'Sold' then
     .item-close__btn
       = link_to root_path do
         %p 売り切れました
   - else
-    - if user_signed_in? && current_user.id == @product.user_id then
+    - if user_signed_in? && current_user.id == @item.user_id then
       .item-edit__btn
         = link_to "#" do
           %p 商品の編集
       %p.text-center-or or
       .item-delete__btn
-        = link_to item_path(@product.id), method: :delete do
+        = link_to item_path(@item.id), method: :delete do
           %p この商品を削除する
     - else
     .item-purchase__btn
-      = link_to(confirmation_item_path(@product.id), class: 'buy-btn') do
+      = link_to(confirmation_item_path(@item.id), class: 'buy-btn') do
         %p 購入画面に進む
 
   .item-detail-description
     %p
-      = @product.description
+      = @item.description
 
   .item-btn-content
     .item-btn-content-left
