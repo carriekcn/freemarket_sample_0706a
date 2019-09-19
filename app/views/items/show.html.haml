@@ -1,34 +1,24 @@
 .items-detail-wrap
   .item-name
-    -# インスタンス変数に変換
-    %h1 アディダス Tシャツ他 
+    %h1 
+    = @item.category.name
 
   .item-detail-content
     .item-detail-content__images
       .image-detail
-        -# 商品に紐づいた画像の読み込む記述に変換
-        = image_tag 'adidas-tops-image.jpg', width: '300', height: '300'
+        = image_tag(@item.item_images[0].image.url, width: '300', height: '300')
       .image-row
-        -# eachメソッドで商品に紐づいた画像の読み込む記述挿入
         .image-mini
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image.jpg', width: '60', height: '60', class:'mini-image'
-          = image_tag 'adidas-tops-image2.jpg', width: '60', height: '60', class:'mini-image'
+          - @item.item_images.each do |img|
+            = image_tag(img.image.url, width: '60', height: '60', class: 'mini-image')
 
     %table.item-detail-content__table
       %tr
         %th 出品者
         %td
           =link_to "#" do
-            -# インスタンス変数に変換
-            %p あきさん
+            %p
+            = @detail.user.nickname
           .rate
             .rate-good
               %i.fa.fa-star
@@ -43,74 +33,78 @@
         %th カテゴリー
         %td
           =link_to '#' do
-            -# インスタンス変数に変換
-            %span メンズ
+            %span
+            = @item.category.name 
             %br
             %i.fa.fa-chevron-right
-            %span トップス
+            %span カテゴリ1
             %br
             %i.fa.fa-chevron-right
-            %span Tシャツ/カットソー
+            %span カテゴリ2
       %tr
         %th ブランド
         %td
           =link_to '#' do
-            %p アディダス
+            %p その他
       %tr
         %th サイズ
-        %td L
+        %td 
+          = @item.size
       %tr
         %th 商品の状態
-        -# インスタンス変数に変換
-        %td やや傷や汚れあり
+        %td 
+          = @item.state
       %tr
         %th 配送料の負担
-        -# インスタンス変数に変換
-        %td 送料込み(出品者負担)
+        %td
+          = @item.delivery_status
       %tr
         %th 配送の方法
-        -# インスタンス変数に変換
-        %td 未定
+        %td
+          = @item.shipping_method
       %tr
         %th 配送元地域
         %td
           =link_to '#' do
-            -# インスタンス変数に変換
-            %p 東京
+            %p
+            = @item.shipping_source_area
       %tr
         %th 発送日の目安
-        -# インスタンス変数に変換
-        %td 2-3日で発送
+        %td
+          = @item.days_ship
 
 
   .item-detail-price
     %span.item-detail-price__taxed-price
-      -# ¥後改行して価格をインスタンス変数で表示
-      ¥ 2,650
+      ¥ 
+      = @item.price
     %span.item-detail-price__tax
       (税込)
     %span.item-detail-price__sum
-      送料込み
+      = @item.delivery_status
 
-  - if user_signed_in? && current_user.id == @item.user_id then
-    .item-edit__btn
-      = link_to "#" do
-        %p 商品の編集
-    %p.text-center-or or
-    .item-delete__btn
-      = link_to item_path(@item.id), method: :delete do
-        %p この商品を削除する
-  - unless user_signed_in? && current_user.id == @item.user_id then
+    
+  - if @item.status == 'Sold' then
+    .item-close__btn
+      = link_to root_path do
+        %p 売り切れました
+  - else
+    - if user_signed_in? && current_user.id == @item.user_id then
+      .item-edit__btn
+        = link_to "#" do
+          %p 商品の編集
+      %p.text-center-or or
+      .item-delete__btn
+        = link_to item_path(@item.id), method: :delete do
+          %p この商品を削除する
+    - else
     .item-purchase__btn
       = link_to(confirmation_item_path(@item.id), class: 'buy-btn') do
         %p 購入画面に進む
 
   .item-detail-description
-    -# インスタンス変数に変換
     %p
-      サイズは170です。やや細身です
-      黒のアディダスのtシャツに目立たないシミがあります。
-      自宅保管ですので、神経質な方はご遠慮ください。
+      = @item.description
 
   .item-btn-content
     .item-btn-content-left
@@ -150,7 +144,6 @@
 
   .items-message-head
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    -# コメントの変数用意
     = form_with do |f|
       = f.text_area :comment, type: 'input', class: 'message-head'
     .items-message-head__btn
@@ -181,77 +174,26 @@
       = link_to '#', class: 'pinterest-icon' do
         %i.fa.fa-pinterest-square
 
-
-
-
 .items-user-box
   %section.items-user-box__items
     %h4
-      -# ユーザー名に変換
-      =link_to "あき"+"さんのその他の出品", "#"
+      =link_to "#{@detail.user.nickname}"+"さんのその他の出品", "#"
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 大型流木
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
+    - @user_items.zip(@images) do |user_item, img|
+      .items-user-box__items__row
+        .items-user-box__items__row__listing
+          =link_to '#' do
+            = image_tag(img.image.url, width: '220', height: '220')
+            .items-user-box__items__row__listing--body
+              %h5
+                = user_item.name
+              .items-user-box__items__row__listing--body--price
+                ¥
+                = user_item.price
+                %p (税込)
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 水陸空RC
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 ミクロソリウム
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
 
-.items-user-box
-  %section.items-user-box__items
-    %h4
-      =link_to "アディダスのTシャツ/カットソー(半袖/袖なし) その他の商品", "#"
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 激安!
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
 
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 激レア!
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
-
-    .items-user-box__items__row
-      .items-user-box__items__row__listing
-        =link_to '#' do
-          = image_tag 'adidas-tops-image2.jpg', width: 220, height: 220
-          .items-user-box__items__row__listing--body
-            %h5 アディダス
-            .items-user-box__items__row__listing--body--price
-              ¥ 300
-              %p (税込)
 

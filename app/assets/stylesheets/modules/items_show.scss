@@ -105,6 +105,25 @@
   }
 }
 
+.item-close__btn{
+  background-color: #aaa;
+  height: 60px;
+  margin-top: 16px;
+  border: none;
+  text-decoration: none;
+   a{
+      text-decoration: none;
+      text-align: center;
+      line-height: 60px;
+   }
+   p{
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    }
+  }
+
 .item-edit__btn{
   background-color: #ea352d;
   height: 60px;
