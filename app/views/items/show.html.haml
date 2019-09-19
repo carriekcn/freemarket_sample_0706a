@@ -1,12 +1,13 @@
 .items-detail-wrap
   .item-name
     %h1 
-    = @cat.category.name 
+
+    = @item.category.name
 
   .item-detail-content
     .item-detail-content__images
       .image-detail
-        = image_tag(@img.image.url, width: '300', height: '300')
+        = image_tag(@imgs[0].image.url, width: '300', height: '300')
       .image-row
         .image-mini
           - @imgs.each do |img|
@@ -34,7 +35,7 @@
         %td
           =link_to '#' do
             %span
-            = @cat.category.name 
+            = @item.category.name 
             %br
             %i.fa.fa-chevron-right
             %span カテゴリ1

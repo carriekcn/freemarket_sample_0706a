@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
-  before_action :common_info, only: [:destroy]
+  before_action :common_info, only: [:destroy, :show, :confirmed]
   layout "compact", only: [:new, :edit]
 
   def new
@@ -19,17 +19,11 @@ class ItemsController < ApplicationController
 
 
   def show
-    @cat = Item.includes(:category).find(params[:id])
-    @item = Item.includes(:user).find(params[:id])
-    @detail = UserDetail.find_by(user_id: @item.user_id)
-
-    @img = ItemImage.find_by(item_id: @item.id)
-    @imgs = ItemImage.where(item_id: @item.id)
-
-    item = Item.find(params[:id])
-    user_id = item.user_id
-    @user_items = Item.where(user_id: user_id)
+    @user_items = Item.where(user_id: @itm.user_id)
     @images = ItemImage.where(item_id: @user_items)
+    @item = Item.includes([:category, :user]).find(params[:id])
+    @detail = @item.user.user_detail
+    @imgs = ItemImage.where(item_id: @item.id)
 
     card = Card.find_by(user_id: current_user)
     #payjpで必要なので残しておく
@@ -49,9 +43,8 @@ class ItemsController < ApplicationController
   end
 
   def confirmed
-    item = Item.find(params[:id])  
-    item.update(status: 'Sold')
-    item.save
+    @itm.update(status: 'Sold')
+    @itm.save
   end
 
   def create
@@ -65,8 +58,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-      if @item.user_id == current_user.id
-        @item.destroy
+      if @itm.user_id == current_user.id
+        @itm.destroy
         redirect_to root_path
       end
   end
@@ -78,7 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def common_info
-    @item = Item.find(params[:id])
+    @itm = Item.find(params[:id])
   end
 
 end
