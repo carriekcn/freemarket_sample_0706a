@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
-  before_action :set_item, only: [:destroy, :show, :confirmed]
+  before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation]
   layout "compact", only: [:new, :edit]
 
   def new
@@ -25,9 +25,9 @@ class ItemsController < ApplicationController
     @detail = @product.user.user_detail
     @imgs = ItemImage.where(item_id: @product.id)
 
-    card = Card.find_by(user_id: current_user)
+ 
     #payjpで必要なので残しておく
-    # if card.blank?
+    # if current_user.card.blank?
     #   redirect_to controller: 'cards', action: 'new'
     # else
     #   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -37,14 +37,12 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
-    @item = Item.includes(:user).find(params[:id])
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
   end
 
   def confirmed
     @item.update(status: 'Sold')
-    @item.save
   end
 
   def create
@@ -71,7 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.includes(:user).find(params[:id])
   end
 
 end
