@@ -81,7 +81,7 @@
       設定
     .mypage__side_menu__setting__lists
       %li.mypage__side_menu__setting__lists__name
-        = link_to "/profile/index", class: 'mypage__side_menu__setting__lists__name__text' do
+        = link_to profile_index_path, class: 'mypage__side_menu__setting__lists__name__text' do
           プロフィール
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
@@ -98,12 +98,12 @@
           %i.fa.fa-angle-right.fa-2x
       - if (controller_path == 'users' && action_name == 'new')
         %li#select.mypage__side_menu__setting__lists__name
-          = link_to "new", class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
+          = link_to new_user_path, class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
             本人情報
             %i.fa.fa-angle-right.fa-2x
       - else
         %li.mypage__side_menu__setting__lists__name
-          = link_to "new", class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
+          = link_to new_user_path, class: 'mypage__side_menu__setting__lists__name__text', id: "new" do
             本人情報
             %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
@@ -111,6 +111,6 @@
           電話番号の確認
           %i.fa.fa-angle-right.fa-2x
       %li.mypage__side_menu__setting__lists__name
-        = link_to "/logout", class: 'mypage__side_menu__setting__lists__name__text' do
+        = link_to logout_path, class: 'mypage__side_menu__setting__lists__name__text' do
           ログアウト
           %i.fa.fa-angle-right.fa-2x
