@@ -84,7 +84,14 @@
       = @item.delivery_status
 
     
-  - if @item.status == 'Sold' then
+  - if @item.status == 'Sold' && current_user.id == @item.user_id then
+    .item-close__btn
+      = link_to root_path do
+        %p 売り切れました
+    .item-delete__btn
+      = link_to item_path(@item.id), method: :delete do
+        %p この商品を削除する
+  - elsif @item.status == 'Sold' then
     .item-close__btn
       = link_to root_path do
         %p 売り切れました
@@ -98,9 +105,9 @@
         = link_to item_path(@item.id), method: :delete do
           %p この商品を削除する
     - else
-    .item-purchase__btn
-      = link_to(confirmation_item_path(@item.id), class: 'buy-btn') do
-        %p 購入画面に進む
+      .item-purchase__btn
+        = link_to(confirmation_item_path(@item.id), class: 'buy-btn') do
+          %p 購入画面に進む
 
   .item-detail-description
     %p
