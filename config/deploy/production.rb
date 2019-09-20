@@ -64,3 +64,9 @@ server '54.178.188.67', user: 'ec2-user', roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"
+
+set :ssh_options, {
+  keys: %w(~/.ssh/fremateama.pem),
+  forward_agent: true,
+  auth_methods: %w(publickey)
+}
