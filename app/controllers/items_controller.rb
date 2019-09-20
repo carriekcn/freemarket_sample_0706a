@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  require 'payjp'
+  # require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
   before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation]

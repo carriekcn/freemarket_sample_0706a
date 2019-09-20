@@ -1,15 +1,15 @@
-= render 'layouts/breadcrumbs'
+-# = render 'layouts/breadcrumbs'
 
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- card_exp_mm = @default_card_information.card_exp_mm.to_s
-- card_exp_yy = @default_card_information.card_exp_yy.to_s.slice(2,3)
-= card_exp_mm + " / " + card_exp_yy
-= form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+-# %label 登録クレジットカード情報
+-# %br
+-# = "**** **** **** " + @default_card_information.last4
+-# %br
+-# - card_exp_mm = @default_card_information.card_exp_mm.to_s
+-# - card_exp_yy = @default_card_information.card_exp_yy.to_s.slice(2,3)
+-# = card_exp_mm + " / " + card_exp_yy
+-# = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+-#   %input{ type: "hidden", name: "card_id", value: "" }
+-#   %button 削除する
 
-  =render partial: "users/side_menu"
+-#   =render partial: "users/side_menu"
   
