@@ -84,7 +84,7 @@
       = @item.delivery_status
 
     
-  - if @item.status == 'Sold' && current_user.id == @item.user_id then
+  - if @item.status == 'Sold' && user_signed_in? && current_user.id == @item.user_id then
     .item-close__btn
       = link_to root_path do
         %p 売り切れました
