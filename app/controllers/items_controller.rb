@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  # require 'payjp'
+  require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
   before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation]
@@ -23,23 +23,38 @@ class ItemsController < ApplicationController
     @images = ItemImage.where(item_id: @user_items)
     @detail = @item.user.user_detail
  
-    #payjpで必要なので残しておく
     # if current_user.card.blank?
     #   redirect_to controller: 'cards', action: 'new'
     # else
-    #   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    #   Payjp.api_key = Rails.application.credentials.payjp[:secret]
     #   customer = Payjp::Customer.retrieve(card.customer_id)
     #   @default_card_information = customer.cards.retrieve(card.card_id)
     # end
   end
 
   def confirmation
+    card = Card.where(user_id: current_user.id).first
     @detail = UserDetail.find_by(user_id: @item.user_id)
     @img = ItemImage.find_by(item_id: @item.id)
+
+    if current_user.card.blank?
+      redirect_to controller: 'cards', action: 'new'
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:secret]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def confirmed
     @item.update(status: 'Sold')
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials.payjp[:secret]
+    Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
   end
 
   def create
