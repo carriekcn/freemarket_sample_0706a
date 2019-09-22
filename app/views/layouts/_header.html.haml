@@ -12,11 +12,16 @@
         =link_to "#" do
           %li.header-bottom__left--list-icon
             = fa_icon 'list-ul', class: 'icon'
-          %li.header-bottom__left--list カテゴリから探す
+          .js-wrap-category
+            %li.header-bottom__left--list カテゴリから探す
+            = render "layouts/onmouse-sub-category"
+      %ul
         =link_to "#" do
           %li.header-bottom__left--list-icon
             = fa_icon 'tag', class: 'icon'
-          %li.header-bottom__left--list ブランドから探す
+          .js-wrap-brand
+            %li.header-bottom__left--list ブランドから探す
+            = render "layouts/onmouse-sub-brand"
 
     - if user_signed_in?
       .header-bottom__right

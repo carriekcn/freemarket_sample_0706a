@@ -1,40 +1,66 @@
 class ItemsController < ApplicationController
+
+  require 'payjp'
+
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
-  layout "compact", only: [:new, :edit]
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation, :edit, :update]
+  layout "compact", only: [:new, :edit, :confirmation]
 
   def new
     @item = Item.new
     @item_image = @item.item_images.build
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def edit
     @item = Item.find(params[:id])
-
-  end
-
-  def confirmation
-    @item = Item.includes(:user).find(params[:id])
-    @detail = UserDetail.find_by(user_id: @item.user_id)
-    @img = ItemImage.find_by(item_id: @item.id)
   end
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item)
+	      redirect_to item_path(@item)
+	    else
+	      render :edit
+    end
+  end
+
+
+  def show
+    @user_items = Item.where(user_id: @item.user_id)
+    @images = ItemImage.where(item_id: @user_items)
+    @detail = @item.user.user_detail
+ 
+    # if current_user.card.blank?
+    #   redirect_to controller: 'cards', action: 'new'
+    # else
+    #   Payjp.api_key = Rails.application.credentials.payjp[:secret]
+    #   customer = Payjp::Customer.retrieve(card.customer_id)
+    #   @default_card_information = customer.cards.retrieve(card.card_id)
+    # end
+  end
+
+  def confirmation
+    card = Card.where(user_id: current_user.id).first
+    @detail = UserDetail.find_by(user_id: @item.user_id)
+    @img = ItemImage.find_by(item_id: @item.id)
+
+    if current_user.card.blank?
+      redirect_to controller: 'cards', action: 'new'
     else
-      render :edit
+      Payjp.api_key = Rails.application.credentials.payjp[:secret]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
   
   def confirmed
-    item = Item.find(params[:id])  
-    item.update(status: 'Sold')
-    item.save
+    @item.update(status: 'Sold')
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials.payjp[:secret]
+    Payjp::Charge.create(
+    amount: @item.price,
+    customer: card.customer_id,
+    currency: 'jpy',
+    )
   end
 
   def create
@@ -48,7 +74,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
       if @item.user_id == current_user.id
         @item.destroy
         redirect_to root_path
@@ -62,6 +87,8 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.includes(:category, :user).find(params[:id])
   end
+
 end
+

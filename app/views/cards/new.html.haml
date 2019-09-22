@@ -9,11 +9,11 @@
           %br/
           = fa_icon 'camera', class: 'icon'
         %h2 クレジットカード情報
-        %form.payment-form
-          %p カード番号
+        = form_tag(pay_cards_path, method: :post, class: 'payment-form', id: 'charge-form', name: "inputForm") do
+          %label カード番号
           %p.mandatory 必須
           .input
-            %input#card_no.input-default{maxlength: "19", placeholder: "半角数字のみ", type: "text"}/
+            = text_field_tag "number", "", class: "input-default", placeholder: "半角英数のみ", maxlength: "16", type: "text", id: "card_number"
           .card-type.clearfix
             %ul
               %li.card-type__list
@@ -30,44 +30,48 @@
                 = image_tag 'dinersclub-credit.svg', class: 'diners'
               %li.card-type__list
                 = image_tag 'discover-credit.svg', class: 'discover'
-          %p 有効期限
+          %label 有効期限
+
           %p.mandatory 必須
           .input
-            %select#card_exp_mm.select-default
-              %option{value: "01"} 01
-              %option{value: "02"} 02
-              %option{value: "03"} 03
-              %option{value: "04"} 04
-              %option{value: "05"} 05
-              %option{value: "06"} 06
-              %option{value: "07"} 07
-              %option{value: "08"} 08
-              %option{value: "09"} 09
+            %select#exp_month{name: "exp_month", type: "text", class: "select-default"}
+              %option{value: ""} --
+              %option{value: "1"} 01
+              %option{value: "2"} 02
+              %option{value: "3"} 03
+              %option{value: "4"} 04
+              %option{value: "5"} 05
+              %option{value: "6"} 06
+              %option{value: "7"} 07
+              %option{value: "8"} 08
+              %option{value: "9"} 09
               %option{value: "10"} 10
               %option{value: "11"} 11
               %option{value: "12"} 12
-            %span 月
-            %select#card_exp_yy.select-default
-              %option{value: "19"} 19
-              %option{value: "20"} 20
-              %option{value: "21"} 21
-              %option{value: "22"} 22
-              %option{value: "23"} 23
-              %option{value: "24"} 24
-              %option{value: "25"} 25
-              %option{value: "26"} 26
-              %option{value: "27"} 27
-              %option{value: "28"} 28
-              %option{value: "29"} 29
+            %span 月/
+            %select#exp_year{name: "exp_year", type: "text", class: "select-default"}
+              %option{value: ""} --
+              %option{value: "2019"} 19
+              %option{value: "2020"} 20
+              %option{value: "2021"} 21
+              %option{value: "2022"} 22
+              %option{value: "2023"} 23
+              %option{value: "2024"} 24
+              %option{value: "2025"} 25
+              %option{value: "2026"} 26
+              %option{value: "2027"} 27
+              %option{value: "2028"} 28
+              %option{value: "2029"} 29
             %span 年
           .security
-            %p セキュリティコード
+            %label セキュリティコード
             %p.mandatory 必須
             .input
-              %input#security_code.input-default{maxlength: "4", placeholder: "カード背面4桁もしくは3桁の番号", type: "text"}/
+              = text_field_tag "cvc", "", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
             %p.security-about
               %span.security-about__question ?
               カード裏面の番号とは？
           .form-submit.clearfix
-            %button#submit-button.form-submit__btn{type: "button"} 追加する
+            #card_token
+            = submit_tag "追加する", class: "form-submit__btn", id: "token_submit"
   =render partial: "users/side_menu"

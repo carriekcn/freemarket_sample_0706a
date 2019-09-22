@@ -18,7 +18,7 @@ ul {
 
 .header {
   height: 100px;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 20px 0px 20px;
   background-color: #ffffff;
 
   &-top {
@@ -90,10 +90,19 @@ ul {
 
     &__left {
       font-size: 14px;
-
+    ul {
+      float: left;
+    }
+    .js-wrap-category {
+      float: left;
+    }
+    .js-wrap-brand {
+      float: left;
+    }
       &--list {
         float: left;
-        line-height: 26px;
+        height: 50px;
+        line-height: 50px;
         padding-right: 20px;
 
         &-icon {
@@ -101,6 +110,7 @@ ul {
           color: red;
           font-size: 16px;
           padding-right: 5px;
+          line-height: 50px;
           
         }
       }
@@ -525,3 +535,4 @@ ul {
     display: none;
   }
 }
+
