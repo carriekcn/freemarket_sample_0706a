@@ -10,7 +10,7 @@
       .image-row
         .image-mini
           - @item.item_images.each do |img|
-            = image_tag img.image_url.to_s, width: '60', height: '60', class:'mini-image'
+            = image_tag(img.image.url, width: '60', height: '60', class: 'mini-image')
 
     %table.item-detail-content__table
       %tr
@@ -82,6 +82,7 @@
       (税込)
     %span.item-detail-price__sum
       = @item.delivery_status
+
     
   - if @item.status == 'Sold' && user_signed_in? && current_user.id == @item.user_id then
     .item-close__btn
@@ -189,7 +190,7 @@
       .items-user-box__items__row
         .items-user-box__items__row__listing
           =link_to '#' do
-            = image_tag(@item.item_images[0].image.url, width: '220', height: '220')
+            = image_tag(img.image.url, width: '220', height: '220')
             .items-user-box__items__row__listing--body
               %h5
                 = user_item.name
@@ -197,9 +198,3 @@
                 ¥
                 = user_item.price
                 %p (税込)
-
-
-
-
-
-
