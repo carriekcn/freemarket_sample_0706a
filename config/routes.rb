@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :cards, only: [:index, :new] do
     collection do
-      post 'show', to: 'cards#show'
+      get 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
