@@ -1,23 +1,22 @@
 document.addEventListener(
-  "turbolinks: load", (e) => {
-    Payjp.setPublicKey("pk_test_98ad4859a218ca5987a9e1c6");
-    const btn = document.getElementById('token_submit');
-    btn.addEventListener("click", (e) => {
+  "DOMContentLoaded", e => {
+    if (document.getElementById("token_submit") != null) {
+    Payjp.setPublicKey("pk_test_3ab47be3ab7ec817eec0b5f5");
+    let btn = document.getElementById('token_submit');
+    btn.addEventListener("click", e => {
       e.preventDefault();
-
-      const card = {
-        card_no: document.getElementById("card_number").value,
-        security_code: document.getElementById("cvc").value,
-        card_exp_mm: document.getElementById("card_exp_mm").value,
-        card_exp_yy: document.getElementById("card_exp_yy").value
+      let card = {
+        number: document.getElementById("card_number").value,
+        cvc: document.getElementById("cvc").value,
+        exp_month: document.getElementById("exp_month").value,
+        exp_year: document.getElementById("exp_year").value
       };
-
-      Payjp.coreateToken(card, (status, response) => {
+      Payjp.createToken(card, (status, response) => {
         if (status === 200) {
           $("#card_number").removeAttr("name");
           $("#cvc").removeAttr("name");
-          $("#card_exp_mm").removeAttr("name");
-          $("#card_exp_yy").removeAttr("name");
+          $("#exp_month").removeAttr("name");
+          $("#exp_year").removeAttr("name");
           $("#card_token").append(
             $('<input type="hidden" name="payjp-token">').val(response.id)
           );
@@ -25,9 +24,10 @@ document.addEventListener(
           alert("登録が完了しました");
         } else {
           alert("カード情報が正しくありません");
-        }
+          }
+        });
       });
-    });
+    }
   },
   false
 );
