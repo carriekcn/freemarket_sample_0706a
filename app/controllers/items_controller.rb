@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   before_action :authenticate_user!, only: [:new, :confirmation, :confirmed]
-  before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation, :edit, :update]
+  before_action :set_item, only: [:destroy, :show, :confirmed, :confirmation]
   layout "compact", only: [:new, :edit, :confirmation]
 
   def new
@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
 	      redirect_to item_path(@item)
 	    else
