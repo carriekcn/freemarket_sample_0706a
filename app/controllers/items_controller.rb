@@ -18,9 +18,12 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-	      redirect_to item_path(@item)
-	    else
-	      render :edit
+      params[:item_images]['image'].each do |i|
+        @item.item_images.create!(image: i, item_id: @item.id)
+      end
+      redirect_to item_path(@item)
+    else
+      render :edit
     end
   end
 
