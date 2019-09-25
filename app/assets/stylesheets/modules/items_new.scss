@@ -39,9 +39,10 @@ body {
           font-weight: bold;
         }
         .sell-form {
-          border-top: 1px solid #eee;
           .upload-box {
-            padding: 40px;
+            padding: 40px 40px 0;
+            margin: 0 0 40px;
+            border-top: 1px solid #eee;
             &__head {
               font-size: 16px;
               font-weight: bold;
@@ -233,6 +234,7 @@ body {
               }
           }
           .btn-box {
+            position: relative;
             &__notes {
               &__note {
                 line-height: 1.5;
@@ -312,9 +314,11 @@ body {
   }
 }
 
+
 #new_images{
   width: 600px;
   max-height:200px;
+  min-height: 162px;
 }
 
 #new_image_form{
@@ -329,7 +333,7 @@ body {
 
 .itempreview{
   width:118.5px;
-  height:80px;
+  height:116px;
   float:left;
   background-color: #f6f6f6;
   border-top: dotted 1px #d9d9d9;
@@ -350,6 +354,9 @@ body {
     text-align: center;
     border-right: dotted 1px #d9d9d9;
     margin-right: 8px;
+  }
+  a, a:visited {
+    color : #0099e8;
   }
   .up_del {
     font-size: 14px;
@@ -374,6 +381,7 @@ body {
 }
 
 .previewfield{
+   min-height: 138px;
    width: 118.5px;
    float: left;
    padding-right: 12px;

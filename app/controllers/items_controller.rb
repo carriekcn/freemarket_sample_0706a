@@ -12,9 +12,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      params[:item_images]['image'].each do |i|
+        @item.item_images.create!(image: i, item_id: @item.id)
+      end
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
 
@@ -45,7 +55,7 @@ class ItemsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
-
+  
   def confirmed
     @item.update(status: 'Sold')
     card = Card.where(user_id: current_user.id).first
@@ -85,5 +95,4 @@ class ItemsController < ApplicationController
   end
 
 end
-
 

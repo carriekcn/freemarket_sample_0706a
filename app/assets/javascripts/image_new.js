@@ -24,6 +24,7 @@ $(function() {
             };
           })(f);
 
+
         reader.readAsDataURL(f);
         }
 
@@ -40,7 +41,7 @@ $(function() {
       else if(previewareacount+files.length >= 5)
         {$('#new_image_form').height(100);}
       else
-        {$('#new_image_form').height(200);}
+        {$('#new_image_form').height(160);}
 
       var dataget= $('#new_image_form').attr('data-count');
       var next_input_id= Number(dataget)+1;
